@@ -9,12 +9,13 @@ class Asot < ActiveRecord::Base
     # Let's emulate
     #  curl -e http://better-idea.org 'http://ajax.googleapis.com/'
     #  'ajax/services/search/web?v=1.0&'
-    #  'q=%22a+state+of+trance+episode+369%22+site%3Aforums.di.fm%2Ftrance'
+    #  'q=intitle%3A%22presents+-+a+state+of+trance+episode+369%22'
+    #  '+site%3Aforums.di.fm%2Ftrance'
 
     header = { 'Referer' => "http://better-idea.org" } 
 
     res = Net::HTTP.start('ajax.googleapis.com') { |http|
-      http.get("/ajax/services/search/web?v=1.0&q=%22a+state+of+trance+episode+#{episode_number}%22+site:forums.di.fm/trance", header)
+      http.get("/ajax/services/search/web?v=1.0&q=intitle%3A%22a+state+of+trance+episode+#{episode_number}%22+site:forums.di.fm/trance", header)
     }
 
    # return first hit
