@@ -48,4 +48,14 @@ class Asot < ActiveRecord::Base
     }
     problems
   end
+
+  def Asot.missing_asots
+    episodes = Asot.all.map{|a| a.no}
+    missing_episodes = []
+    (episodes.min..episodes.max).each{ |e|
+     missing_episodes << e unless Asot.find_by_no(e)
+    }
+    puts "Should have #{episodes.max - episodes.min + 1} episodes, #{missing_episodes.length} are missing:"
+    missing_episodes
+  end
 end
