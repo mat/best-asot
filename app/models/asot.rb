@@ -2,7 +2,7 @@ class Asot < ActiveRecord::Base
 
   validates_presence_of :no
   validates_uniqueness_of :no
-  validates_uniqueness_of :di_url
+  validates_uniqueness_of :url
 
 
   def Asot.fetch_di_uri(episode_number)
@@ -37,8 +37,8 @@ class Asot < ActiveRecord::Base
       a.no=ep; 
       print "Fetching ep #{ep}... "
       begin
-      a.di_url   = Asot.fetch_di_uri(ep) 
-      a.di_votes = Asot.fetch_di_votes(a.di_url)
+      a.url   = Asot.fetch_di_uri(ep) 
+      a.votes = Asot.fetch_di_votes(a.url)
       a.save!
       puts "ok"
       rescue Exception => e

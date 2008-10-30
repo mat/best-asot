@@ -5,8 +5,8 @@
 <% for a in @top5 %>
  <tr>
   <td><%= a.no %></td>
-  <td><%= a.di_votes %></td>
-  <td><%= link_to(a.di_url, a.di_url) %></td>
+  <td><%= a.votes %></td>
+  <td><%= link_to(a.url, a.url) %></td>
  </tr>
 <% end %>
 </table>
@@ -17,8 +17,8 @@
 <% for a in @last5 %>
  <tr>
   <td><%= a.no %></td>
-  <td><%= a.di_votes %></td>
-  <td><%= link_to(a.di_url, a.di_url) %></td>
+  <td><%= a.votes %></td>
+  <td><%= link_to(a.url, a.url) %></td>
  </tr>
 <% end %>
 </table>
@@ -29,8 +29,8 @@
 <% for a in @asots %>
  <tr>
   <td><%= a.no %></td>
-  <td><%= a.di_votes %></td>
-  <td><%= link_to(a.di_url, a.di_url) %></td>
+  <td><%= a.votes %></td>
+  <td><%= link_to(a.url, a.url) %></td>
  </tr>
 <% end %>
 </table>

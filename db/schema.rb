@@ -9,12 +9,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081030120315) do
+ActiveRecord::Schema.define(:version => 20081030120704) do
 
   create_table "asots", :force => true do |t|
     t.integer  "no"
-    t.text     "di_url"
-    t.integer  "di_votes"
+    t.text     "url"
+    t.integer  "votes"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.date     "airdate"

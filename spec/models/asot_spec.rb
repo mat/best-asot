@@ -4,8 +4,8 @@ describe Asot do
   before(:each) do
     @valid_attributes = {
       :no => "1",
-      :di_url => "value for di_url",
-      :di_votes => "1"
+      :url => "value for di_url",
+      :votes => "1"
     }
   end
 
