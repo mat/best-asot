@@ -20,4 +20,9 @@ describe Asot do
   it "should grep the vote count from a given di.fm forum uri" do
     Asot.fetch_di_votes('http://forums.di.fm/trance/armin-van-buuren-presents-state-of-trance-episode-369-a-146900/').should== 25
   end
+
+  it "should grep the airdate from a given di.fm forum uri" do
+    Asot.fetch_di_date('http://forums.di.fm/trance/armin-van-buuren-presents-state-of-trance-episode-369-a-146900/').should== Time.local(2008,9,11)
+  end
+
 end

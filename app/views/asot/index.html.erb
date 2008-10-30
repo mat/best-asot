@@ -5,6 +5,7 @@
 <% for a in @top5 %>
  <tr>
   <td><%= a.no %></td>
+  <td><%= a.airdate %></td>
   <td><%= a.votes %></td>
   <td><%= a.notes %></td>
   <td><%= link_to(a.url, a.url) %></td>
@@ -18,6 +19,7 @@
 <% for a in @last5 %>
  <tr>
   <td><%= a.no %></td>
+  <td><%= a.airdate %></td>
   <td><%= a.votes %></td>
   <td><%= a.notes %></td>
   <td><%= link_to(a.url, a.url) %></td>
@@ -31,6 +33,7 @@
 <% for a in @asots %>
  <tr>
   <td><%= a.no %></td>
+  <td><%= a.airdate %></td>
   <td><%= a.votes %></td>
   <td><%= a.notes %></td>
   <td><%= link_to(a.url, a.url) %></td>

@@ -3,6 +3,7 @@ class Asot < ActiveRecord::Base
   validates_presence_of :no
   validates_uniqueness_of :no
   validates_uniqueness_of :url
+  validates_uniqueness_of :airdate, :allow_nil => true
 
 
   def Asot.fetch_di_uri(episode_number)
@@ -27,6 +28,13 @@ class Asot < ActiveRecord::Base
     xpath = "/html/body/div[1]/div/div/table[3]/tr[2]/td[3]/strong/a"
     doc = Hpricot(open(di_forums_uri))
     votes = doc.at(xpath).inner_html.to_i
+  end
+
+  def Asot.fetch_di_date(di_forums_uri)
+    xpath = "/html/body/div[2]/div[1]/div/div/div/table/tr[1]/td[1]"
+    doc = Hpricot(open(di_forums_uri))
+    airdate = Time.parse(doc.at(xpath).inner_text.strip)
+    airdate = Time.local(airdate.year, airdate.month, airdate.day)
   end
 
   def Asot.fetch_asots(episodes)
@@ -57,5 +65,26 @@ class Asot < ActiveRecord::Base
     }
     puts "Should have #{episodes.max - episodes.min + 1} episodes, #{missing_episodes.length} are missing:"
     missing_episodes
+  end
+
+  def Asot.fetch_airdates(asots = Asot.all)
+    problems = []
+
+    asots.each do |a|
+      print "Fetching airdate #{a.no}... "
+      begin
+        if a.airdate.nil? && a.url
+          a.airdate = fetch_di_date(a.url)
+          a.save!
+          puts 'fetched'
+        else
+          puts 'not possible/necessary'
+        end
+      rescue Exception => e
+        puts "FAILED #{e}"
+        problems << a.no
+      end
+    end
+    problems
   end
 end
