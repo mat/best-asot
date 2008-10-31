@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>Best ASOT ever? <%= (html_title = yield :html_title) ? html_title : '&mdash; No-frills web page change tracking.' %></title>
+  <%= stylesheet_link_tag 'style' %>
+  <%= javascript_include_tag :defaults %>
+  
+  <% if controller.action_name == 'index' %>
+  <% end %>
+  <link rel="shortcut icon" href="<%= image_path('favicon.png') %>" />
+
+
+  <% if @tracker %>
+   <link rel="alternate" type="application/atom+xml" 
+         href="<%= "#{url_for(@tracker)}.atom" %>" />
+   <link rel="microsummary" type="text/plain"
+         href="<%= "#{url_for(@tracker)}.microsummary" %>" />
+  <% end %>
+
+</head>
+<body>
+
+<div id='logodiv'>
+  <p class='title'><a href='/'><strong>Best ASOT ever?</strong></a>...notifies you when a single web page element changes - via <b>Atom Feed</b>.
+<br />
+
+</p>
+
+</div>
+
+
+<div id='contentdiv' class='textonly'>
+  <%= yield  %>
+</div>
+
+<div id='footer'>
+  <hr />
+  <p><a href='/'>Best ASOT ever</a>, tracking ASOTs popularity since Ocetober 2008.<br />Created by <a href='http://matthias-luedtke.de'>Matthias Lüdtke</a></p>
+</div>
+
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-342605-4");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+
+</body>
+</html>
