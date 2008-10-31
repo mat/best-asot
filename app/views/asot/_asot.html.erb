@@ -1,0 +1,12 @@
+ <tr>
+  <td><%= asot.no %></td>
+  <% unless asot.airdate %> 
+  <td>n/a</td>
+  <% else %>
+  <td><%= asot.airdate.strftime('%d. %b %Y') %></td>
+  <% end %>
+  <td><%= asot.votes %></td>
+  <td><%= asot.notes %></td>
+  <td><%= link_to(asot.url[-50..-1], asot.url) %></td>
+ </tr>
+

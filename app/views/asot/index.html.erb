@@ -9,41 +9,17 @@
   <th>notes</th>
   <th></th>
  </tr>
-<% for a in @top5 %>
- <tr>
-  <td><%= a.no %></td>
-  <td><%= a.airdate %></td>
-  <td><%= a.votes %></td>
-  <td><%= a.notes %></td>
-  <td><%= link_to(a.url, a.url) %></td>
- </tr>
-<% end %>
+  <%= render :partial => 'asot', :collection => @top %>
 </table>
 
 
-<h2>Last 5 ASOTs</h2>
+<h2>Latest ASOTs</h2>
 <table>
-<% for a in @last5 %>
- <tr>
-  <td><%= a.no %></td>
-  <td><%= a.airdate %></td>
-  <td><%= a.votes %></td>
-  <td><%= a.notes %></td>
-  <td><%= link_to(a.url, a.url) %></td>
- </tr>
-<% end %>
+  <%= render :partial => 'asot', :collection => @latest %>
 </table>
 
 
-<h2>All ASOTs (<%= @asots.length%> and counting)</h2>
+<h2>All ASOTs (<%= @all_asots.length%> and counting)</h2>
 <table>
-<% for a in @asots %>
- <tr>
-  <td><%= a.no %></td>
-  <td><%= a.airdate %></td>
-  <td><%= a.votes %></td>
-  <td><%= a.notes %></td>
-  <td><%= link_to(a.url, a.url) %></td>
- </tr>
-<% end %>
+  <%= render :partial => 'asot', :collection => @all_asots %>
 </table>
