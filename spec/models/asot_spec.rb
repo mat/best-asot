@@ -25,4 +25,9 @@ describe Asot do
     Asot.fetch_di_date('http://forums.di.fm/trance/armin-van-buuren-presents-state-of-trance-episode-369-a-146900/').should== Time.local(2008,9,11)
   end
 
+  it "should remove the 'index...html from a di.fm uri path" do
+    url = "http://forums.di.fm/trance/armin-van-buuren-presents-state-of-trance-episode-350-live-140099/index89.html"
+    Asot.remove_index_html_from_path(url).should== "http://forums.di.fm/trance/armin-van-buuren-presents-state-of-trance-episode-350-live-140099/"
+  end
+
 end

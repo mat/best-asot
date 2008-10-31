@@ -87,4 +87,25 @@ class Asot < ActiveRecord::Base
     end
     problems
   end
+
+  def Asot.remove_index_html_from_path(url)
+    i = url.index(/\/index.*\.html/)
+    return nil unless i
+    url[0..i]
+  end
+
+  def Asot.tidy_urls(asots = Asot.all)
+    count = 0
+    asots.each do |a|
+      tidy = Asot.remove_index_html_from_path a.url
+      if tidy
+        puts a.url
+        puts tidy
+        count += 1
+        a.url = tidy
+        a.save!
+      end
+    end
+    count
+  end
 end
