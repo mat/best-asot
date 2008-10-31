@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd"  type=""?>
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" height="360" xmlns="http://www.w3.org/2000/svg" width="600">
+  <g id="scruffy_graph">
+    <g id="background" transform="translate(0.0, 0.0)">
+      <defs>
+        <linearGradient y1="0%" x2="0%" y2="100%" id="BackgroundGradient" x1="0%">
+          <stop stop-color="black" offset="5%"/>
+          <stop stop-color="#4A465A" offset="95%"/>
+        </linearGradient>
+      </defs>
+      <rect height="360.0" x="0" y="0" fill="url(#BackgroundGradient)" width="600.0"/>
+    </g>
+    <g id="title" transform="translate(30.0, 7.2)">
+      <text text-anchor="middle" class="title" font-size="25.2" font-family="" x="270.0" y="25.2" fill="white" stroke-width="0" stroke="none">ASOT Episodes 2006</text>
+    </g>
+    <g id="view" transform="translate(12.0, 93.6)">
+      <g>
+        <g id="values" transform="translate(0.0, 4.752)">
+          <text text-anchor="end" font-size="16.91712" font-family="" x="96.12" y="211.464" fill="white">0</text>
+          <text text-anchor="end" font-size="16.91712" font-family="" x="96.12" y="158.598" fill="white">75</text>
+          <text text-anchor="end" font-size="16.91712" font-family="" x="96.12" y="105.732" fill="white">150</text>
+          <text text-anchor="end" font-size="16.91712" font-family="" x="96.12" y="52.866" fill="white">224</text>
+          <text text-anchor="end" font-size="16.91712" font-family="" x="96.12" y="0.0" fill="white">299</text>
+        </g>
+        <g id="grid" transform="translate(106.8, 0.0)">
+          <line y1="0.0" x2="427.2" y2="0.0" style="stroke: white; stroke-width: 2;" x1="0"/>
+          <line y1="52.866" x2="427.2" y2="52.866" style="stroke: white; stroke-width: 2;" x1="0"/>
+          <line y1="105.732" x2="427.2" y2="105.732" style="stroke: white; stroke-width: 2;" x1="0"/>
+          <line y1="158.598" x2="427.2" y2="158.598" style="stroke: white; stroke-width: 2;" x1="0"/>
+          <line y1="211.464" x2="427.2" y2="211.464" style="stroke: white; stroke-width: 2;" x1="0"/>
+        </g>
+        <g id="labels" transform="translate(106.8, 218.592)">
+          <text text-anchor="middle" font-size="17.1072" font-family="" x="170.88" y="19.008" fill="white">250</text>
+          <text text-anchor="middle" font-size="17.1072" font-family="" x="341.76" y="19.008" fill="white">270</text>
+          <text text-anchor="middle" font-size="17.1072" font-family="" x="427.2" y="19.008" fill="white">281</text>
+        </g>
+        <g id="graphs" transform="translate(106.8, 0.0)">
+          <g class="graph_layer" id="component_graphs_graph_0">
+            <g transform="translate(-1.05732, -1.05732)">
+              <rect height="22.6245262876254" x="0.418823529411765" y="190.954113712375" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+              <rect height="19.4525662876254" x="1.47614352941177" y="195.183393712375" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+            </g>
+            <rect height="20.5098862876254" x="0.418823529411765" y="190.954113712375" fill="#6886B4" width="7.53882352941176" style="opacity: 1.0; stroke: none;"/>
+            <g transform="translate(-1.05732, -1.05732)">
+              <rect height="25.4534761204013" x="8.79529411764706" y="188.125163879599" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+              <rect height="22.2815161204013" x="9.85261411764706" y="192.354443879599" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+            </g>
+            <rect height="23.3388361204013" x="8.79529411764706" y="188.125163879599" fill="#6886B4" width="7.53882352941176" style="opacity: 1.0; stroke: none;"/>
+            <g transform="translate(-1.05732, -1.05732)">
+              <rect height="13.4304393311037" x="17.1717647058824" y="200.148200668896" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+              <rect height="10.2584793311037" x="18.2290847058824" y="204.377480668896" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+            </g>
+            <rect height="11.3157993311037" x="17.1717647058824" y="200.148200668896" fill="#6886B4" width="7.53882352941176" style="opacity: 1.0; stroke: none;"/>
+            <g transform="translate(-1.05732, -1.05732)">
+              <rect height="41.0127002006689" x="25.5482352941176" y="172.565939799331" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+              <rect height="37.8407402006689" x="26.6055552941177" y="176.795219799331" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+            </g>
+            <rect height="38.8980602006689" x="25.5482352941176" y="172.565939799331" fill="#6886B4" width="7.53882352941176" style="opacity: 1.0; stroke: none;"/>
+            <g transform="translate(-1.05732, -1.05732)">
+              <rect height="18.3811015384615" x="33.9247058823529" y="195.197538461538" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+              <rect height="15.2091415384615" x="34.9820258823529" y="199.426818461538" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+            </g>
+            <rect height="16.2664615384615" x="33.9247058823529" y="195.197538461538" fill="#6886B4" width="7.53882352941176" style="opacity: 1.0; stroke: none;"/>
+            <g transform="translate(-1.05732, -1.05732)">
+              <rect height="29.6969008695652" x="42.3011764705882" y="183.881739130435" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+              <rect height="26.5249408695652" x="43.3584964705882" y="188.111019130435" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+            </g>
+            <rect height="27.5822608695652" x="42.3011764705882" y="183.881739130435" fill="#6886B4" width="7.53882352941176" style="opacity: 1.0; stroke: none;"/>
+            <g transform="translate(-1.05732, -1.05732)">
+              <rect height="28.9896634113712" x="50.6776470588235" y="184.588976588629" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+              <rect height="25.8177034113712" x="51.7349670588235" y="188.818256588629" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+            </g>
+            <rect height="26.8750234113712" x="50.6776470588235" y="184.588976588629" fill="#6886B4" width="7.53882352941176" style="opacity: 1.0; stroke: none;"/>
+            <g transform="translate(-1.05732, -1.05732)">
+              <rect height="29.6969008695652" x="59.0541176470588" y="183.881739130435" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+              <rect height="26.5249408695652" x="60.1114376470588" y="188.111019130435" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+            </g>
+            <rect height="27.5822608695652" x="59.0541176470588" y="183.881739130435" fill="#6886B4" width="7.53882352941176" style="opacity: 1.0; stroke: none;"/>
+            <g transform="translate(-1.05732, -1.05732)">
+              <rect height="38.183750367893" x="67.4305882352941" y="175.394889632107" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+              <rect height="35.011790367893" x="68.4879082352941" y="179.624169632107" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+            </g>
+            <rect height="36.069110367893" x="67.4305882352941" y="175.394889632107" fill="#6886B4" width="7.53882352941176" style="opacity: 1.0; stroke: none;"/>
+            <g transform="translate(-1.05732, -1.05732)">
+              <rect height="33.2330881605351" x="75.8070588235294" y="180.345551839465" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+              <rect height="30.0611281605351" x="76.8643788235294" y="184.574831839465" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+            </g>
+            <rect height="31.1184481605351" x="75.8070588235294" y="180.345551839465" fill="#6886B4" width="7.53882352941176" style="opacity: 1.0; stroke: none;"/>
+            <g transform="translate(-1.05732, -1.05732)">
+              <rect height="28.9896634113712" x="84.1835294117647" y="184.588976588629" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+              <rect height="25.8177034113712" x="85.2408494117647" y="188.818256588629" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+            </g>
+            <rect height="26.8750234113712" x="84.1835294117647" y="184.588976588629" fill="#6886B4" width="7.53882352941176" style="opacity: 1.0; stroke: none;"/>
+            <g transform="translate(-1.05732, -1.05732)">
+              <rect height="53.0357369899666" x="92.56" y="160.542903010033" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+              <rect height="49.8637769899666" x="93.61732" y="164.772183010033" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+            </g>
+            <rect height="50.9210969899666" x="92.56" y="160.542903010033" fill="#6886B4" width="7.53882352941176" style="opacity: 1.0; stroke: none;"/>
+            <g transform="translate(-1.05732, -1.05732)">
+              <rect height="33.2330881605351" x="100.936470588235" y="180.345551839465" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+              <rect height="30.0611281605351" x="101.993790588235" y="184.574831839465" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+            </g>
+            <rect height="31.1184481605351" x="100.936470588235" y="180.345551839465" fill="#6886B4" width="7.53882352941176" style="opacity: 1.0; stroke: none;"/>
+            <g transform="translate(-1.05732, -1.05732)">
+              <rect height="28.9896634113712" x="109.312941176471" y="184.588976588629" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+              <rect height="25.8177034113712" x="110.370261176471" y="188.818256588629" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+            </g>
+            <rect height="26.8750234113712" x="109.312941176471" y="184.588976588629" fill="#6886B4" width="7.53882352941176" style="opacity: 1.0; stroke: none;"/>
+            <g transform="translate(-1.05732, -1.05732)">
+              <rect height="31.1113757859532" x="117.689411764706" y="182.467264214047" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+              <rect height="27.9394157859532" x="118.746731764706" y="186.696544214047" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+            </g>
+            <rect height="28.9967357859532" x="117.689411764706" y="182.467264214047" fill="#6886B4" width="7.53882352941176" style="opacity: 1.0; stroke: none;"/>
+            <g transform="translate(-1.05732, -1.05732)">
+              <rect height="38.183750367893" x="126.065882352941" y="175.394889632107" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+              <rect height="35.011790367893" x="127.123202352941" y="179.624169632107" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+            </g>
+            <rect height="36.069110367893" x="126.065882352941" y="175.394889632107" fill="#6886B4" width="7.53882352941176" style="opacity: 1.0; stroke: none;"/>
+            <g transform="translate(-1.05732, -1.05732)">
+              <rect height="33.9403256187291" x="134.442352941176" y="179.638314381271" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+              <rect height="30.7683656187291" x="135.499672941176" y="183.867594381271" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+            </g>
+            <rect height="31.8256856187291" x="134.442352941176" y="179.638314381271" fill="#6886B4" width="7.53882352941176" style="opacity: 1.0; stroke: none;"/>
+            <g transform="translate(-1.05732, -1.05732)">
+              <rect height="30.4041383277592" x="142.818823529412" y="183.174501672241" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+              <rect height="27.2321783277592" x="143.876143529412" y="187.403781672241" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+            </g>
+            <rect height="28.2894983277592" x="142.818823529412" y="183.174501672241" fill="#6886B4" width="7.53882352941176" style="opacity: 1.0; stroke: none;"/>
+            <g transform="translate(-1.05732, -1.05732)">
+              <rect height="34.6475630769231" x="151.195294117647" y="178.931076923077" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+              <rect height="31.4756030769231" x="152.252614117647" y="183.160356923077" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+            </g>
+            <rect height="32.5329230769231" x="151.195294117647" y="178.931076923077" fill="#6886B4" width="7.53882352941176" style="opacity: 1.0; stroke: none;"/>
+            <g transform="translate(-1.05732, -1.05732)">
+              <rect height="45.9633624080268" x="159.571764705882" y="167.615277591973" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+              <rect height="42.7914024080268" x="160.629084705882" y="171.844557591973" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+            </g>
+            <rect height="43.8487224080268" x="159.571764705882" y="167.615277591973" fill="#6886B4" width="7.53882352941176" style="opacity: 1.0; stroke: none;"/>
+            <g transform="translate(-1.05732, -1.05732)">
+              <rect height="213.57864" x="167.948235294118" y="0.0" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+              <rect height="210.40668" x="169.005555294118" y="4.22928" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+            </g>
+            <rect height="211.464" x="167.948235294118" y="0.0" fill="#6886B4" width="7.53882352941176" style="opacity: 1.0; stroke: none;"/>
+            <g transform="translate(-1.05732, -1.05732)">
+              <rect height="26.1607135785953" x="176.324705882353" y="187.417926421405" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+              <rect height="22.9887535785953" x="177.382025882353" y="191.647206421405" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+            </g>
+            <rect height="24.0460735785953" x="176.324705882353" y="187.417926421405" fill="#6886B4" width="7.53882352941176" style="opacity: 1.0; stroke: none;"/>
+            <g transform="translate(-1.05732, -1.05732)">
+              <rect height="24.7462386622074" x="184.701176470588" y="188.832401337793" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+              <rect height="21.5742786622074" x="185.758496470588" y="193.061681337793" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+            </g>
+            <rect height="22.6315986622074" x="184.701176470588" y="188.832401337793" fill="#6886B4" width="7.53882352941176" style="opacity: 1.0; stroke: none;"/>
+            <g transform="translate(-1.05732, -1.05732)">
+              <rect height="39.5982252842809" x="193.077647058824" y="173.980414715719" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+              <rect height="36.4262652842809" x="194.134967058824" y="178.209694715719" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+            </g>
+            <rect height="37.4835852842809" x="193.077647058824" y="173.980414715719" fill="#6886B4" width="7.53882352941176" style="opacity: 1.0; stroke: none;"/>
+            <g transform="translate(-1.05732, -1.05732)">
+              <rect height="23.3317637458194" x="201.454117647059" y="190.246876254181" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+              <rect height="20.1598037458194" x="202.511437647059" y="194.476156254181" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+            </g>
+            <rect height="21.2171237458194" x="201.454117647059" y="190.246876254181" fill="#6886B4" width="7.53882352941176" style="opacity: 1.0; stroke: none;"/>
+            <g transform="translate(-1.05732, -1.05732)">
+              <rect height="29.6969008695652" x="209.830588235294" y="183.881739130435" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+              <rect height="26.5249408695652" x="210.887908235294" y="188.111019130435" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+            </g>
+            <rect height="27.5822608695652" x="209.830588235294" y="183.881739130435" fill="#6886B4" width="7.53882352941176" style="opacity: 1.0; stroke: none;"/>
+            <g transform="translate(-1.05732, -1.05732)">
+              <rect height="33.9403256187291" x="218.207058823529" y="179.638314381271" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+              <rect height="30.7683656187291" x="219.264378823529" y="183.867594381271" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+            </g>
+            <rect height="31.8256856187291" x="218.207058823529" y="179.638314381271" fill="#6886B4" width="7.53882352941176" style="opacity: 1.0; stroke: none;"/>
+            <g transform="translate(-1.05732, -1.05732)">
+              <rect height="33.9403256187291" x="226.583529411765" y="179.638314381271" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+              <rect height="30.7683656187291" x="227.640849411765" y="183.867594381271" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+            </g>
+            <rect height="31.8256856187291" x="226.583529411765" y="179.638314381271" fill="#6886B4" width="7.53882352941176" style="opacity: 1.0; stroke: none;"/>
+            <g transform="translate(-1.05732, -1.05732)">
+              <rect height="21.2100513712375" x="234.96" y="192.368588628763" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+              <rect height="18.0380913712375" x="236.01732" y="196.597868628763" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+            </g>
+            <rect height="19.0954113712375" x="234.96" y="192.368588628763" fill="#6886B4" width="7.53882352941176" style="opacity: 1.0; stroke: none;"/>
+            <g transform="translate(-1.05732, -1.05732)">
+              <rect height="31.1113757859532" x="243.336470588235" y="182.467264214047" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+              <rect height="27.9394157859532" x="244.393790588235" y="186.696544214047" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+            </g>
+            <rect height="28.9967357859532" x="243.336470588235" y="182.467264214047" fill="#6886B4" width="7.53882352941176" style="opacity: 1.0; stroke: none;"/>
+            <g transform="translate(-1.05732, -1.05732)">
+              <rect height="38.8909878260869" x="251.712941176471" y="174.687652173913" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+              <rect height="35.719027826087" x="252.770261176471" y="178.916932173913" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+            </g>
+            <rect height="36.7763478260869" x="251.712941176471" y="174.687652173913" fill="#6886B4" width="7.53882352941176" style="opacity: 1.0; stroke: none;"/>
+            <g transform="translate(-1.05732, -1.05732)">
+              <rect height="37.476512909699" x="260.089411764706" y="176.102127090301" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+              <rect height="34.304552909699" x="261.146731764706" y="180.331407090301" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+            </g>
+            <rect height="35.361872909699" x="260.089411764706" y="176.102127090301" fill="#6886B4" width="7.53882352941176" style="opacity: 1.0; stroke: none;"/>
+            <g transform="translate(-1.05732, -1.05732)">
+              <rect height="30.4041383277592" x="268.465882352941" y="183.174501672241" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+              <rect height="27.2321783277592" x="269.523202352941" y="187.403781672241" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+            </g>
+            <rect height="28.2894983277592" x="268.465882352941" y="183.174501672241" fill="#6886B4" width="7.53882352941176" style="opacity: 1.0; stroke: none;"/>
+            <g transform="translate(-1.05732, -1.05732)">
+              <rect height="38.183750367893" x="276.842352941177" y="175.394889632107" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+              <rect height="35.011790367893" x="277.899672941177" y="179.624169632107" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+            </g>
+            <rect height="36.069110367893" x="276.842352941177" y="175.394889632107" fill="#6886B4" width="7.53882352941176" style="opacity: 1.0; stroke: none;"/>
+            <g transform="translate(-1.05732, -1.05732)">
+              <rect height="26.8679510367893" x="285.218823529412" y="186.710688963211" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+              <rect height="23.6959910367893" x="286.276143529412" y="190.939968963211" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+            </g>
+            <rect height="24.7533110367893" x="285.218823529412" y="186.710688963211" fill="#6886B4" width="7.53882352941176" style="opacity: 1.0; stroke: none;"/>
+            <g transform="translate(-1.05732, -1.05732)">
+              <rect height="36.0620379933111" x="293.595294117647" y="177.516602006689" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+              <rect height="32.8900779933111" x="294.652614117647" y="181.745882006689" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+            </g>
+            <rect height="33.9473979933111" x="293.595294117647" y="177.516602006689" fill="#6886B4" width="7.53882352941176" style="opacity: 1.0; stroke: none;"/>
+            <g transform="translate(-1.05732, -1.05732)">
+              <rect height="41.7199376588629" x="301.971764705882" y="171.858702341137" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+              <rect height="38.5479776588629" x="303.029084705882" y="176.087982341137" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+            </g>
+            <rect height="39.6052976588629" x="301.971764705882" y="171.858702341137" fill="#6886B4" width="7.53882352941176" style="opacity: 1.0; stroke: none;"/>
+            <g transform="translate(-1.05732, -1.05732)">
+              <rect height="57.9863991973244" x="310.348235294118" y="155.592240802676" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+              <rect height="54.8144391973244" x="311.405555294118" y="159.821520802676" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+            </g>
+            <rect height="55.8717591973244" x="310.348235294118" y="155.592240802676" fill="#6886B4" width="7.53882352941176" style="opacity: 1.0; stroke: none;"/>
+            <g transform="translate(-1.05732, -1.05732)">
+              <rect height="45.9633624080268" x="318.724705882353" y="167.615277591973" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+              <rect height="42.7914024080268" x="319.782025882353" y="171.844557591973" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+            </g>
+            <rect height="43.8487224080268" x="318.724705882353" y="167.615277591973" fill="#6886B4" width="7.53882352941176" style="opacity: 1.0; stroke: none;"/>
+            <g transform="translate(-1.05732, -1.05732)">
+              <rect height="24.0390012040134" x="327.101176470588" y="189.539638795987" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+              <rect height="20.8670412040134" x="328.158496470588" y="193.768918795987" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+            </g>
+            <rect height="21.9243612040134" x="327.101176470588" y="189.539638795987" fill="#6886B4" width="7.53882352941176" style="opacity: 1.0; stroke: none;"/>
+            <g transform="translate(-1.05732, -1.05732)">
+              <rect height="63.6442988628763" x="335.477647058824" y="149.934341137124" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+              <rect height="60.4723388628763" x="336.534967058824" y="154.163621137124" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+            </g>
+            <rect height="61.5296588628763" x="335.477647058824" y="149.934341137124" fill="#6886B4" width="7.53882352941176" style="opacity: 1.0; stroke: none;"/>
+            <g transform="translate(-1.05732, -1.05732)">
+              <rect height="28.2824259531773" x="343.854117647059" y="185.296214046823" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+              <rect height="25.1104659531773" x="344.911437647059" y="189.525494046823" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+            </g>
+            <rect height="26.1677859531773" x="343.854117647059" y="185.296214046823" fill="#6886B4" width="7.53882352941176" style="opacity: 1.0; stroke: none;"/>
+            <g transform="translate(-1.05732, -1.05732)">
+              <rect height="31.8186132441472" x="352.230588235294" y="181.760026755853" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+              <rect height="28.6466532441472" x="353.287908235294" y="185.989306755853" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+            </g>
+            <rect height="29.7039732441472" x="352.230588235294" y="181.760026755853" fill="#6886B4" width="7.53882352941176" style="opacity: 1.0; stroke: none;"/>
+            <g transform="translate(-1.05732, -1.05732)">
+              <rect height="50.9140246153846" x="360.607058823529" y="162.664615384615" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+              <rect height="47.7420646153846" x="361.664378823529" y="166.893895384615" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+            </g>
+            <rect height="48.7993846153846" x="360.607058823529" y="162.664615384615" fill="#6886B4" width="7.53882352941176" style="opacity: 1.0; stroke: none;"/>
+            <g transform="translate(-1.05732, -1.05732)">
+              <rect height="22.6245262876254" x="368.983529411765" y="190.954113712375" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+              <rect height="19.4525662876254" x="370.040849411765" y="195.183393712375" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+            </g>
+            <rect height="20.5098862876254" x="368.983529411765" y="190.954113712375" fill="#6886B4" width="7.53882352941176" style="opacity: 1.0; stroke: none;"/>
+            <g transform="translate(-1.05732, -1.05732)">
+              <rect height="36.769275451505" x="377.36" y="176.809364548495" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+              <rect height="33.597315451505" x="378.41732" y="181.038644548495" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+            </g>
+            <rect height="34.654635451505" x="377.36" y="176.809364548495" fill="#6886B4" width="7.53882352941176" style="opacity: 1.0; stroke: none;"/>
+            <g transform="translate(-1.05732, -1.05732)">
+              <rect height="53.0357369899666" x="385.736470588235" y="160.542903010033" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+              <rect height="49.8637769899666" x="386.793790588235" y="164.772183010033" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+            </g>
+            <rect height="50.9210969899666" x="385.736470588235" y="160.542903010033" fill="#6886B4" width="7.53882352941176" style="opacity: 1.0; stroke: none;"/>
+            <g transform="translate(-1.05732, -1.05732)">
+              <rect height="38.8909878260869" x="394.112941176471" y="174.687652173913" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+              <rect height="35.719027826087" x="395.170261176471" y="178.916932173913" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+            </g>
+            <rect height="36.7763478260869" x="394.112941176471" y="174.687652173913" fill="#6886B4" width="7.53882352941176" style="opacity: 1.0; stroke: none;"/>
+            <g transform="translate(-1.05732, -1.05732)">
+              <rect height="43.8416500334448" x="402.489411764706" y="169.736989966555" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+              <rect height="40.6696900334448" x="403.546731764706" y="173.966269966555" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+            </g>
+            <rect height="41.7270100334448" x="402.489411764706" y="169.736989966555" fill="#6886B4" width="7.53882352941176" style="opacity: 1.0; stroke: none;"/>
+            <g transform="translate(-1.05732, -1.05732)">
+              <rect height="42.4271751170569" x="410.865882352941" y="171.151464882943" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+              <rect height="39.2552151170569" x="411.923202352941" y="175.380744882943" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+            </g>
+            <rect height="40.3125351170569" x="410.865882352941" y="171.151464882943" fill="#6886B4" width="7.53882352941176" style="opacity: 1.0; stroke: none;"/>
+            <g transform="translate(-1.05732, -1.05732)">
+              <rect height="64.3515363210702" x="419.242352941177" y="149.22710367893" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+              <rect height="61.1795763210703" x="420.299672941177" y="153.45638367893" style="fill: black; fill-opacity: 0.15; stroke: none;" width="9.65346352941177"/>
+            </g>
+            <rect height="62.2368963210702" x="419.242352941177" y="149.22710367893" fill="#6886B4" width="7.53882352941176" style="opacity: 1.0; stroke: none;"/>
+          </g>
+        </g>
+      </g>
+    </g>
+    <g id="legend" transform="translate(30.0, 46.8)">
+      <rect height="10.8" x="237.6" y="0" fill="#6886B4" width="10.8"/>
+      <text font-size="15.552" font-family="" x="257.04" y="11.664" style="color: white" fill="white">Votes</text>
+    </g>
+  </g>
+</svg>

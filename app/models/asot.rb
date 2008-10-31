@@ -108,4 +108,31 @@ class Asot < ActiveRecord::Base
     end
     count
   end
+
+  def Asot.episode_and_votes(for_year=Time.now.year)
+   episodes          = Asot.all.find_all{|a| a.airdate && a.airdate.year == for_year}
+   episodes_by_date  = episodes.map{|a| [a.airdate, a.no, a.votes] }.sort
+   episode_and_votes = episodes_by_date.map{|date_no_votes| date_no_votes[1..2]}
+   episode_and_votes
+  end
+
+  def Asot.draw_year_points_graph(for_year = Time.now.year)
+   require 'scruffy'
+
+   markers, data = Asot.episode_and_votes(for_year).transpose
+
+   graph = Scruffy::Graph.new
+   graph.title = "ASOT Episodes #{for_year}"
+   graph.renderer = Scruffy::Renderers::Standard.new
+
+   # marker just for top 3 votes
+   top_votes = data.sort[-3..-1]
+   data.each_with_index do |vote, i|
+     markers[i] = nil unless top_votes.include?(vote)
+   end
+   graph.point_markers = markers
+   
+   graph.add :bar, "Votes", data
+   graph.render :width => 600, :to => "votes_#{for_year}.svg"
+  end
 end
