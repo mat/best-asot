@@ -15,6 +15,7 @@ require 'uri'
 require 'hpricot'
 require 'open-uri'
 require 'json'
+require 'faster_csv'
 
 Rails::Initializer.run do |config|
   # Settings in config/environments/* take precedence over those specified here.

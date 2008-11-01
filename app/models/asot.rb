@@ -135,4 +135,14 @@ class Asot < ActiveRecord::Base
    graph.add :bar, "Votes", data
    graph.render :width => 600, :to => "votes_#{for_year}.svg"
   end
+
+  # rake db:write_notes
+  def Asot.write_notes(csv_data)
+    csv_data.each { |no,text| 
+      a = Asot.find_by_no(no.to_i)
+      a.notes = text
+      a.save!
+    }
+    :ok
+  end
 end
