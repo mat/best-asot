@@ -1,15 +1,16 @@
 <h1>Best ASOT ever</h1>
 
-<h2>Top 5 ASOTs off all time</h2>
+<h2>Top ASOTs off all time</h2>
 <table>
  <tr>
   <th>#</th>
   <th>airdate</th>
-  <th>votes</th>
+  <th>rank</th>
   <th>notes</th>
+  <th>votes</th>
   <th></th>
  </tr>
-  <%= render :partial => 'asot', :collection => @top %>
+  <%= render :partial => 'asot', :collection => @by_votes[0..9] %>
 </table>
 
 
