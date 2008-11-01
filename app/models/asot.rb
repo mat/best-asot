@@ -5,6 +5,10 @@ class Asot < ActiveRecord::Base
   validates_uniqueness_of :url
   validates_uniqueness_of :airdate, :allow_nil => true
 
+  def rank
+    @by_votes   = Asot.all(:order => 'votes DESC')
+    @by_votes.find_index(self) + 1
+  end
 
   def Asot.fetch_di_uri(episode_number)
     # Let's emulate
