@@ -1,6 +1,5 @@
 log/*.log
 tmp/**/*
-config/database.yml
 db/test.sqlite3
 *.swp
 
