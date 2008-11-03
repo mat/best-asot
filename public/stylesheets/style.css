@@ -367,3 +367,50 @@ div.box label span{
   font-size: 0.8em;
   font-style: italic;
 }
+
+ul {
+  list-style-type: none;
+}
+
+.rank {
+  font-size: 3em;
+  font-style: italic;
+  float: left;
+  margin: 0;
+  padding: 0;
+  padding-top: 0.2em;
+  padding-right: 0.2em;
+}
+
+.episode {
+  font-size: 1.7em;
+  padding-left: 1em;
+  margin: 0;
+  padding: 0;
+  border: 1px solid #4d54b3;
+  width: 20em;
+}
+
+.airdate {
+  font-size: 0.5em;
+  margin: 0;
+  padding: 0;
+}
+
+.notes {
+  font-size: 0.5em;
+  padding-left: 1em;
+  margin: 0;
+  padding: 0;
+}
+
+.votes {
+  float: right;
+  font-style: italic;
+  text-align: center;
+  border: 1px solid #4d54b3;
+}
+
+.centered {
+  text-align: center;
+}
