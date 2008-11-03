@@ -149,4 +149,31 @@ class Asot < ActiveRecord::Base
     }
     :ok
   end
+
+  def Asot.check_url(no, url)
+    url.index(no.to_s) != nil
+  end
+
+  def Asot.check_urls(asots = Asot.all(:order => 'no'))
+    problems = []
+
+    asots.each do |a|
+      print "Checking url #{a.no}... "
+      begin
+        if a.url
+         if Asot.check_url(a.no, a.url)
+          puts 'ok'
+         else
+          puts 'ooooooops'
+         end
+        else
+          puts 'no url'
+        end
+      rescue Exception => e
+        puts "FAILED #{e}"
+        problems << a.no
+      end
+    end
+    problems
+  end
 end

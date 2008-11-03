@@ -30,4 +30,9 @@ describe Asot do
     Asot.remove_index_html_from_path(url).should== "http://forums.di.fm/trance/armin-van-buuren-presents-state-of-trance-episode-350-live-140099/"
   end
 
+  it "should sanity check the url for presence of ep no" do
+    Asot.check_url(350, '...episode-350-live').should== true
+    Asot.check_url(42, '...episode-350-live').should== false
+  end
+
 end
