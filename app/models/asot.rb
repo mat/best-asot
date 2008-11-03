@@ -2,7 +2,7 @@ class Asot < ActiveRecord::Base
 
   validates_presence_of :no
   validates_uniqueness_of :no
-  validates_uniqueness_of :url
+  validates_uniqueness_of :url, :allow_nil => true
   validates_uniqueness_of :airdate, :allow_nil => true
 
   def rank

@@ -8,6 +8,10 @@
   <td><%= asot.rank %></td>
   <td><%= asot.notes %></td>
   <td><%= asot.votes %></td>
+  <% unless asot.url %> 
+  <td>n/a</td>
+  <% else %>
   <td><%= link_to(asot.url[-50..-1], asot.url) %></td>
+  <% end %>
  </tr>
 
