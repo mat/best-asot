@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd"  type=""?>
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" height="360" xmlns="http://www.w3.org/2000/svg" width="600">
+  <g id="scruffy_graph">
+    <g transform="translate(0.0, 0.0)" id="background">
+      <defs>
+        <linearGradient y2="100%" x1="0%" y1="0%" id="BackgroundGradient" x2="0%">
+          <stop stop-color="black" offset="5%"/>
+          <stop stop-color="#4A465A" offset="95%"/>
+        </linearGradient>
+      </defs>
+      <rect height="360.0" x="0" y="0" fill="url(#BackgroundGradient)" width="600.0"/>
+    </g>
+    <g transform="translate(30.0, 7.2)" id="title">
+      <text text-anchor="middle" class="title" font-size="25.2" font-family="" x="270.0" stroke="none" y="25.2" fill="white" stroke-width="0">Vote distribution</text>
+    </g>
+    <g transform="translate(12.0, 93.6)" id="view">
+      <g>
+        <g transform="translate(0.0, 4.752)" id="values">
+          <text text-anchor="end" font-size="16.91712" font-family="" x="96.12" y="211.464" fill="white">0</text>
+          <text text-anchor="end" font-size="16.91712" font-family="" x="96.12" y="158.598" fill="white">25</text>
+          <text text-anchor="end" font-size="16.91712" font-family="" x="96.12" y="105.732" fill="white">50</text>
+          <text text-anchor="end" font-size="16.91712" font-family="" x="96.12" y="52.866" fill="white">74</text>
+          <text text-anchor="end" font-size="16.91712" font-family="" x="96.12" y="0.0" fill="white">99</text>
+        </g>
+        <g transform="translate(106.8, 0.0)" id="grid">
+          <line y2="0.0" x1="0" y1="0.0" style="stroke: white; stroke-width: 2;" x2="427.2"/>
+          <line y2="52.866" x1="0" y1="52.866" style="stroke: white; stroke-width: 2;" x2="427.2"/>
+          <line y2="105.732" x1="0" y1="105.732" style="stroke: white; stroke-width: 2;" x2="427.2"/>
+          <line y2="158.598" x1="0" y1="158.598" style="stroke: white; stroke-width: 2;" x2="427.2"/>
+          <line y2="211.464" x1="0" y1="211.464" style="stroke: white; stroke-width: 2;" x2="427.2"/>
+        </g>
+        <g transform="translate(106.8, 218.592)" id="labels">
+          <text text-anchor="middle" font-size="17.1072" font-family="" x="0.0" y="19.008" fill="white">0</text>
+          <text text-anchor="middle" font-size="17.1072" font-family="" x="47.4666666666667" y="19.008" fill="white">30</text>
+          <text text-anchor="middle" font-size="17.1072" font-family="" x="94.9333333333333" y="19.008" fill="white">60</text>
+          <text text-anchor="middle" font-size="17.1072" font-family="" x="142.4" y="19.008" fill="white">90</text>
+          <text text-anchor="middle" font-size="17.1072" font-family="" x="427.2" y="19.008" fill="white">270</text>
+        </g>
+        <g transform="translate(106.8, 0.0)" id="graphs">
+          <g class="graph_layer" id="component_graphs_graph_0">
+            <g transform="translate(-1.05732, -1.05732)">
+              <rect height="68.33064" x="2.136" y="145.248" style="fill: black; fill-opacity: 0.15; stroke: none;" width="40.56264"/>
+              <rect height="65.15868" x="3.19332" y="149.47728" style="fill: black; fill-opacity: 0.15; stroke: none;" width="40.56264"/>
+            </g>
+            <rect height="66.216" x="2.136" y="145.248" fill="#6886B4" width="38.448" style="opacity: 1.0; stroke: none;"/>
+            <g transform="translate(-1.05732, -1.05732)">
+              <rect height="213.57864" x="44.856" y="0.0" style="fill: black; fill-opacity: 0.15; stroke: none;" width="40.56264"/>
+              <rect height="210.40668" x="45.91332" y="4.22928" style="fill: black; fill-opacity: 0.15; stroke: none;" width="40.56264"/>
+            </g>
+            <rect height="211.464" x="44.856" y="0.0" fill="#6886B4" width="38.448" style="opacity: 1.0; stroke: none;"/>
+            <g transform="translate(-1.05732, -1.05732)">
+              <rect height="29.88264" x="87.576" y="183.696" style="fill: black; fill-opacity: 0.15; stroke: none;" width="40.56264"/>
+              <rect height="26.71068" x="88.63332" y="187.92528" style="fill: black; fill-opacity: 0.15; stroke: none;" width="40.56264"/>
+            </g>
+            <rect height="27.768" x="87.576" y="183.696" fill="#6886B4" width="38.448" style="opacity: 1.0; stroke: none;"/>
+            <g transform="translate(-1.05732, -1.05732)">
+              <rect height="2.11464" x="130.296" y="211.464" style="fill: black; fill-opacity: 0.15; stroke: none;" width="40.56264"/>
+              <rect height="-1.05732" x="131.35332" y="215.69328" style="fill: black; fill-opacity: 0.15; stroke: none;" width="40.56264"/>
+            </g>
+            <rect height="0.0" x="130.296" y="211.464" fill="#6886B4" width="38.448" style="opacity: 1.0; stroke: none;"/>
+            <g transform="translate(-1.05732, -1.05732)">
+              <rect height="2.11464" x="173.016" y="211.464" style="fill: black; fill-opacity: 0.15; stroke: none;" width="40.56264"/>
+              <rect height="-1.05732" x="174.07332" y="215.69328" style="fill: black; fill-opacity: 0.15; stroke: none;" width="40.56264"/>
+            </g>
+            <rect height="0.0" x="173.016" y="211.464" fill="#6886B4" width="38.448" style="opacity: 1.0; stroke: none;"/>
+            <g transform="translate(-1.05732, -1.05732)">
+              <rect height="2.11464" x="215.736" y="211.464" style="fill: black; fill-opacity: 0.15; stroke: none;" width="40.56264"/>
+              <rect height="-1.05732" x="216.79332" y="215.69328" style="fill: black; fill-opacity: 0.15; stroke: none;" width="40.56264"/>
+            </g>
+            <rect height="0.0" x="215.736" y="211.464" fill="#6886B4" width="38.448" style="opacity: 1.0; stroke: none;"/>
+            <g transform="translate(-1.05732, -1.05732)">
+              <rect height="6.38663999999999" x="258.456" y="207.192" style="fill: black; fill-opacity: 0.15; stroke: none;" width="40.56264"/>
+              <rect height="3.21467999999999" x="259.51332" y="211.42128" style="fill: black; fill-opacity: 0.15; stroke: none;" width="40.56264"/>
+            </g>
+            <rect height="4.27199999999999" x="258.456" y="207.192" fill="#6886B4" width="38.448" style="opacity: 1.0; stroke: none;"/>
+            <g transform="translate(-1.05732, -1.05732)">
+              <rect height="2.11464" x="301.176" y="211.464" style="fill: black; fill-opacity: 0.15; stroke: none;" width="40.56264"/>
+              <rect height="-1.05732" x="302.23332" y="215.69328" style="fill: black; fill-opacity: 0.15; stroke: none;" width="40.56264"/>
+            </g>
+            <rect height="0.0" x="301.176" y="211.464" fill="#6886B4" width="38.448" style="opacity: 1.0; stroke: none;"/>
+            <g transform="translate(-1.05732, -1.05732)">
+              <rect height="2.11464" x="343.896" y="211.464" style="fill: black; fill-opacity: 0.15; stroke: none;" width="40.56264"/>
+              <rect height="-1.05732" x="344.95332" y="215.69328" style="fill: black; fill-opacity: 0.15; stroke: none;" width="40.56264"/>
+            </g>
+            <rect height="0.0" x="343.896" y="211.464" fill="#6886B4" width="38.448" style="opacity: 1.0; stroke: none;"/>
+            <g transform="translate(-1.05732, -1.05732)">
+              <rect height="4.25064" x="386.616" y="209.328" style="fill: black; fill-opacity: 0.15; stroke: none;" width="40.56264"/>
+              <rect height="1.07868" x="387.67332" y="213.55728" style="fill: black; fill-opacity: 0.15; stroke: none;" width="40.56264"/>
+            </g>
+            <rect height="2.136" x="386.616" y="209.328" fill="#6886B4" width="38.448" style="opacity: 1.0; stroke: none;"/>
+          </g>
+        </g>
+      </g>
+    </g>
+    <g transform="translate(30.0, 46.8)" id="legend">
+      <rect height="10.8" x="237.6" y="0" fill="#6886B4" width="10.8"/>
+      <text font-size="15.552" font-family="" x="257.04" y="11.664" style="color: white" fill="white">Votes</text>
+    </g>
+  </g>
+</svg>

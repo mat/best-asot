@@ -194,6 +194,49 @@ class Asot < ActiveRecord::Base
     }.sort
   end
 
+  def Asot.vote_histogram(width = 10, asots = Asot.all)
+    hist = Hash.new { |h,k| h[k] = 0 }
+
+    asots.each do |a|
+      next if a.votes.nil?
+      hist[a.votes / width] += 1
+    end
+
+    puts asots.length
+    puts hist.values.inject(0){ |sum,n| sum += n}
+
+    # Fill empty bins with 0
+    0.upto(hist.keys.max-1) do |n|
+      hist[n] += 0
+    end
+
+    hist.sort
+  end
+
+  def Asot.draw_vote_histogram(width=10)
+   require 'scruffy'
+
+   votes = Asot.vote_histogram(width).transpose.last
+
+   graph = Scruffy::Graph.new
+   graph.title = "Vote distribution"
+   graph.renderer = Scruffy::Renderers::Standard.new
+   graph.point_markers = Array.new(votes.length){nil}
+   graph.point_markers[0] = 0
+   graph.point_markers[1] = width * 1
+   graph.point_markers[2] = width * 2
+   graph.point_markers[3] = width * 3
+   graph.point_markers[votes.length - 1] = width * (votes.length - 1)
+
+   graph.add :bar, "Votes", votes
+
+   graph.render :width => 600, 
+                :min_value => 0,
+               # :max_value => ((top_vote + 20) / 20).floor * 20,
+                :to => "public/images/vote_hist.svg"
+   :ok
+  end
+
   private
 
   def Asot.extract_top_episodes(votes, ep_nos, tops_shown = 5)
