@@ -137,7 +137,7 @@ class Asot < ActiveRecord::Base
    graph.point_markers = markers
    
    graph.add :bar, "Votes", data
-   graph.render :width => 600, :to => "votes_#{for_year}.svg"
+   graph.render :width => 600, :to => "public/images/votes_#{for_year}.svg"
   end
 
   # rake db:write_notes
