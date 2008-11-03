@@ -35,4 +35,9 @@ describe Asot do
     Asot.check_url(42, '...episode-350-live').should== false
   end
 
+  it "should sanity check the airdate" do
+    Asot.date_is_thursday?(Time.parse('Thu, 30 Oct 2008')).should== true
+    Asot.date_is_thursday?(Time.parse('Thu, 29 Oct 2008')).should== false
+  end
+
 end

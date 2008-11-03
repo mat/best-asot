@@ -176,4 +176,16 @@ class Asot < ActiveRecord::Base
     end
     problems
   end
+
+  def Asot.date_is_thursday?(time)
+    time.wday == 4
+  end
+
+  def Asot.airdate_infos
+    Asot.all.map{|a| 
+         [a.no, 
+          a.airdate && a.airdate.strftime('%U'), 
+          a.airdate && Asot.date_is_thursday?(a.airdate)]
+    }.sort
+  end
 end
