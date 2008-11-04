@@ -6,7 +6,7 @@
   <td><%= asot.airdate.strftime('%d. %b %Y') %></td>
   <% end %>
   <td><%= asot.rank %></td>
-  <td><%= asot.notes %></td>
+  <td><%= h asot.notes %></td>
   <td><%= asot.votes %></td>
   <% unless asot.url %> 
   <td>n/a</td>
