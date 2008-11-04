@@ -40,4 +40,14 @@ describe Asot do
     Asot.date_is_thursday?(Time.parse('Thu, 29 Oct 2008')).should== false
   end
 
+  it "should calculate the rank for an episodes based on the votes" do
+    a = Asot.create(:no => 1, :votes => 1)
+    b = Asot.create(:no => 2, :votes => 10)
+    c = Asot.create(:no => 3, :votes => 100)
+    [a,b,c].each{ |x| x.save! }
+
+    a.rank.should== 3
+    b.rank.should== 2
+    c.rank.should== 1
+  end
 end
