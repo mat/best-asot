@@ -1,4 +1,4 @@
- <tr>
+ <tr class="<%= cycle("even", "odd") -%>">
   <td><%= asot.no %></td>
   <% unless asot.airdate %> 
   <td>n/a</td>
@@ -7,11 +7,10 @@
   <% end %>
   <td><%= asot.rank %></td>
   <td><%= h asot.notes %></td>
-  <td><%= asot.votes %></td>
   <% unless asot.url %> 
-  <td>n/a</td>
+  <td><%= asot.votes %></td>
   <% else %>
-  <td><%= link_to(asot.url[-50..-1], asot.url) %></td>
+  <td><%= link_to(asot.votes, asot.url) %></td>
   <% end %>
  </tr>
 

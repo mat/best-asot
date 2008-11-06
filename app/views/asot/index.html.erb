@@ -2,7 +2,13 @@
 
 <h2>Top ASOTs off all time</h2>
 <ul>
-<% for a in @by_votes[0..9] %>
+<% for a in @by_votes[0..4] %>
+  <%= render :partial => 'asot_ul', :locals => {:a => a } %>
+<% end %>
+</ul>
+
+<ul>
+<% for a in @by_votes[5..9] %>
   <%= render :partial => 'asot_ul', :locals => {:a => a } %>
 <% end %>
 </ul>
