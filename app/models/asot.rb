@@ -237,6 +237,17 @@ class Asot < ActiveRecord::Base
    :ok
   end
 
+  def Asot.add_by_url_and_fetch(url)
+    a = Asot.new(:url => url)
+
+    a.no      = url.match(/episode-(\d*)/)[1].to_i
+    a.airdate = Asot.fetch_di_date(a.url)
+    a.votes   = Asot.fetch_di_votes(a.url)
+
+    a.save!
+    a
+  end
+
   private
 
   def Asot.extract_top_episodes(votes, ep_nos, tops_shown = 5)

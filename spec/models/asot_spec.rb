@@ -50,4 +50,13 @@ describe Asot do
     b.rank.should== 2
     c.rank.should== 1
   end
+
+  it "should add a new episode and fetch votes and airdate." do
+    url = 'http://forums.di.fm/trance/armin-van-buuren-presents-state-of-trance-episode-377-a-150099/'
+    a = Asot.add_by_url_and_fetch(url)
+    
+    a.no.should== 377
+    a.votes.should== 31
+    a.airdate.should== Time.parse('Thu, 6 Nov 2008')
+  end
 end
