@@ -3,14 +3,18 @@
   <% unless asot.airdate %> 
   <td>n/a</td>
   <% else %>
-  <td><%= asot.airdate.strftime('%d. %b %Y') %></td>
+  <td>from <%= asot.airdate.strftime('%Y-%m-%d') %></td>
   <% end %>
   <td><%= asot.rank %></td>
-  <td><%= h asot.notes %></td>
   <% unless asot.url %> 
-  <td><%= asot.votes %></td>
+  <td>with <%= asot.votes %> votes</td>
   <% else %>
-  <td><%= link_to(asot.votes, asot.url) %></td>
+  <td>with <%= link_to(asot.votes, asot.url) %> votes</td>
   <% end %>
  </tr>
 
+<% if asot.notes %>
+<tr class='note'>
+  <td colspan='4'><%= h asot.notes %></td>
+</tr>
+<% end %>

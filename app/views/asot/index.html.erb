@@ -1,17 +1,20 @@
 <h1>Best ASOT ever</h1>
 
 <h2>Top ASOTs off all time</h2>
-<ul>
+
+<div>
+<ul style='float: light;'>
 <% for a in @by_votes[0..4] %>
   <%= render :partial => 'asot_ul', :locals => {:a => a } %>
 <% end %>
 </ul>
 
-<ul>
+<ul style='float: right;'>
 <% for a in @by_votes[5..9] %>
   <%= render :partial => 'asot_ul', :locals => {:a => a } %>
 <% end %>
 </ul>
+</div>
 
 <h2>Latest ASOTs</h2>
 <ul>
@@ -36,12 +39,8 @@
 <h3>Episodes by airdate</h3>
 <table>
  <tr>
-  <th>#</th>
-  <th>airdate</th>
-  <th>rank</th>
-  <th>notes</th>
-  <th>votes</th>
-  <th></th>
+  <th>Episode</th>
+  <th>Rank</th>
  </tr>
   <%= render :partial => 'asot', :collection => @episodes_2008 %>
 </table>

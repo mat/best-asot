@@ -103,6 +103,12 @@ a:visited { color: #333;}
 
 ul {
   list-style-type: none;
+  border: 1px solid #4d54b3; 
+  width: 40%;
+}
+
+li {
+  padding-bottom: 1em;
 }
 
 .rank {
@@ -120,7 +126,7 @@ ul {
   padding-left: 1em;
   margin: 0;
   padding: 0;
-  border: 1px solid #4d54b3;
+  /* border: 1px solid #4d54b3; */
   width: 20em;
 }
 
@@ -138,10 +144,10 @@ ul {
 }
 
 .votes {
-  float: right;
+  font-size: 0.5em;
+  margin: 0;
+  padding: 0;
   font-style: italic;
-  text-align: center;
-  border: 1px solid #4d54b3;
 }
 
 .centered {
