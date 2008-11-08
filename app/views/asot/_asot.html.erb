@@ -1,10 +1,9 @@
  <tr class="<%= cycle("even", "odd") -%>">
-  <td><%= asot.no %></td>
-  <% unless asot.airdate %> 
-  <td>n/a</td>
-  <% else %>
-  <td>from <%= asot.airdate.strftime('%Y-%m-%d') %></td>
+  <td><%= asot.no %>
+  <% if asot.airdate %> 
+   from <%= asot.airdate.strftime('%Y-%m-%d') %>
   <% end %>
+  </td>
   <td><%= asot.rank %></td>
   <% unless asot.url %> 
   <td>with <%= asot.votes %> votes</td>

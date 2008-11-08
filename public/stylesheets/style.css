@@ -153,3 +153,12 @@ li {
 .centered {
   text-align: center;
 }
+
+tr.even td {
+  background-color: #eee;
+}
+
+tr.odd  td {
+  background-color: #fff;
+}
+
