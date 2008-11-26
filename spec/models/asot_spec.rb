@@ -56,7 +56,7 @@ describe Asot do
     a = Asot.add_by_url_and_fetch(url)
     
     a.no.should== 377
-    a.votes.should== 31
+    a.votes.should== 32
     a.airdate.should== Time.parse('Thu, 6 Nov 2008')
   end
 end
