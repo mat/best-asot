@@ -1,4 +1,5 @@
 class Asot < ActiveRecord::Base
+  extend ActiveSupport::Memoizable
 
   validates_presence_of :no
   validates_uniqueness_of :no
@@ -9,6 +10,7 @@ class Asot < ActiveRecord::Base
     @by_votes = Asot.all(:order => 'votes DESC')
     @by_votes.index(self) + 1
   end
+  memoize :rank
 
   def Asot.fetch_di_uri(episode_number)
     # Let's emulate
