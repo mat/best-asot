@@ -1,19 +1,16 @@
  <tr class="<%= cycle("even", "odd") -%>">
   <td><%= asot.no %>
+  </td>
+  <td>
   <% if asot.airdate %> 
-   from <%= asot.airdate.strftime('%Y-%m-%d') %>
+   <%= asot.airdate.strftime('%Y-%m-%d') %>
   <% end %>
   </td>
   <td><%= asot.rank %></td>
   <% unless asot.url %> 
   <td>with <%= asot.votes %> votes</td>
   <% else %>
-  <td>with <%= link_to(asot.votes, asot.url) %> votes</td>
+  <td><%= link_to(asot.votes, asot.url) %></td>
   <% end %>
+  <td><%= h asot.notes %></td>
  </tr>
-
-<% if asot.notes %>
-<tr class='note'>
-  <td colspan='4'><%= h asot.notes %></td>
-</tr>
-<% end %>
