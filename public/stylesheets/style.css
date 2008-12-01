@@ -14,20 +14,20 @@ pre {
   background-color: #eee;
   padding: 10px;
   font-size: 11px;
-  border: 1px solid #4d54b3;
+  border: 1px solid #485775;
 }
 
 
 hr {
- color: #4d54b3;
+ color: #485775;
  width: 300px;
  padding: 0px;
 }
 strong {
- color: #4d54b3;
+ color: #485775;
 }
 
-a { color: #4d54b3;}
+a { color: #485775;}
 a:visited { color: #333;}
 
 .biglink {
@@ -35,21 +35,21 @@ a:visited { color: #333;}
 }
 
 #logodiv {
- color: #4d54b3;
+ color: #485775;
  padding: 10px;
 }
 
 
 .subtitle {
   font-size: 0.8em;
-  color: #4d54b3;
+  color: #485775;
   padding: 0px;
   margin: 0px;
 }
 
 .logo {
  font-size: 2.5em;
-  color: #4d54b3;
+  color: #485775;
   padding: 0px;
 }
 
@@ -103,7 +103,7 @@ a:visited { color: #333;}
 
 ul {
   list-style-type: none;
-  border: 1px solid #4d54b3; 
+  border: 1px solid #485775; 
   width: 40%;
 }
 
@@ -126,7 +126,7 @@ li {
   padding-left: 1em;
   margin: 0;
   padding: 0;
-  /* border: 1px solid #4d54b3; */
+  /* border: 1px solid #485775; */
   width: 20em;
 }
 
