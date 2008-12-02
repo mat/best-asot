@@ -131,3 +131,9 @@ tr.odd  td {
   background-color: #fff;
 }
 
+.updated {
+  background-color: #72c255;
+  color: #fff;
+  padding: 3px;
+}
+

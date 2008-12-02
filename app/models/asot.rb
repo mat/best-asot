@@ -254,6 +254,10 @@ class Asot < ActiveRecord::Base
     "##{self.no}, #{self.votes} votes, aired on #{self.airdate}"
   end
 
+  def Asot.last_update
+    Asot.last(:order => 'updated_at').updated_at
+  end
+
   private
 
   def Asot.extract_top_episodes(votes, ep_nos, tops_shown = 5)
