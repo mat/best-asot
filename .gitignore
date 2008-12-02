@@ -2,4 +2,5 @@ log/*.log
 tmp/**/*
 db/test.sqlite3
 *.swp
+sitemap.txt
 
