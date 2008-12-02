@@ -1,0 +1,8 @@
+<h1>ASOT Episodes <%= year %></h1>
+<p class='centered'>
+  <img src='/images/votes_<%= year %>.png' alt='Top Episodes in <%= year %>' />
+</p>
+
+
+<h2>Episodes by Airdate</h2>
+<%= render :partial => 'asot_table', :locals => { :asots => asots  } %>

@@ -1,73 +1,13 @@
 <h1>Top ASOTs off all time</h1>
 
 <div>
-<table>
- <tr>
-  <th>#</th>
-  <th>Airdate</th>
-  <th>Rank</th>
-  <th>Votes</th>
- </tr>
-  <%= render :partial => 'asot', :collection => @by_votes[0..9] %>
-</table>
+<%= render :partial => 'asot_table', :locals => { :asots => @by_votes[0..9] } %>
 </div>
 
-<h2>ASOT Episodes 2008</h2>
-<p class='centered'>
-  <img src='/images/votes_2008.png' alt='Top Episodes in 2008' />
-</p>
+<%= render :partial => 'asots_for_year', :locals => { :year => '2008', :asots => @episodes_2008  } %>
+<%= render :partial => 'asots_for_year', :locals => { :year => '2007', :asots => @episodes_2007  } %>
+<%= render :partial => 'asots_for_year', :locals => { :year => '2006', :asots => @episodes_2006  } %>
 
-
-<h3>Episodes by Airdate</h3>
-<table>
- <tr>
-  <th>#</th>
-  <th>Airdate</th>
-  <th>Rank</th>
-  <th>Votes</th>
- </tr>
-  <%= render :partial => 'asot', :collection => @episodes_2008 %>
-</table>
-
-
-<h2>ASOT Episodes 2007</h2>
-<p class='centered'>
-  <img src='/images/votes_2007.png' alt='Top Episodes in 2007' />
-</p>
-
-
-<h3>Episodes by Airdate</h3>
-<table>
- <tr>
-  <th>#</th>
-  <th>Airdate</th>
-  <th>rank</th>
-  <th>votes</th>
-  <th>notes</th>
-  <th></th>
- </tr>
-  <%= render :partial => 'asot', :collection => @episodes_2007 %>
-</table>
-
-
-<h2>ASOT Episodes 2006</h2>
-<p class='centered'>
-  <img src='/images/votes_2006.png' alt='Top Episodes in 2006' />
-</p>
-
-
-<h3>Episodes by Airdate</h3>
-<table>
- <tr>
-  <th>#</th>
-  <th>Airdate</th>
-  <th>rank</th>
-  <th>votes</th>
-  <th>notes</th>
-  <th></th>
- </tr>
-  <%= render :partial => 'asot', :collection => @episodes_2006 %>
-</table>
 
 <%= render :partial => 'faq' %>
 
