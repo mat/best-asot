@@ -104,6 +104,12 @@ a:visited { color: #333;}
   text-align: center;
 }
 
+td {
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+
 tr.even td {
   background-color: #eee;
 }
