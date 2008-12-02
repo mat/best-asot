@@ -100,56 +100,6 @@ a:visited { color: #333;}
   padding-bottom: 20px;
 }
 
-
-ul {
-  list-style-type: none;
-  border: 1px solid #485775; 
-  width: 40%;
-}
-
-li {
-  padding-bottom: 1em;
-}
-
-.rank {
-  font-size: 3em;
-  font-style: italic;
-  float: left;
-  margin: 0;
-  padding: 0;
-  padding-top: 0.2em;
-  padding-right: 0.2em;
-}
-
-.episode {
-  font-size: 1.7em;
-  padding-left: 1em;
-  margin: 0;
-  padding: 0;
-  /* border: 1px solid #485775; */
-  width: 20em;
-}
-
-.airdate {
-  font-size: 0.5em;
-  margin: 0;
-  padding: 0;
-}
-
-.notes {
-  font-size: 0.5em;
-  padding-left: 1em;
-  margin: 0;
-  padding: 0;
-}
-
-.votes {
-  font-size: 0.5em;
-  margin: 0;
-  padding: 0;
-  font-style: italic;
-}
-
 .centered {
   text-align: center;
 }
