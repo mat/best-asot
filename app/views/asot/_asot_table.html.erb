@@ -1,11 +1,19 @@
+<%
+  hide_yearrank = nil unless defined?(hide_yearrank)
+  hide_yearrank = nil if local_assigns[:hide_yearrank].nil?
+%>
+
 <table>
  <tr>
   <th>#</th>
   <th>Airdate</th>
   <th>Rank</th>
+  <% unless hide_yearrank -%>
+  <th>Year <br />Rank</th>
+  <% end -%>
   <th>Votes</th>
   <th>Notes</th>
  </tr>
-  <%= render :partial => 'asot', :collection => asots %>
+  <%= render :partial => 'asot', :collection => asots, :locals => {:hide_yearrank => hide_yearrank} %>
 </table>
 

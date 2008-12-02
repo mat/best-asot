@@ -1,3 +1,8 @@
+<%
+  hide_yearrank = nil unless defined?(hide_yearrank)
+  hide_yearrank = nil if local_assigns[:hide_yearrank].nil?
+%>
+
  <tr class="<%= cycle("even", "odd") -%>">
   <td><%= asot.no %>
   </td>
@@ -7,6 +12,9 @@
   <% end %>
   </td>
   <td><%= asot.rank %></td>
+  <% unless hide_yearrank -%>
+  <td><%= asot.yearrank %></td>
+  <% end -%>
   <% unless asot.url %> 
   <td>with <%= asot.votes %> votes</td>
   <% else %>

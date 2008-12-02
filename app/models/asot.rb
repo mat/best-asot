@@ -12,6 +12,12 @@ class Asot < ActiveRecord::Base
   end
   memoize :rank
 
+  def yearrank
+    -1 if self.airdate.nil?
+    @by_votes = Asot.all(:order => 'votes DESC').find_all{|a| a.airdate && a.airdate.year == self.airdate.year }
+    @by_votes.index(self) + 1
+  end
+
   def Asot.fetch_di_uri(episode_number)
     # Let's emulate
     #  curl -e http://better-idea.org 'http://ajax.googleapis.com/'
