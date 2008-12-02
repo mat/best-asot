@@ -18,7 +18,7 @@
   <% unless asot.url %> 
   <td>with <%= asot.votes %> votes</td>
   <% else %>
-  <td><%= link_to(asot.votes, asot.url) %></td>
+  <td><%= link_to(asot.votes, asot.url, :target => '_blank') %></td>
   <% end %>
   <td><%= h asot.notes %></td>
  </tr>
