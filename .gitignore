@@ -3,4 +3,5 @@ tmp/**/*
 db/test.sqlite3
 *.swp
 sitemap.txt
+public/index.html
 

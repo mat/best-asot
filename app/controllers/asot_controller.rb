@@ -1,4 +1,6 @@
 class AsotController < ApplicationController
+  caches_page :index
+
   def index
     @by_votes   = Asot.all(:order => 'votes DESC', :limit => 10)
 
