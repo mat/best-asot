@@ -264,6 +264,11 @@ class Asot < ActiveRecord::Base
     Asot.last(:order => 'updated_at').updated_at
   end
 
+  def Asot.find_by_year(y)
+    Asot.all(:conditions => [ "airdate LIKE ?", "#{y}%" ], 
+             :order => 'airdate DESC')
+  end
+
   private
 
   def Asot.extract_top_episodes(votes, ep_nos, tops_shown = 5)
