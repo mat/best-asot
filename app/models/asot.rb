@@ -7,15 +7,20 @@ class Asot < ActiveRecord::Base
   validates_uniqueness_of :airdate, :allow_nil => true
 
   def rank
-    @by_votes = Asot.all(:order => 'votes DESC')
-    @by_votes.index(self) + 1
+    unless defined? @rank
+      @by_votes = Asot.all(:order => 'votes DESC')
+      @rank = @by_votes.index(self) + 1
+    end
+    @rank
   end
-  memoize :rank
 
   def yearrank
     -1 if self.airdate.nil?
-    @by_votes = Asot.all(:order => 'votes DESC').find_all{|a| a.airdate && a.airdate.year == self.airdate.year }
-    @by_votes.index(self) + 1
+    unless defined? @yearrank
+      @by_votes = Asot.find_by_year(airdate.year, 'votes DESC')
+      @yearrank = @by_votes.index(self) + 1
+    end
+    @yearrank
   end
 
   def Asot.fetch_di_uri(episode_number)
@@ -264,9 +269,9 @@ class Asot < ActiveRecord::Base
     Asot.last(:order => 'updated_at').updated_at
   end
 
-  def Asot.find_by_year(y)
+  def Asot.find_by_year(y, order = 'airdate DESC')
     Asot.all(:conditions => [ "airdate LIKE ?", "#{y}%" ], 
-             :order => 'airdate DESC')
+             :order => order)
   end
 
   private
