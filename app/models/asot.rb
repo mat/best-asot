@@ -151,7 +151,7 @@ class Asot < ActiveRecord::Base
    end
 
    top_vote  = votes.sort.last
-   graph.render :width => 600, 
+   graph.render :width => 450, 
                 :min_value => 0,
                 :max_value => ((top_vote + 20) / 20).floor * 20,
                 :to => "public/images/votes_#{for_year}.svg"
