@@ -204,6 +204,21 @@ tr.odd  td {
  font-size: 1.0em;
 }
 
+td.onair {
+  color: red;
+  font-weight: bold;
+}
+
+td.onair a {
+  color: red;
+  font-weight: bold;
+}
+
+td.onair a:visited {
+  color: red;
+  font-weight: bold;
+}
+
 /* Taken from Scruffy::Themes::Keynote.new.colors */
 .rank_1 {color: #FDD84E; font-weight: bold;}
 .rank_2 {color: #72AE6E; font-weight: bold;}

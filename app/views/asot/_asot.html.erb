@@ -8,7 +8,7 @@
  <% else -%>
   <td class='no'><%= asot.no %></td>
  <% end -%>
-  <td><%= asot.airdate.strftime("%d-%b-%Y") %></td>
+  <%= format_airdate(asot) %>
    <td><%= asot.rank %></td>
   <% unless top_ten -%>
    <% if (1..5).include? asot.yearrank -%>
