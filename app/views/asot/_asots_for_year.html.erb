@@ -1,8 +1,8 @@
-<h2>ASOT Episodes <%= year %></h2>
+<h2 id="<%= year%>">ASOT Episodes <%= year %></h2>
 <p class='centered'>
   <img src='/images/votes_<%= year %>.png' alt='Top Episodes in <%= year %>' />
 </p>
 
 
 <strong>Episodes by <%= by_votes? ? 'Votes' : 'Airdate' %></strong>
-<%= render :partial => 'asot_table', :locals => { :asots => asots  } %>
+<%= render :partial => 'asot_table', :locals => { :asots => asots, :y => year  } %>
