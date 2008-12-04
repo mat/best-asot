@@ -13,7 +13,7 @@ module AsotHelper
     end
 
     if (20..21).include? Time.now.hour 
-      return "<td class='onair'><a href='#{asot.url}'>On air!</a></td>"
+      return "<td class='onair'><a href='#{asot.url}' target='_blank'>On air!</a></td>"
     end
   end
 end
