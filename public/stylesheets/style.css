@@ -10,6 +10,8 @@ body, p, ol, ul {
 
 table {
   font-family: "Lucida Grande", "Helvetica Neue", Helvetica, Verdana, sans-serif;
+  margin-left:auto; 
+  margin-right:auto;
 }
 
 h1 {
