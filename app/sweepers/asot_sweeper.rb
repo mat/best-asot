@@ -25,6 +25,7 @@ class AsotSweeper < ActionController::Caching::Sweeper
     end
     # Delete index.html - always.
     FileUtils.rm_r(Dir.glob(cache_dir+"/index.html")) rescue Errno::ENOENT
+    FileUtils.rm_r(Dir.glob(cache_dir+"/by-rank.html")) rescue Errno::ENOENT
   end
 end
 
