@@ -19,6 +19,11 @@ h1 {
   color: #365D95;
 }
 
+h1 a:visited {
+ color: #365D95;
+ text-decoration: none;
+}
+
 h2 {
   color: #365D95;
 }
