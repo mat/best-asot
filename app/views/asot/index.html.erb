@@ -7,7 +7,7 @@ A State of Trance</a> Episode ever?</h1>
 
 <h2>Top ASOTs off all time</h2>
 <div>
-<%= render :partial => 'asot_table', :locals => { :asots => @by_votes[0..9], :hide_yearrank => true } %>
+<%= render :partial => 'asot_table', :locals => { :asots => @by_votes[0..9], :top_ten => true } %>
 </div>
 
 <%= render :partial => 'asots_for_year', :locals => { :year => '2008', :asots => @episodes_2008  } %>

@@ -1,19 +1,19 @@
 <%
-  hide_yearrank = nil unless defined?(hide_yearrank)
-  hide_yearrank = nil if local_assigns[:hide_yearrank].nil?
+  top_ten = nil unless defined?(top_ten)
+  top_ten = nil if local_assigns[:top_ten].nil?
 %>
 
 <table>
  <tr>
   <th>#</th>
-  <th><%= link_to_if(by_votes? && !hide_yearrank, "Airdate", index_path) %></th>
+  <th><%= link_to_if(by_votes? && !top_ten, "Airdate", index_path) %></th>
   <th>Rank</th>
-  <% unless hide_yearrank -%>
+  <% unless top_ten -%>
   <th>Year <br />Rank</th>
   <% end -%>
-  <th><%= link_to_if(by_airdate? && !hide_yearrank, "Votes", byvotes_path) %></th>
+  <th><%= link_to_if(by_airdate? && !top_ten, "Votes", byvotes_path) %></th>
   <th>Notes</th>
  </tr>
-  <%= render :partial => 'asot', :collection => asots, :locals => {:hide_yearrank => hide_yearrank} %>
+  <%= render :partial => 'asot', :collection => asots, :locals => {:top_ten => top_ten} %>
 </table>
 
