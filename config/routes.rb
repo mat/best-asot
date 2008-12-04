@@ -1,5 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
   # The priority is based upon order of creation: first created -> highest priority.
+  map.index   '/',         :controller => "asot", :order => 'airdate DESC'
+  map.byvotes '/by-votes', :controller => "asot", :order => 'votes DESC'
 
   # Sample of regular route:
   #   map.connect 'products/:id', :controller => 'catalog', :action => 'view'

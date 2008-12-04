@@ -2,15 +2,13 @@ class AsotController < ApplicationController
   caches_page :index
 
   def index
-    @by_votes   = Asot.all(:order => 'votes DESC', :limit => 10)
+    @by_votes      = Asot.all(:order => 'votes DESC', :limit => 10)
+    @order         = params[:order]
 
-    #Asot.find_by_year(2007)
+    @episodes_2008 = Asot.find_by_year(2008, @order)
+    @episodes_2007 = Asot.find_by_year(2007, @order)
+    @episodes_2006 = Asot.find_by_year(2006, @order)
 
-    @episodes_2008 = Asot.find_by_year(2008)
-    @episodes_2007 = Asot.find_by_year(2007)
-    @episodes_2006 = Asot.find_by_year(2006)
-
-    @last_update = Asot.last_update
+    @last_update   = Asot.last_update
   end
-
 end

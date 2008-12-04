@@ -6,12 +6,12 @@
 <table>
  <tr>
   <th>#</th>
-  <th>Airdate</th>
+  <th><%= link_to_if(by_votes? && !hide_yearrank, "Airdate", index_path) %></th>
   <th>Rank</th>
   <% unless hide_yearrank -%>
   <th>Year <br />Rank</th>
   <% end -%>
-  <th>Votes</th>
+  <th><%= link_to_if(by_airdate? && !hide_yearrank, "Votes", byvotes_path) %></th>
   <th>Notes</th>
  </tr>
   <%= render :partial => 'asot', :collection => asots, :locals => {:hide_yearrank => hide_yearrank} %>
