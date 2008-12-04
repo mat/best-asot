@@ -105,12 +105,17 @@ a:visited { color: #333;}
 }
 
 #faq li .q {
+  font-size: 1.5em;
   font-style: italic;
   padding-bottom: 0.5em;
 }
 
 #faq li .a{
   padding-bottom: 20px;
+}
+
+#faq li {
+  list-style-type: none;
 }
 
 .centered {
