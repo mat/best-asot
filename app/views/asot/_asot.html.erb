@@ -4,30 +4,19 @@
 %>
  <tr class="<%= cycle("even", "odd") -%>">
  <% if (1..5).include? asot.yearrank and not top_ten -%>
-   <td class="rank_<%= asot.yearrank -%>">
+  <td class="rank_<%= asot.yearrank -%>"><%= asot.no %></td>
  <% else -%>
-  <td class='no'> 
+  <td class='no'><%= asot.no %></td>
  <% end -%>
-  <%= asot.no %></td>
-
-  <td>
-  <% if asot.airdate %> 
-   <%= asot.airdate.strftime("%d-%b-%Y") %>
-  <% end %>
-  </td>
-  <td><%= asot.rank %></td>
+  <td><%= asot.airdate.strftime("%d-%b-%Y") %></td>
+   <td><%= asot.rank %></td>
   <% unless top_ten -%>
- <% if (1..5).include? asot.yearrank -%>
-   <td class="rank_<%= asot.yearrank -%>">
- <% else -%>
-  <td> 
+   <% if (1..5).include? asot.yearrank -%>
+   <td class="rank_<%= asot.yearrank -%>"><%= asot.yearrank %></td>
+   <% else -%>
+   <td><%= asot.yearrank %></td>
+   <% end -%>
  <% end -%>
-  <%= asot.yearrank %></td>
-  <% end -%>
-  <% unless asot.url %> 
-  <td>with <%= asot.votes %> votes</td>
-  <% else %>
-  <td><%= link_to(asot.votes, asot.url, :target => '_blank') %></td>
-  <% end %>
+ <td><%= link_to(asot.votes, asot.url, :target => '_blank') %></td>
   <td class='left'><%= h asot.notes %></td>
  </tr>
