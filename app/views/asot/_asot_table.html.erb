@@ -5,6 +5,11 @@
 
 <table>
  <tr>
+ <% unless top_ten -%>
+ <tr class='header'>
+   <th colspan="6">Episodes by <%= by_votes? ? 'Rank / Votes' : 'Airdate' %></th>
+ </tr>
+ <% end -%>
   <th>ASOT</th>
   <th><%= link_to_if(by_votes? && !top_ten, "Airdate", index_path(:anchor => "y#{y.to_s}")) %></th>
   <th><%= link_to_if(by_airdate? && !top_ten, "Rank", byrank_path(:anchor => "y#{y.to_s}")) %></th>
