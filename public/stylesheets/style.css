@@ -16,7 +16,14 @@ table {
 
 h1 {
   font-size: 2em;
+  color: #365D95;
 }
+
+h2 {
+  color: #365D95;
+}
+
+
 
 th {
  font-family: "Palatino", "Book Antiqua", serif;
@@ -52,12 +59,13 @@ hr {
  width: 300px;
  padding: 0px;
 }
+
 strong {
- color: #485775;
+ color: #365D95;
  font-size: 1.5em;
 }
 
-a { color: #485775;}
+a { color: #365D95;}
 a:visited { color: #333;}
 
 .biglink {
