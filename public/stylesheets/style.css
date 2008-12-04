@@ -156,3 +156,10 @@ tr.odd  td {
   padding: 3px;
 }
 
+/* Taken from Scruffy::Themes::Keynote.new.colors */
+.rank_1 {color: #FDD84E; font-weight: bold;}
+.rank_2 {color: #72AE6E; font-weight: bold;}
+.rank_3 {color: #D1695E; font-weight: bold;}
+.rank_4 {color: #8A6EAF; font-weight: bold;}
+.rank_5 {color: #EFAA43; font-weight: bold;}
+

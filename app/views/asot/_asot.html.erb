@@ -2,9 +2,14 @@
   top_ten = nil unless defined?(top_ten)
   top_ten = nil if local_assigns[:top_ten].nil?
 %>
-
  <tr class="<%= cycle("even", "odd") -%>">
-  <td class='no'><%= asot.no %></td>
+ <% if (1..5).include? asot.yearrank and not top_ten -%>
+   <td class="rank_<%= asot.yearrank -%>">
+ <% else -%>
+  <td class='no'> 
+ <% end -%>
+  <%= asot.no %></td>
+
   <td>
   <% if asot.airdate %> 
    <%= asot.airdate.strftime("%d-%b-%Y") %>
@@ -12,7 +17,12 @@
   </td>
   <td><%= asot.rank %></td>
   <% unless top_ten -%>
-  <td><%= asot.yearrank %></td>
+ <% if (1..5).include? asot.yearrank -%>
+   <td class="rank_<%= asot.yearrank -%>">
+ <% else -%>
+  <td> 
+ <% end -%>
+  <%= asot.yearrank %></td>
   <% end -%>
   <% unless asot.url %> 
   <td>with <%= asot.votes %> votes</td>
