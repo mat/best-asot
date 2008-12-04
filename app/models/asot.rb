@@ -145,7 +145,7 @@ class Asot < ActiveRecord::Base
    graph.title = "ASOT Episodes #{for_year}"
    graph.renderer = Scruffy::Renderers::Standard.new
 
-   graph.add :bar, "Votes", votes
+   graph.add :bar, "", votes
    1.upto(tops_shown) do |i|
      graph.add :bar, titles[i-1], tops[i-1]
    end
