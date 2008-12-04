@@ -131,9 +131,12 @@ a:visited { color: #333;}
   padding-right: 0px;
 }
 
+#faq {
+ font-family: "Lucida Grande", "Helvetica Neue", Helvetica, Verdana, sans-serif;
+}
+
 #faq li .q {
   font-size: 1.5em;
-  font-style: italic;
   padding-bottom: 0.5em;
 }
 
@@ -143,6 +146,7 @@ a:visited { color: #333;}
 
 #faq li {
   list-style-type: none;
+  font-family: "Lucida Grande", "Helvetica Neue", Helvetica, Verdana, sans-serif;
 }
 
 .centered {
