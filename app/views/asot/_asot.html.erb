@@ -4,8 +4,7 @@
 %>
 
  <tr class="<%= cycle("even", "odd") -%>">
-  <td><%= asot.no %>
-  </td>
+  <td class='no'><%= asot.no %></td>
   <td>
   <% if asot.airdate %> 
    <%= asot.airdate.strftime("%d-%b-%Y") %>
@@ -20,5 +19,5 @@
   <% else %>
   <td><%= link_to(asot.votes, asot.url, :target => '_blank') %></td>
   <% end %>
-  <td><%= h asot.notes %></td>
+  <td class='left'><%= h asot.notes %></td>
  </tr>
