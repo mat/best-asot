@@ -4,8 +4,8 @@ body, p, ol, ul {
   /* font-family: verdana, arial, helvetica, sans-serif; */
   font-family: Georgia, serif;
   font-family: "Palatino", "Book Antiqua", serif;
-  font-size:   13px;
-  line-height: 18px;
+  font-size:   14px;
+  line-height: 19px;
 }
 
 table {
@@ -14,6 +14,10 @@ table {
 
 h1 {
   font-size: 2em;
+}
+
+h2.updated {
+ font-size: 0.5em;
 }
 
 th {
@@ -154,6 +158,19 @@ tr.odd  td {
   background-color: #72c255;
   color: #fff;
   padding: 3px;
+}
+
+#intro {
+  width: 600px;
+  background-color: #fff;
+  padding: 0.8em;
+  padding-bottom: 0.3em;
+  padding-top: 0.3em;
+  border: 1px solid #485775;
+}
+
+#intro strong {
+ font-size: 1.0em;
 }
 
 /* Taken from Scruffy::Themes::Keynote.new.colors */
