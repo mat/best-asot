@@ -21,5 +21,15 @@ namespace :db do
     puts Asot.add_by_url_and_fetch ENV['url']
   end
 
+  desc "Update latest ASOT's votes."
+  task :update_latest_asot => :environment do
+    a = Asot.last
+    a.votes = Asot.fetch_di_votes(a.url)
+    if a.changed?
+      a.save!
+      puts "ASOT #{a.no} UPDATED to #{a.votes}."
+    else
+      puts "ASOT #{a.no} remains unchanged at #{a.votes}."
+    end
+  end
 end
-
