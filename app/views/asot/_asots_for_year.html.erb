@@ -4,5 +4,5 @@
 </p>
 
 
-<strong>Episodes by <%= by_votes? ? 'Votes' : 'Airdate' %></strong>
+<strong>Episodes by <%= by_votes? ? 'Rank / Votes' : 'Airdate' %></strong>
 <%= render :partial => 'asot_table', :locals => { :asots => asots, :y => year  } %>

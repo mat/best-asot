@@ -7,11 +7,11 @@
  <tr>
   <th>ASOT</th>
   <th><%= link_to_if(by_votes? && !top_ten, "Airdate", index_path(:anchor => y.to_s)) %></th>
-  <th>Rank</th>
+  <th><%= link_to_if(by_airdate? && !top_ten, "Rank", byrank_path(:anchor => y.to_s)) %></th>
   <% unless top_ten -%>
   <th>Year <br />Rank</th>
   <% end -%>
-  <th><%= link_to_if(by_airdate? && !top_ten, "Votes", byvotes_path(:anchor => y.to_s)) %></th>
+  <th>Votes</th>
   <th>Notes</th>
  </tr>
   <%= render :partial => 'asot', :collection => asots, :locals => {:top_ten => top_ten} %>
