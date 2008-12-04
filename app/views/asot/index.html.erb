@@ -18,9 +18,18 @@ What? Just the simply amazing votes should decide which one is the best ASOT? Is
 <p>Have fun!</p>
 </div>
 
+<ul class="toc">
+    <li> <a href="#top10">Top 10</a> </li>   
+    <li> <a href="#y2008">Year 2008</a> </li>   
+    <li> <a href="#y2007">Year 2007</a> </li>   
+    <li> <a href="#y2006">Year 2006</a> </li>   
+    <li> <a href="#faq">FAQ</a> </li>   
+</ul>
+
+
 <span class='updated'>updated: <%= @last_update.strftime("%d-%b-%Y") %></span>
 
-<h2>Top ASOTs off all time</h2>
+<h2 id='top10'>Top 10 ASOTs off all time</h2>
 <div>
 <%= render :partial => 'asot_table', :locals => { :asots => @by_votes[0..9], :top_ten => true, :y => '' } %>
 </div>

@@ -199,3 +199,29 @@ tr.odd  td {
 .rank_4 {color: #8A6EAF; font-weight: bold;}
 .rank_5 {color: #EFAA43; font-weight: bold;}
 
+/*** TOC ***/
+ul.toc {
+  font-size: 1.5em;
+  border-top: 1px solid #DCDDE0;
+  border-bottom: 1px solid #DCDDE0;
+	text-align: center;
+	padding: .5em;
+}
+
+ul.toc a:link, ul.toc a:visited {
+	color: #365D95;
+	text-decoration: none;
+	margin-right: 1em;
+	margin-left: 1em;
+}
+
+ul.toc a:hover, ul.toc a:active {
+	color: #1f2126;
+	text-decoration: underline;
+	margin-right: 1em;
+	margin-left: 1em;
+}
+
+ul.toc li {
+	display: inline;
+}
