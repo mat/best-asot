@@ -27,9 +27,10 @@ namespace :db do
     a.votes = Asot.fetch_di_votes(a.url)
     if a.changed?
       a.save!
-      puts "ASOT #{a.no} UPDATED to #{a.votes}."
+      RAILS_DEFAULT_LOGGER.info("ASOT #{a.no} UPDATED to #{a.votes}.")
     else
-      puts "ASOT #{a.no} remains unchanged at #{a.votes}."
+      RAILS_DEFAULT_LOGGER.info("ASOT #{a.no} remains unchanged at #{a.votes}.")
     end
+    RAILS_DEFAULT_LOGGER.flush
   end
 end
