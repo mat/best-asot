@@ -21,11 +21,12 @@ class AsotSweeper < ActionController::Caching::Sweeper
     cache_dir = ActionController::Base.page_cache_directory
     unless cache_dir == RAILS_ROOT+"/public"
       FileUtils.rm_r(Dir.glob(cache_dir+"/*")) rescue Errno::ENOENT
-      RAILS_DEFAULT_LOGGER.info("Cache directory '#{cache_dir}' fully sweeped.")
+      RAILS_DEFAULT_LOGGER.info("Cache directory '#{cache_dir}' FULLY sweeped.")
     end
     # Delete index.html - always.
     FileUtils.rm_r(Dir.glob(cache_dir+"/index.html")) rescue Errno::ENOENT
     FileUtils.rm_r(Dir.glob(cache_dir+"/by-rank.html")) rescue Errno::ENOENT
-  end
+    RAILS_DEFAULT_LOGGER.info("Cache directory '#{cache_dir}' sweeped.")
+    end
 end
 
