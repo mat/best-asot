@@ -1,6 +1,7 @@
 log/*.log
 tmp/**/*
 db/test.sqlite3
+db/production.sqlite3
 *.swp
 sitemap.txt
 public/index.html
