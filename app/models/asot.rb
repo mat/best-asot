@@ -54,6 +54,12 @@ class Asot < ActiveRecord::Base
     airdate = Time.local(airdate.year, airdate.month, airdate.day)
   end
 
+  def Asot.fetch_di_playing_track
+    xpath = "/html/body/table/tr/td/table/tr[2]/td/table/tr/td[1]/table/tr[3]/td[2]/a[1]"
+    doc = Hpricot(open('http://www.di.fm/trance/mini.html'))
+    doc.at(xpath)['href']
+  end
+
   def Asot.fetch_asots(episodes)
 
     problems = []

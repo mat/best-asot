@@ -43,4 +43,11 @@ namespace :db do
     a.save!
   end
 
+  desc "Sets latest ASOTs url to currently playing song on di.fm."
+  task :set_playing_track_url => :environment do
+    a = Asot.last
+    a.url = Asot.fetch_di_playing_track
+    a.save!
+  end
+
 end
