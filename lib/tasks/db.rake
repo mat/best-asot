@@ -33,4 +33,14 @@ namespace :db do
     end
     RAILS_DEFAULT_LOGGER.flush
   end
+
+  desc "Add Episode dummy for today."
+  task :add_episode_for_today => :environment do
+    a = Asot.new
+    a.url = ''
+    a.no  = Asot.last.no + 1
+    a.airdate = Time.today
+    a.save!
+  end
+
 end
