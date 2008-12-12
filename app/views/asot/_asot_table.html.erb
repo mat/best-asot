@@ -11,8 +11,8 @@
  <% end -%>
  <tr>
   <th>ASOT</th>
-  <th><%= link_to_if(by_votes? && !top_ten, "Airdate", index_path(:anchor => "y#{y.to_s}")) %></th>
-  <th><%= link_to_if(by_airdate? && !top_ten, "Rank", byrank_path(:anchor => "y#{y.to_s}")) %></th>
+  <th><%= link_to_if(by_votes? && !top_ten, "Airdate", index_path(:anchor => "y#{y.to_s}"), :title => 'sort by Airdate') %></th>
+  <th><%= link_to_if(by_airdate? && !top_ten, "Rank", byrank_path(:anchor => "y#{y.to_s}"), :title => 'sort by Rank') %></th>
   <% unless top_ten -%>
   <th>Year <br />Rank</th>
   <% end -%>
