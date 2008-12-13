@@ -25,7 +25,7 @@ namespace :db do
   task :update_latest_asot => :environment do
     a = Asot.last
     a.votes = Asot.fetch_di_votes(a.url)
-    if a.changed?
+    if a.votes_changed? && a.votes_was < a.votes
       a.save!
       RAILS_DEFAULT_LOGGER.info("ASOT #{a.no} UPDATED to #{a.votes}.")
     else
