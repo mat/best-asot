@@ -17,6 +17,9 @@
 	# On every THURSDAY at 22:01: Nuke "running now" label
 	1 22 * * 4 cd /to/best-asot && /usr/local/bin/rake RAILS_ENV=production cache:sweep >/dev/null 2>&1
 
+	# On every THURSDAY at 22:10: Update graphs
+	10 22 * * 4 cd /to/best-asot && /usr/local/bin/rake RAILS_ENV=production votes_by_year_png >/dev/null 2>&1
+
 	# Backup sqlite db
 	# At minute 45 of every hour
 	45 * * * * /to/best-asot/script/backup-asot-db
