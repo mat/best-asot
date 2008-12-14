@@ -2,12 +2,6 @@
 
 ### Cron jobs
 
-	# On every day at 07:00
-	0 7 * * * cd /to/best-asot && /usr/local/bin/rake RAILS_ENV=production cache:sweep >/dev/null 2>&1
-	
-	# At minute 42 of every hour
-	42 * * * * cd /to/best-asot && /usr/local/bin/rake RAILS_ENV=production db:update_latest_asot >/dev/null 2>&1 
-
 	# On every THURSDAY, at 10:00
 	0 10 * * 4 cd /to/best-asot && /usr/local/bin/rake RAILS_ENV=production db:add_episode_for_today >/dev/null 2>&1
 
@@ -22,6 +16,12 @@
 
 	# On every THURSDAY at 22:10: Update graphs
 	10 22 * * 4 cd /to/best-asot && /usr/local/bin/rake RAILS_ENV=production votes_by_year_png >/dev/null 2>&1
+
+	# On every day at 07:00
+	0 7 * * * cd /to/best-asot && /usr/local/bin/rake RAILS_ENV=production cache:sweep >/dev/null 2>&1
+	
+	# At minute 42 of every hour
+	42 * * * * cd /to/best-asot && /usr/local/bin/rake RAILS_ENV=production db:update_latest_asot >/dev/null 2>&1 
 
 	# Backup sqlite db
 	# At minute 45 of every hour
