@@ -8,6 +8,9 @@
 	# At minute 42 of every hour
 	42 * * * * cd /to/best-asot && /usr/local/bin/rake RAILS_ENV=production db:update_latest_asot >/dev/null 2>&1 
 
+	# On every THURSDAY, at 10:00
+	0 10 * * 4 cd /to/best-asot && /usr/local/bin/rake RAILS_ENV=production db:add_episode_for_today >/dev/null 2>&1
+
 	# On every THURSDAY, at 20:08, 20:16, 20:24, ...
 	*/8 20-21 * * 4 cd /to/best-asot && /usr/local/bin/rake RAILS_ENV=production db:update_latest_asot >/dev/null 2>&1
 
