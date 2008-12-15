@@ -6,4 +6,7 @@ db/production.sqlite3
 sitemap.txt
 public/index.html
 public/by-rank.html
+current/**
+releases/**
+shared/**
 
