@@ -15,3 +15,11 @@ set :branch, "master"
 
 server "better-idea.org", :app, :web, :db, :primary => true
 
+desc "A setup task to put shared system, log, and database directories in place"
+task :setup, :roles => [:app, :db, :web] do
+run <<-CMD
+mkdir -p -m 775 #{release_path} #{shared_path}/system #{shared_path}/db &&
+mkdir -p -m 777 #{shared_path}/log
+CMD
+end
+
