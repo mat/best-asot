@@ -23,3 +23,13 @@ mkdir -p -m 777 #{shared_path}/log
 CMD
 end
 
+
+namespace :cache do
+  desc "rake cache:sweep"
+  task :sweep do
+    run "cd #{current_path} && rake cache:sweep"
+  end
+end
+
+after :deploy, "cache:sweep"
+
