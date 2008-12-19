@@ -1,3 +1,3 @@
 #!/bin/bash
-cd /to/asot/backup && rsync -az -vv -b --suffix=-`date +%Y-%m-%d-%H-%M-%S` USER@better-idea.org\:/to/best-asot/db/production.sqlite3 . >>rsync.log 2>&1
+cd /home/mat/backup/asot && rsync -az -vv -b --suffix=-`date +%Y-%m-%d-%H-%M-%S` mat@better-idea.org\:/home/mat/www/best-asot/shared/db/production.sqlite3 /home/mat/backup/asot/  >>/home/mat/backup/asot/rsync.log 2>&1
 
