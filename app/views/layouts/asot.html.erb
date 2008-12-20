@@ -14,20 +14,14 @@
   <% end %>
   <link rel="shortcut icon" href="<%= image_path('favicon.png') %>" />
 
-
-  <% if @tracker %>
-   <link rel="alternate" type="application/atom+xml" 
-         href="<%= "#{url_for(@tracker)}.atom" %>" />
-   <link rel="microsummary" type="text/plain"
-         href="<%= "#{url_for(@tracker)}.microsummary" %>" />
-  <% end %>
-
 </head>
 <body>
 
 <div id='contentdiv' class='textonly'>
   <%= yield  %>
 </div>
+
+<a href="http://github.com/mat/best-asot" target='_blank'><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" /></a>
 
 <div id='footer'>
   <hr />
