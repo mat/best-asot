@@ -3,7 +3,7 @@
   top_ten = nil if local_assigns[:top_ten].nil?
 %>
  <tr class="<%= cycle("even", "odd") -%>">
- <% if (1..5).include? asot.yearrank and not top_ten -%>
+ <% if (1..5).include? asot.yearrank and asots.size > 5 and not top_ten -%>
   <td class="rank_<%= asot.yearrank -%>"><%= asot.no %></td>
  <% else -%>
   <td class='no'><%= asot.no %></td>
@@ -11,7 +11,7 @@
   <%= format_airdate(asot) %>
    <td><%= asot.rank %></td>
   <% unless top_ten -%>
-   <% if (1..5).include? asot.yearrank -%>
+   <% if (1..5).include? asot.yearrank and asots.size > 5 -%>
    <td class="rank_<%= asot.yearrank -%>"><%= asot.yearrank %></td>
    <% else -%>
    <td><%= asot.yearrank %></td>
