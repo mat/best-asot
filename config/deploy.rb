@@ -31,10 +31,12 @@ namespace :cache do
   end
 end
 
-desc "rake votes_by_year_png"
-task :votes_by_year_png do
-  run "cd #{current_path} && rake RAILS_ENV=production votes_by_year_png"
+namespace :images do
+  desc "rake images:create"
+  task :create do
+    run "cd #{current_path} && rake RAILS_ENV=production images:create"
+  end
 end
 
-after :deploy, "cache:sweep", "votes_by_year_png"
+after :deploy, "cache:sweep", "images:create"
 

@@ -12,7 +12,7 @@
 	5-20 20 * * 4   cd /to/best-asot/current && /usr/local/bin/rake RAILS_ENV=production db:set_playing_track_url >/dev/null 2>&1
 
 	# On every THURSDAY at 22:10: Update graphs
-	10 22 * * 4     cd /to/best-asot/current && /usr/local/bin/rake RAILS_ENV=production votes_by_year_png >/dev/null 2>&1
+	10 22 * * 4     cd /to/best-asot/current && /usr/local/bin/rake RAILS_ENV=production images:create >/dev/null 2>&1
 
 	# On every THURSDAY at 22:12: Nuke "running now" label
 	12 22 * * 4     cd /to/best-asot/current && /usr/local/bin/rake RAILS_ENV=production cache:sweep >/dev/null 2>&1
