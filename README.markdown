@@ -23,6 +23,9 @@
 	# At minute 42 of every hour
 	42 * * * *      cd /to/best-asot/current && /usr/local/bin/rake RAILS_ENV=production db:update_latest_asot >/dev/null 2>&1 
 
+	# At minute 44 of every hour
+	44 * * * *      cd /to/best-asot/current && /usr/local/bin/rake RAILS_ENV=production images:create >/dev/null 2>&1
+
 	# Backup sqlite db
 	# At minute 45 of every hour
 	45 * * * * /to/best-asot/script/backup-asot-db
