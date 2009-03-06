@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <meta name="description" content="Best A State of Trance (ASOT) episode ever?" />
+  <meta name="keywords" content="best, asot, episode, State, Trance" />
+
+  <title>Best ASOT ever &mdash; searching for the greatest A State of Trance episode</title>
+  <link href="asot.css" media="screen" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+<div id='contentdiv' class='textonly'>
+
+
+  <h1><a href='/'>Best ASOT ever?</a></h1>
+<div id='intro'>
+<p>So, which is the best <a href='http://www.arminvanbuuren.com/asot/' target='_blank'>
+A State of Trance</a> Episode, after all? Frankly, I don't know either.</p>
+
+<p>But to help you decide which is the best, I have compiled this list of ASOT episodes from recent years. 
+The number of <i>simply amazing!</i> votes from the <a href="http://di.fm" target='_blank'>Digitally Imported</a> forum posts is listed for each ASOT episode as a popularity indicator.
+</p>
+
+<p>Have fun!</p>
+</div>
+
+<ul class="toc">
+    <li> <a href="#top10">Top 10</a> </li>   
+    <li> <a href="#y2009">2009</a> </li>   
+    <li> <a href="#y2008">2008</a> </li>   
+    <li> <a href="#y2007">2007</a> </li>   
+    <li> <a href="#y2006">2006</a> </li>   
+    <li> <a href="#faq">FAQ</a> </li>   
+</ul>
+
+
+
+<h2 id='top10'>Top 10 ASOTs off all time</h2>
+<div>
+<%= # partial :asot_table, :locals => { :asots => @by_votes[0..9], :top_ten => true, :y => '' } 
+%>
+</div>
+
+<%= partial :asots_for_year, :locals => { :year => '2009', :asots => @episodes_2009, :top_ten => false  } %>
+<%= partial :asots_for_year, :locals => { :year => '2008', :asots => @episodes_2008, :top_ten => false  } %>
+
+
+<%= partial :faq %>
+
+
+</div>
+
+<a href="http://github.com/mat/best-asot" target='_blank'><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" /></a>
+
+<div id='footer'>
+  <hr />
+  <p>
+  <span class='updated' id='last_update'>updated: <%= @last_update.strftime("%d-%b-%Y") %></span>
+  <br />
+   <a href='/'>Best ASOT ever</a>, tracking ASOTs popularity since November 2008.
+   <br />
+   Created by <a href='http://matthias-luedtke.de'>Matthias Lüdtke</a>,
+   <a href='http://github.com/mat/best-asot/commits/master/'>source available</a>.
+   <br />
+
+  </p>
+
+</div>
+
+
+<!-- Google Analytics ! TODO -->
+<%= #partial :google_analytics 
+%>
+
+</body>
+</html>
+
+

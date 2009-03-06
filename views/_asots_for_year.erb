@@ -1,0 +1,55 @@
+<h2 id="y<%= year%>">ASOT Episodes <%= year %></h2>
+<% if asots.size > 5 %>
+<p class='centered'>
+  <img src='/images/votes_<%= year %>.png' alt='Top Episodes in <%= year %>' />
+</p>
+<% end %>
+
+<table>
+ <% unless top_ten %>
+ <tr class='header'>
+   <th colspan="6">Episodes by <%= # by_votes? ? 'Rank / Votes' : 'Airdate' 
+  %></th>
+ </tr>
+ <% end %>
+ <tr>
+  <th>ASOT</th>
+  <th><%= # link_to_if(by_votes? && !top_ten, "Airdate", index_path(:anchor => "y#{y.to_s}"), :title => 'sort by Airdate') 
+   %></th>
+  <th><%= #link_to_if(by_airdate? && !top_ten, "Rank", byrank_path(:anchor => "y#{y.to_s}"), :title => 'sort by Rank') 
+   %></th>
+  <% unless top_ten %>
+  <th>Year <br />Rank</th>
+  <% end %>
+  <th>Votes</th>
+  <th>Notes</th>
+ </tr>
+
+
+ <% asots.each do |asot| %>
+
+ <!-- TODO  class='cycle("even", "odd")' !-->
+ <tr>
+ <% if (1..5).include? asot.yearrank and asots.size > 5 and not top_ten %>
+  <td class="rank_<%= asot.yearrank %>"><%= asot.no %></td>
+ <% else %>
+  <td class='no'><%= asot.no %></td>
+ <% end %>
+ <!-- TODO  format_airdate !-->
+   <td><%= asot.airdate %></td>
+   <td><%= asot.rank %></td>
+  <% unless top_ten %>
+   <% if (1..5).include? asot.yearrank and asots.size > 5 %>
+   <td class="rank_<%= asot.yearrank %>"><%= asot.yearrank %></td>
+   <% else %>
+   <td><%= asot.yearrank %></td>
+   <% end %>
+ <% end %>
+ <td><a href='<%= asot.url %>' target='_blank'><%= asot.votes %></a></td>
+    <!-- TODO h asot.notes !-->
+  <td class='left'><%= asot.notes %></td>
+ </tr>
+
+ <% end %>
+
+</table>
