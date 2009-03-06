@@ -1,4 +1,5 @@
-require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
+#require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
+# TODO port to Test::Unit
 
 describe Asot do
   before(:each) do
