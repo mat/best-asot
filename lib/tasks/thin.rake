@@ -9,5 +9,11 @@ namespace :thin do
   task :stop do
     `nohup thin -C thin/development_config.yml -R thin/config.ru stop`
   end
+
+  desc "Start Thin server in prodcution environment."
+  task 'start:production' do
+    `nohup thin -C thin/production_config.yml -R thin/config.ru start`
+  end
+
 end
 
