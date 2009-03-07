@@ -4,17 +4,9 @@ require 'rubygems'
 require 'sinatra'
 require 'activerecord'
 
+require 'lib/config'
 require 'lib/models'
 require 'lib/helpers'
-
-#ActiveRecord::Base.logger = Logger.new(STDOUT)
-ActiveRecord::Base.establish_connection(
-  :adapter => 'sqlite3',
-  :dbfile =>  'db/development.sqlite3'
-)
-
-set :views,  File.expand_path(File.join(File.dirname(__FILE__),'..','views'))
-set :public,  File.expand_path(File.join(File.dirname(__FILE__),'..','public'))
 
 #Sinatra::Application.default_options.merge!(
   #:views => File.join(ROOT_DIR, '..', 'views')

@@ -1,0 +1,13 @@
+---
+    environment: development
+    chdir: /home/mat/repos/git/best-asot
+    address: 127.0.0.1
+    port: 4567
+    pid: /home/mat/repos/git/best-asot/tmp/thin.pid
+    rackup: /home/mat/repos/git/best-asot/thin/config.ru
+    log: /home/mat/repos/git/best-asot/log/thin.log
+    max_conns: 1024
+    timeout: 30
+    max_persistent_conns: 512
+    daemonize: true
+
