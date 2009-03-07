@@ -1,10 +1,8 @@
 require 'sinatra'
  
-Sinatra::Application.default_options.merge!(
-  :run => false,
-  :env => :production
-)
- 
+set :environment, :production
+disable :run, :reload
+
 require 'lib/asot'
-run Sinatra.application
+run Sinatra::Application
 
