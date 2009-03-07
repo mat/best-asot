@@ -6,48 +6,42 @@
 <% end %>
 
 <table>
- <% unless top_ten %>
  <tr class='header'>
-   <th colspan="6">Episodes by <%= # by_votes? ? 'Rank / Votes' : 'Airdate' 
-  %></th>
+   <th colspan="6">Episodes by <%= by_votes? ? 'Rank / Votes' : 'Airdate' %></th>
  </tr>
- <% end %>
  <tr>
   <th>ASOT</th>
-  <th><%= # link_to_if(by_votes? && !top_ten, "Airdate", index_path(:anchor => "y#{y.to_s}"), :title => 'sort by Airdate') 
-   %></th>
-  <th><%= #link_to_if(by_airdate? && !top_ten, "Rank", byrank_path(:anchor => "y#{y.to_s}"), :title => 'sort by Rank') 
-   %></th>
-  <% unless top_ten %>
-  <th>Year <br />Rank</th>
+  <% if by_votes? %>
+  <th><a href='<%="/#y#{year.to_s}"%>' title='sort by Airdate'>Airdate</a></th>
+  <th>Rank</th>
+  <% else %>
+  <th>Airdate</th>
+  <th><a href='<%="/by-rank#y#{year.to_s}"%>' title='sort by Rank'>Rank</a></th>
   <% end %>
+  <th>Year <br />Rank</th>
   <th>Votes</th>
   <th>Notes</th>
  </tr>
 
 
+ <% cycle = cycle || "even" %>
  <% asots.each do |asot| %>
 
- <!-- TODO  class='cycle("even", "odd")' !-->
- <tr>
- <% if (1..5).include? asot.yearrank and asots.size > 5 and not top_ten %>
+ <tr class='<%= cycle = (cycle == 'even' ? 'odd' : 'even') %>'>
+ <% if (1..5).include? asot.yearrank and asots.size > 5 %>
   <td class="rank_<%= asot.yearrank %>"><%= asot.no %></td>
  <% else %>
   <td class='no'><%= asot.no %></td>
  <% end %>
- <!-- TODO  format_airdate !-->
-   <td><%= asot.airdate %></td>
+   <%= format_airdate(asot) %>
    <td><%= asot.rank %></td>
-  <% unless top_ten %>
    <% if (1..5).include? asot.yearrank and asots.size > 5 %>
    <td class="rank_<%= asot.yearrank %>"><%= asot.yearrank %></td>
    <% else %>
    <td><%= asot.yearrank %></td>
    <% end %>
- <% end %>
  <td><a href='<%= asot.url %>' target='_blank'><%= asot.votes %></a></td>
-    <!-- TODO h asot.notes !-->
-  <td class='left'><%= asot.notes %></td>
+  <td class='left'><%= h asot.notes %></td>
  </tr>
 
  <% end %>
