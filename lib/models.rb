@@ -1,3 +1,9 @@
+require 'net/http'
+require 'uri'
+require 'hpricot'
+require 'open-uri'
+require 'json'
+
 class Asot < ActiveRecord::Base
   extend ActiveSupport::Memoizable
 

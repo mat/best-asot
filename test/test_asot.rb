@@ -1,63 +1,46 @@
 #require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
-# TODO port to Test::Unit
 
-describe Asot do
-  before(:each) do
-    @valid_attributes = {
-      :no => "1",
-      :url => "value for di_url",
-      :votes => "1"
-    }
+require 'rubygems'
+require 'activerecord'
+require 'lib/models'
+require 'test/unit'
+
+class AsotTest < Test::Unit::TestCase
+
+  def test_grep_the_forum_url_given_an_episode_number
+    uri = Asot.fetch_di_uri(369)
+    assert_equal 'http://forums.di.fm/trance/armin-van-buuren-presents-state-of-trance-episode-369-a-146900/', uri
   end
 
-  it "should create a new instance given valid attributes" do
-    Asot.create!(@valid_attributes)
+  def test_grep_the_vote_count_given_a_forum_uri
+    votes = Asot.fetch_di_votes('http://forums.di.fm/trance/armin-van-buuren-presents-state-of-trance-episode-369-a-146900/')
+    assert_equal 25, votes
   end
 
-  it "should grep the di.fm forum url given an episode number" do
-    Asot.fetch_di_uri(369).should== 'http://forums.di.fm/trance/armin-van-buuren-presents-state-of-trance-episode-369-a-146900/'
+  def test_grep_the_airdate_given_a_forum_uri
+    airdate = Asot.fetch_di_date('http://forums.di.fm/trance/armin-van-buuren-presents-state-of-trance-episode-369-a-146900/')
+    assert_equal Time.local(2008,9,11), airdate
   end
 
-  it "should grep the vote count from a given di.fm forum uri" do
-    Asot.fetch_di_votes('http://forums.di.fm/trance/armin-van-buuren-presents-state-of-trance-episode-369-a-146900/').should== 25
-  end
-
-  it "should grep the airdate from a given di.fm forum uri" do
-    Asot.fetch_di_date('http://forums.di.fm/trance/armin-van-buuren-presents-state-of-trance-episode-369-a-146900/').should== Time.local(2008,9,11)
-  end
-
-  it "should remove the 'index...html from a di.fm uri path" do
-    url = "http://forums.di.fm/trance/armin-van-buuren-presents-state-of-trance-episode-350-live-140099/index89.html"
-    Asot.remove_index_html_from_path(url).should== "http://forums.di.fm/trance/armin-van-buuren-presents-state-of-trance-episode-350-live-140099/"
-  end
-
-  it "should sanity check the url for presence of ep no" do
-    Asot.check_url(350, '...episode-350-live').should== true
-    Asot.check_url(42, '...episode-350-live').should== false
-  end
-
-  it "should sanity check the airdate" do
-    Asot.date_is_thursday?(Time.parse('Thu, 30 Oct 2008')).should== true
-    Asot.date_is_thursday?(Time.parse('Thu, 29 Oct 2008')).should== false
-  end
-
-  it "should calculate the rank for an episodes based on the votes" do
+  def TODO_test_calculate_rank_based_on_votes
     a = Asot.create(:no => 1, :votes => 1)
     b = Asot.create(:no => 2, :votes => 10)
     c = Asot.create(:no => 3, :votes => 100)
     [a,b,c].each{ |x| x.save! }
 
-    a.rank.should== 3
-    b.rank.should== 2
-    c.rank.should== 1
+    assert_equal 3, a.rank
+    assert_equal 2, b.rank
+    assert_equal 1, c.rank
   end
 
-  it "should add a new episode and fetch votes and airdate." do
+  def TODO_test_add_new_episode_with_votes_and_airdate
     url = 'http://forums.di.fm/trance/armin-van-buuren-presents-state-of-trance-episode-377-a-150099/'
     a = Asot.add_by_url_and_fetch(url)
-    
-    a.no.should== 377
-    a.votes.should== 32
-    a.airdate.should== Time.parse('Thu, 6 Nov 2008')
+
+    assert_equal 377, a.no
+    assert_equal 32, a.votes
+    assert_equal Time.parse('Thu, 6 Nov 2008'), a,airdate
   end
+
 end
+
