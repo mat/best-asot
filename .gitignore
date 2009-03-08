@@ -1,5 +1,5 @@
 log/*.log
-log/*.pid
+tmp/*.pid
 tmp/**/*
 thin/development_config.yml
 db/test.sqlite3
