@@ -60,78 +60,6 @@ class Asot < ActiveRecord::Base
     doc.at(xpath)['href']
   end
 
-  def Asot.fetch_asots(episodes)
-
-    problems = []
-    episodes.each { |ep| 
-      a = Asot.new 
-      a.no=ep; 
-      print "Fetching ep #{ep}... "
-      begin
-      a.url   = Asot.fetch_di_uri(ep) 
-      a.votes = Asot.fetch_di_votes(a.url)
-      a.save!
-      puts "ok"
-      rescue Exception => e
-        puts "FAILED #{e}"
-        problems << ep
-      end
-    }
-    problems
-  end
-
-  def Asot.missing_asots
-    episodes = Asot.all.map{|a| a.no}
-    missing_episodes = []
-    (episodes.min..episodes.max).each{ |e|
-     missing_episodes << e unless Asot.find_by_no(e)
-    }
-    puts "Should have #{episodes.max - episodes.min + 1} episodes, #{missing_episodes.length} are missing:"
-    missing_episodes
-  end
-
-  def Asot.fetch_airdates(asots = Asot.all)
-    problems = []
-
-    asots.each do |a|
-      print "Fetching airdate #{a.no}... "
-      begin
-        if a.airdate.nil? && a.url
-          a.airdate = fetch_di_date(a.url)
-          a.save!
-          puts 'fetched'
-        else
-          puts 'not possible/necessary'
-        end
-      rescue Exception => e
-        puts "FAILED #{e}"
-        problems << a.no
-      end
-    end
-    problems
-  end
-
-  def Asot.remove_index_html_from_path(url)
-    i = url.index(/\/index.*\.html/)
-    return nil unless i
-    url[0..i]
-  end
-
-  def Asot.tidy_urls(asots = Asot.all)
-    count = 0
-    asots.each do |a|
-      tidy = Asot.remove_index_html_from_path a.url
-      if tidy
-        puts a.url
-        puts tidy
-        count += 1
-        a.url = tidy
-        a.save!
-      end
-    end
-    count
-  end
-
   def Asot.episode_and_votes(for_year=Time.now.year)
    episodes = Asot.all.find_all{|a| a.airdate && a.airdate.year == for_year}
    episodes_nos_and_votes = episodes.map{|a| [a.no, a.votes] }.sort
@@ -162,43 +90,6 @@ class Asot < ActiveRecord::Base
                 :max_value => ((top_vote + 20) / 20).floor * 20,
                 :to => "public/images/votes_#{for_year}.svg"
    :ok
-  end
-
-  # rake db:write_notes
-  def Asot.write_notes(csv_data)
-    csv_data.each { |no,text| 
-      a = Asot.find_by_no(no.to_i)
-      a.notes = text
-      a.save!
-    }
-    :ok
-  end
-
-  def Asot.check_url(no, url)
-    url.index(no.to_s) != nil
-  end
-
-  def Asot.check_urls(asots = Asot.all(:order => 'no'))
-    problems = []
-
-    asots.each do |a|
-      print "Checking url #{a.no}... "
-      begin
-        if a.url
-         if Asot.check_url(a.no, a.url)
-          puts 'ok'
-         else
-          puts 'ooooooops'
-         end
-        else
-          puts 'no url'
-        end
-      rescue Exception => e
-        puts "FAILED #{e}"
-        problems << a.no
-      end
-    end
-    problems
   end
 
   def Asot.date_is_thursday?(time)
