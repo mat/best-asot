@@ -252,3 +252,10 @@ ul.toc a:hover, ul.toc a:active {
 ul.toc li {
 	display: inline;
 }
+
+
+.gone
+{
+text-decoration:line-through;
+}
+
