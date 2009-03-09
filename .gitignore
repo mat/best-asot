@@ -2,7 +2,6 @@ log/*.log
 tmp/*.pid
 tmp/**/*
 thin/development_config.yml
-db/test.sqlite3
 db/production.sqlite3
 *.swp
 sitemap.txt
