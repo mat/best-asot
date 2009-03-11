@@ -31,14 +31,21 @@ class AsotTest < Test::Unit::TestCase
   end
 
   def test_calculate_rank_based_on_votes
-    a = Asot.create(:no => 1, :votes => 1)
-    b = Asot.create(:no => 2, :votes => 10)
-    c = Asot.create(:no => 3, :votes => 100)
-    [a,b,c].each{ |x| x.save! }
+    no_1 = Asot.create(:no => 1, :airdate => Time.parse('Thu,  6 Nov 2008'), :votes => 1000)
+    no_2 = Asot.create(:no => 2, :airdate => Time.parse('Thu,  6 Nov 2009'), :votes => 10)
+    no_3 = Asot.create(:no => 3, :airdate => Time.parse('Thu, 13 Nov 2009'), :votes => 10000000000)
+    no_4 = Asot.create(:no => 4, :airdate => Time.parse('Thu, 20 Nov 2009'), :votes => 100000)
+    [no_1,no_2,no_3,no_4].each{ |x| x.save! }
 
-    assert_equal 3, a.rank
-    assert_equal 2, b.rank
-    assert_equal 1, c.rank
+    assert_equal 3, no_1.rank
+    assert_equal 4, no_2.rank
+    assert_equal 1, no_3.rank
+    assert_equal 2, no_4.rank
+
+    assert_equal 1, no_1.yearrank
+    assert_equal 3, no_2.yearrank
+    assert_equal 1, no_3.yearrank
+    assert_equal 2, no_4.yearrank
   end
 
   def test_add_new_episode_with_votes_and_airdate
