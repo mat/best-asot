@@ -12,21 +12,26 @@ class Asot < ActiveRecord::Base
   validates_uniqueness_of :url, :allow_nil => true
   validates_uniqueness_of :airdate, :allow_nil => true
 
+  # OK, rank and yearrank remain slow as hell for the time being.
+  # I give up, they have won. For now.
+  #
+  # 1. Most SQL-fu won't work because Sqlite does not support it.
+  # 2. ActiveRecord's callbacks won't work easily here, only hackish.
+  # 3. Memoization should work but we want to cut down memory usage
+  #    so this is not an option. If memoization, then write our own.
+  #
+  # Let's cache this later on HTTP level with Rack::Cache and friends.
+  # Oh, and the server is much faster than this old laptop, anyway...
+  # If this does not suffice, I shall come back here.
   def rank
-    unless defined? @rank
-      @by_votes = Asot.all(:order => 'votes DESC')
-      @rank = @by_votes.index(self) + 1
-    end
-    @rank
+    asots = Asot.all(:order => 'votes DESC')
+    asots.index(self) + 1
   end
 
   def yearrank
-    -1 if self.airdate.nil?
-    unless defined? @yearrank
-      @by_votes = Asot.find_by_year(airdate.year, 'votes DESC')
-      @yearrank = @by_votes.index(self) + 1
-    end
-    @yearrank
+    return -1 if self.airdate.nil?
+    asots = Asot.find_by_year(airdate.year, 'votes DESC')
+    asots.index(self) + 1
   end
 
   def Asot.fetch_di_uri(episode_number)
