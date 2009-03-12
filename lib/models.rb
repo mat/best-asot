@@ -1,8 +1,3 @@
-require 'net/http'
-require 'uri'
-require 'hpricot'
-require 'open-uri'
-require 'json'
 require 'activerecord'
 
 class Asot < ActiveRecord::Base
@@ -36,6 +31,8 @@ class Asot < ActiveRecord::Base
   end
 
   def Asot.fetch_di_uri(episode_number)
+    require 'net/http'
+    require 'json'
     # Let's emulate
     #  curl -e http://better-idea.org 'http://ajax.googleapis.com/'
     #  'ajax/services/search/web?v=1.0&'
@@ -54,12 +51,16 @@ class Asot < ActiveRecord::Base
   end
 
   def Asot.fetch_di_votes(di_forums_uri)
+    require 'hpricot'
+    require 'open-uri'
     xpath = "/html/body/div[1]/div/div/table[3]/tr[2]/td[3]/strong/a"
     doc = Hpricot(open(di_forums_uri))
     votes = doc.at(xpath).inner_html.to_i
   end
 
   def Asot.fetch_di_date(di_forums_uri)
+    require 'hpricot'
+    require 'open-uri'
     xpath = "/html/body/div[2]/div[1]/div/div/div/table/tr[1]/td[1]"
     doc = Hpricot(open(di_forums_uri))
     airdate = Time.parse(doc.at(xpath).inner_text.strip)
@@ -67,6 +68,8 @@ class Asot < ActiveRecord::Base
   end
 
   def Asot.fetch_di_playing_track
+    require 'hpricot'
+    require 'open-uri'
     xpath = "/html/body/table/tr/td/table/tr[2]/td/table/tr/td[1]/table/tr[3]/td[2]/a[1]"
     doc = Hpricot(open('http://www.di.fm/trance/mini.html'))
     doc.at(xpath)['href']
