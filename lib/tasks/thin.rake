@@ -1,4 +1,3 @@
-namespace :thin do
 
   desc "Start Thin server."
   task :start do
@@ -14,6 +13,4 @@ namespace :thin do
   task 'start:production' do
     `nohup thin -C thin/production_config.yml -R thin/config.ru start`
   end
-
-end
 
