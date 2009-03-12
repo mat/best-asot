@@ -174,7 +174,8 @@ class Asot < ActiveRecord::Base
   end
 
   def Asot.last_update
-    Asot.last(:order => 'updated_at').updated_at
+    # SELECT MAX(updated_at) FROM asots
+    Asot.first(:order => 'updated_at DESC').updated_at
   end
 
   def Asot.find_by_year(y, order = 'airdate DESC')

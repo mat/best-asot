@@ -16,7 +16,10 @@ require 'lib/helpers'
 
 ["/", "/by-rank"].each do |path|
   get path do
-    @by_votes      = Asot.all(:order => 'votes DESC', :limit => 10)
+    @last_update = Asot.last_update
+    last_modified @last_update
+
+    @by_votes = Asot.all(:order => 'votes DESC', :limit => 10)
 
     @order = 'airdate DESC'
     @order = 'votes DESC' if request.path_info == '/by-rank'
@@ -25,8 +28,6 @@ require 'lib/helpers'
     @episodes_2008 = Asot.find_by_year(2008, @order)
     @episodes_2007 = Asot.find_by_year(2007, @order)
     @episodes_2006 = Asot.find_by_year(2006, @order)
-
-    @last_update   = Asot.last_update
 
     erb :index
   end

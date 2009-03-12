@@ -4,13 +4,15 @@ require 'rubygems'
 require 'activerecord'
 require 'lib/models'
 require 'test/unit'
+require 'sinatra/test/unit'
+require 'lib/asot'
 
 ActiveRecord::Base.establish_connection(
   :adapter => 'sqlite3',
   :dbfile =>  'db/test.sqlite3'
 )
 
-class AsotTest < Test::Unit::TestCase
+class AsotModelTest < Test::Unit::TestCase
   def setup
     Asot.delete_all
   end
@@ -55,6 +57,53 @@ class AsotTest < Test::Unit::TestCase
     assert_equal 377, a.no
     assert_equal 32, a.votes
     assert_equal Time.parse('Thu, 6 Nov 2008'), a.airdate
+  end
+
+end
+
+class AsotTest < Test::Unit::TestCase
+  def setup
+    Asot.delete_all
+    create_some_asots
+  end
+
+  private
+  def assert_stat(expected_code)
+    assert_equal expected_code, status
+  end
+
+  def create_some_asots
+    Asot.create!(:no => 1, :airdate => Time.parse('Thu,  6 Nov 2008'), :votes => 1000)
+    Asot.create!(:no => 2, :airdate => Time.parse('Thu,  6 Nov 2009'), :votes => 10)
+    Asot.create!(:no => 3, :airdate => Time.parse('Thu, 13 Nov 2009'), :votes => 10000000000)
+    Asot.create!(:no => 4, :airdate => Time.parse('Thu, 20 Nov 2009'), :votes => 100000)
+  end
+
+  public
+  def test_simple_get
+    get "/"
+    assert response.ok?
+    assert response['Last-Modified']
+    assert_equal Asot.last_update.httpdate, response['Last-Modified']
+  end
+
+  def test_cached_get_with_fresh_if_modified_since
+    last_modified = Asot.last_update
+
+    get "/", {}, 'HTTP_IF_MODIFIED_SINCE' => last_modified.httpdate
+    assert_stat 304
+    assert response['Last-Modified']
+    assert_equal last_modified.httpdate, response['Last-Modified']
+  end
+
+
+  def test_cached_get_with_stale_if_modified_since
+    last_modified = Asot.last_update
+
+    get "/", {}, 'HTTP_IF_MODIFIED_SINCE' => (last_modified - 1000).httpdate
+    assert_stat 200
+    assert response['Last-Modified']
+    assert_equal Asot.last_update.httpdate, response['Last-Modified']
   end
 
 end
