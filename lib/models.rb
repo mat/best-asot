@@ -3,6 +3,7 @@ require 'uri'
 require 'hpricot'
 require 'open-uri'
 require 'json'
+require 'activerecord'
 
 class Asot < ActiveRecord::Base
   extend ActiveSupport::Memoizable
