@@ -19,7 +19,7 @@ require 'lib/helpers'
     @last_update = Asot.last_update
     last_modified @last_update
 
-    @by_votes = Asot.all(:order => 'votes DESC', :limit => 10)
+    @top_ten = Asot.all(:order => 'votes DESC', :limit => 10)
 
     @order = 'airdate DESC'
     @order = 'votes DESC' if request.path_info == '/by-rank'
