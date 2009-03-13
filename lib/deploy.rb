@@ -13,11 +13,11 @@ server "better-idea.org", :app, :web, :db, :primary => true
  
 namespace :deploy do
   task :start, :roles => [:web, :app] do
-    run "cd #{deploy_to}/current && nohup thin -C thin/production_config.yml -R thin/config.ru -e production start"
+    run "cd #{deploy_to}/current && nohup thin -C thin/production_config.yml -R thin/config.ru start"
   end
  
   task :stop, :roles => [:web, :app] do
-    run "cd #{deploy_to}/current && nohup thin -C thin/production_config.yml -R thin/config.ru -e production stop"
+    run "cd #{deploy_to}/current && nohup thin -C thin/production_config.yml -R thin/config.ru stop"
   end
  
   task :restart, :roles => [:web, :app] do
