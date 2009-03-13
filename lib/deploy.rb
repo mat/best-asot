@@ -32,3 +32,12 @@ namespace :deploy do
   end
 end
 
+namespace :images do
+  desc "rake images:create"
+  task :create do
+    run "cd #{current_path} && rake RAILS_ENV=production images:create"
+  end
+end
+
+after :deploy, "images:create"
+

@@ -9,9 +9,17 @@ RAILS_DEFAULT_LOGGER = Logger.new(STDOUT)
 
 desc "Connect to database"
 task :environment do
+
+  # TODO Solve this dupolication nonsense.
+  dbfile = case ENV["RAILS_ENV"]
+            when 'production' : '/home/mat/www/best-asot/shared/db/production.sqlite3'
+            when 'test'       : 'db/test.sqlite3'
+            else                'db/development.sqlite3'
+           end
+
   ActiveRecord::Base.establish_connection(
     :adapter => 'sqlite3',
-    :dbfile =>  "db/#{ENV["RAILS_ENV"] || "development"}.sqlite3"
+    :dbfile =>  dbfile
   )
 end
 
