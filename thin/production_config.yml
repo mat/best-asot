@@ -1,11 +1,11 @@
 ---
     environment: production
-    chdir: /home/mat/repos/git/best-asot
+    chdir: /home/mat/www/best-asot/current
     address: 127.0.0.1
-    port: 4567
-    pid: /home/mat/repos/git/best-asot/tmp/thin.pid
-    rackup: /home/mat/repos/git/best-asot/thin/config.ru
-    log: /home/mat/repos/git/best-asot/log/thin.log
+    port: 3720
+    pid: /home/mat/www/best-asot/shared/pids/thin.pid
+    rackup: /home/mat/www/best-asot/current/thin/config.ru
+    log: /home/mat/www/best-asot/shared/log/thin.log
     max_conns: 1024
     timeout: 30
     max_persistent_conns: 512
