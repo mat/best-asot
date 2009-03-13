@@ -39,5 +39,5 @@ namespace :images do
   end
 end
 
-after :deploy, "images:create"
+after "deploy:cold", "images:create"
 
