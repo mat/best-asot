@@ -33,11 +33,11 @@ namespace :deploy do
 end
 
 namespace :images do
-  desc "rake images:create"
-  task :create do
-    run "cd #{current_path} && rake RAILS_ENV=production images:create"
+  desc "rake images:create:all"
+  task :create_all do
+    run "cd #{current_path} && rake RAILS_ENV=production images:create:all"
   end
 end
 
-after "deploy:cold", "images:create"
+after "deploy:cold", "images:create_all"
 
