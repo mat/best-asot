@@ -9,8 +9,20 @@ task :votes_by_year_svg => :environment do
 }
 end
 
-desc "Convert vote SVGs to PNGs."
+desc "Convert vote SVGs to PNGs. Current year only."
 task :votes_by_year_png => [:votes_by_year_svg] do
+  y = YEARS.last
+  svg = "public/images/votes_#{y}.svg"
+  png = "public/images/votes_#{y}.png"
+
+  if Asot.find_by_year(y).size > 5
+    puts "Creating #{png}"
+    `convert #{svg} #{png}`  # via ImageMagick
+  end
+end
+
+desc "Convert vote SVGs to PNGs."
+task 'votes_by_year_png:all' => [:votes_by_year_svg] do
   YEARS.each{ |y|
      svg = "public/images/votes_#{y}.svg"
      png = "public/images/votes_#{y}.png"
@@ -22,6 +34,7 @@ task :votes_by_year_png => [:votes_by_year_svg] do
   }
 end
 
-task :create => [:votes_by_year_png, :smushit]
+task 'create'     => ['votes_by_year_png',      :smushit]
+task 'create:all' => ['votes_by_year_png:all',  :smushit]
 end
 
