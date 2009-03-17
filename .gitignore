@@ -1,3 +1,4 @@
+lib/config.rb
 log/*.log
 tmp/*.pid
 tmp/**/*
