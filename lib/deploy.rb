@@ -10,6 +10,8 @@ set :deploy_to, "/home/mat/www/#{application}"
 # set :deploy_via, :remote_cache # quicker checkouts from github
 
 server "better-idea.org", :app, :web, :db, :primary => true 
+
+depend :remote, :file, "#{shared_path}/config/config.rb"
  
 namespace :deploy do
   task :start, :roles => [:web, :app] do
@@ -30,6 +32,12 @@ namespace :deploy do
     deploy.update
     deploy.start
   end
+end
+
+after "deploy:symlink", :symlink_shared
+
+task :symlink_shared do
+  run("ln -s #{shared_path}/config/config.rb #{current_path}/lib/config.rb")
 end
 
 namespace :images do
