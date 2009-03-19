@@ -19,11 +19,6 @@ class AsotModelTest < Test::Unit::TestCase
     Asot.delete_all
   end
 
-  def test_grep_the_forum_url_given_an_episode_number
-    uri = Asot.fetch_di_uri(369)
-    assert_equal 'http://forums.di.fm/trance/armin-van-buuren-presents-state-of-trance-episode-369-a-146900/', uri
-  end
-
   def test_grep_the_vote_count_given_a_forum_uri
     votes = Asot.fetch_di_votes('http://forums.di.fm/trance/armin-van-buuren-presents-state-of-trance-episode-369-a-146900/')
     assert_equal 25, votes

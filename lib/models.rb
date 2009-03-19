@@ -30,26 +30,6 @@ class Asot < ActiveRecord::Base
     asots.index(self) + 1
   end
 
-  def Asot.fetch_di_uri(episode_number)
-    require 'net/http'
-    require 'json'
-    # Let's emulate
-    #  curl -e http://better-idea.org 'http://ajax.googleapis.com/'
-    #  'ajax/services/search/web?v=1.0&'
-    #  'q=intitle%3A%22presents+-+a+state+of+trance+episode+369%22'
-    #  '+site%3Aforums.di.fm%2Ftrance'
-
-    header = { 'Referer' => "http://better-idea.org" } 
-
-    res = Net::HTTP.start('ajax.googleapis.com') { |http|
-      http.get("/ajax/services/search/web?v=1.0&q=intitle%3A%22a+state+of+trance+episode+#{episode_number}%22+site:forums.di.fm/trance", header)
-    }
-
-   # return first hit
-   json = JSON.parse(res.body)
-   json["responseData"]["results"].first['url'] 
-  end
-
   def Asot.fetch_di_votes(di_forums_uri)
     require 'hpricot'
     require 'open-uri'
@@ -80,7 +60,6 @@ class Asot < ActiveRecord::Base
    episodes_nos_and_votes = episodes.map{|a| [a.no, a.votes] }.sort
   end
 
-
   def Asot.draw_year_points_graph(for_year = Time.now.year)
    require 'scruffy'
 
@@ -104,61 +83,6 @@ class Asot < ActiveRecord::Base
                 :min_value => 0,
                 :max_value => ((top_vote + 20) / 20).floor * 20,
                 :to => "public/images/votes_#{for_year}.svg"
-   :ok
-  end
-
-  def Asot.date_is_thursday?(time)
-    time.wday == 4
-  end
-
-  def Asot.airdate_infos
-    Asot.all.map{|a| 
-         [a.no, 
-          a.airdate && a.airdate.strftime('%U'), 
-          a.airdate && Asot.date_is_thursday?(a.airdate)]
-    }.sort
-  end
-
-  def Asot.vote_histogram(width = 10, asots = Asot.all)
-    hist = Hash.new { |h,k| h[k] = 0 }
-
-    asots.each do |a|
-      next if a.votes.nil?
-      hist[a.votes / width] += 1
-    end
-
-    puts asots.length
-    puts hist.values.inject(0){ |sum,n| sum += n}
-
-    # Fill empty bins with 0
-    0.upto(hist.keys.max-1) do |n|
-      hist[n] += 0
-    end
-
-    hist.sort
-  end
-
-  def Asot.draw_vote_histogram(width=10)
-   require 'scruffy'
-
-   votes = Asot.vote_histogram(width).transpose.last
-
-   graph = Scruffy::Graph.new
-   graph.title = "Vote distribution"
-   graph.renderer = Scruffy::Renderers::Standard.new
-   graph.point_markers = Array.new(votes.length){nil}
-   graph.point_markers[0] = 0
-   graph.point_markers[1] = width * 1
-   graph.point_markers[2] = width * 2
-   graph.point_markers[3] = width * 3
-   graph.point_markers[votes.length - 1] = width * (votes.length - 1)
-
-   graph.add :bar, "Votes", votes
-
-   graph.render :width => 600, 
-                :min_value => 0,
-               # :max_value => ((top_vote + 20) / 20).floor * 20,
-                :to => "public/images/vote_hist.svg"
    :ok
   end
 
