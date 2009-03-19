@@ -5,11 +5,6 @@ configure :development do
     :adapter => 'sqlite3',
     :dbfile =>  'db/development.sqlite3'
   )
-  use Rack::Cache,
-    :verbose     => true,
-    :allow_reload => false, # Forced reload shall not hit backend.
-    :metastore   => 'file:/home/mat/repos/git/best-asot/tmp/cache/rack/meta',
-    :entitystore => 'file:/home/mat/repos/git/best-asot/tmp/cache/rack/body'
 end
 
 configure :production do
