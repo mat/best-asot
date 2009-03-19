@@ -1,13 +1,13 @@
 require 'activerecord'
 
 class Asot < ActiveRecord::Base
-  extend ActiveSupport::Memoizable
 
   validates_presence_of :no
   validates_uniqueness_of :no
   validates_uniqueness_of :url, :allow_nil => true
   validates_uniqueness_of :airdate, :allow_nil => true
 
+  # TODO extend ActiveSupport::Memoizable
   # OK, rank and yearrank remain slow as hell for the time being.
   # I give up, they have won. For now.
   #
