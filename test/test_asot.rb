@@ -4,13 +4,15 @@ require 'rubygems'
 require 'activerecord'
 require 'lib/models'
 require 'test/unit'
-require 'sinatra/test/unit'
+require 'sinatra/test'
 require 'lib/asot'
 
 ActiveRecord::Base.establish_connection(
   :adapter => 'sqlite3',
   :dbfile =>  'db/test.sqlite3'
 )
+
+set :environment, :test
 
 class AsotModelTest < Test::Unit::TestCase
   def setup
@@ -62,6 +64,8 @@ class AsotModelTest < Test::Unit::TestCase
 end
 
 class AsotTest < Test::Unit::TestCase
+  include Sinatra::Test
+
   def setup
     Asot.delete_all
     create_some_asots
