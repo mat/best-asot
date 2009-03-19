@@ -56,33 +56,29 @@ class Asot < ActiveRecord::Base
     doc.at(xpath)['href']
   end
 
-  def Asot.episode_and_votes(for_year=Time.now.year)
-   episodes = Asot.all.find_all{|a| a.airdate && a.airdate.year == for_year}
-   episodes_nos_and_votes = episodes.map{|a| [a.no, a.votes] }.sort
-  end
-
-  def Asot.draw_year_points_graph(for_year = Time.now.year)
+  def Asot.render_graph(for_year = Time.now.year)
    require 'scruffy'
-
-   ep_nos, votes = Asot.episode_and_votes(for_year).transpose
-
-   # highlight top episodes via different data points
-   tops_shown = 5
-   tops, titles = Asot.extract_top_episodes(votes, ep_nos, tops_shown)
 
    graph = Scruffy::Graph.new
    graph.title = "ASOT Episodes #{for_year}"
    graph.renderer = Scruffy::Renderers::Standard.new
 
+   # add bar for each episode
+   asots = find_by_year(for_year, 'airdate ASC')
+   votes = asots.map{|a| a.votes }
    graph.add :bar, "", votes
-   1.upto(tops_shown) do |i|
-     graph.add :bar, titles[i-1], tops[i-1]
+
+   # overprint top 5 episodes via colored data points
+   top_5 = find_by_year(for_year, 'votes DESC')[0..4]
+   top_5.each do |a|
+     dataset = Array.new(asots.length){0}
+     dataset[asots.index(a)] = a.votes
+     graph.add :bar, "##{a.no}", dataset
    end
 
-   top_vote  = votes.sort.last
    graph.render :width => 450, 
                 :min_value => 0,
-                :max_value => ((top_vote + 20) / 20).floor * 20,
+                :max_value => ((votes.max + 20) / 20).floor * 20,
                 :to => "public/images/votes_#{for_year}.svg"
    :ok
   end
@@ -112,20 +108,4 @@ class Asot < ActiveRecord::Base
              :order => order)
   end
 
-  private
-
-  def Asot.extract_top_episodes(votes, ep_nos, tops_shown = 5)
-   top_votes  = votes.sort[-(tops_shown)..-1].reverse
-   tops       = Array.new(tops_shown)
-   tops_title = Array.new(tops_shown)
-
-   1.upto(tops_shown) do |i|
-     tops[i-1] = Array.new(votes.length){0}
-     idx = votes.index(top_votes[i-1])
-     tops[i-1][idx] = votes[idx]
-     tops_title[i-1] = "##{ep_nos[idx]}"
-   end
-
-   [tops, tops_title]
-  end
 end
