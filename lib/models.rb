@@ -70,6 +70,7 @@ class Asot < ActiveRecord::Base
 
    # overprint top 5 episodes via colored data points
    top_5 = find_by_year(for_year, 'votes DESC')[0..4]
+   top_5 = top_5.sort_by{|a| a.no} # legend order = bar order
    top_5.each do |a|
      dataset = Array.new(asots.length){0}
      dataset[asots.index(a)] = a.votes
