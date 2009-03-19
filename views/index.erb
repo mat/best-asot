@@ -28,12 +28,11 @@ The number of <i>simply amazing!</i> votes from the <a href="http://di.fm" targe
 </div>
 
 <ul class="toc">
-    <li> <a href="#top10">Top 10</a> </li>   
-    <li> <a href="#y2009">2009</a> </li>   
-    <li> <a href="#y2008">2008</a> </li>   
-    <li> <a href="#y2007">2007</a> </li>   
-    <li> <a href="#y2006">2006</a> </li>   
-    <li> <a href="#faq">FAQ</a> </li>   
+    <li> <a href="#top10">Top 10</a> </li>
+  <% Asot::YEARS.reverse.each do |y| %>
+    <li> <a href="#y<%= y %>"><%= y %></a> </li>
+  <% end %>
+    <li> <a href="#faq">FAQ</a> </li>
 </ul>
 
 
@@ -44,11 +43,9 @@ The number of <i>simply amazing!</i> votes from the <a href="http://di.fm" targe
 %>
 </div>
 
-<%= partial :asots_for_year, :locals => { :year => '2009', :asots => @episodes_2009 } %>
-<%= partial :asots_for_year, :locals => { :year => '2008', :asots => @episodes_2008 } %>
-<%= partial :asots_for_year, :locals => { :year => '2007', :asots => @episodes_2007 } %>
-<%= partial :asots_for_year, :locals => { :year => '2006', :asots => @episodes_2006 } %>
-
+<% Asot::YEARS.reverse.each do |y| %>
+  <%= partial :asots_for_year, :locals => { :year => y, :asots => @episodes[y] } %>
+<% end %>
 
 <%= partial :faq %>
 

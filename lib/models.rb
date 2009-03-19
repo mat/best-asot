@@ -1,11 +1,12 @@
 require 'activerecord'
 
 class Asot < ActiveRecord::Base
-
   validates_presence_of :no
   validates_uniqueness_of :no
   validates_uniqueness_of :url, :allow_nil => true
   validates_uniqueness_of :airdate, :allow_nil => true
+
+  YEARS = (2006..Time.now.year).to_a
 
   # TODO extend ActiveSupport::Memoizable
   # OK, rank and yearrank remain slow as hell for the time being.
