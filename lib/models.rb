@@ -60,7 +60,7 @@ class Asot < ActiveRecord::Base
    require 'scruffy'
 
    graph = Scruffy::Graph.new
-   graph.title = "ASOT Episodes #{for_year}"
+   graph.title = "#{for_year}: Votes by episode"
    graph.renderer = Scruffy::Renderers::Standard.new
 
    # add bar for each episode
