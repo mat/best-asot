@@ -15,8 +15,8 @@ configure :production do
   use Rack::Cache,
     :verbose     => true,
     :allow_reload => false, # Forced reload shall not hit backend.
-    :metastore   => 'file:/home/mat/repos/best-asot/shared/cache/rack/meta',
-    :entitystore => 'file:/home/mat/repos/best-asot/shared/cache/rack/body'
+    :metastore   => 'file:/home/mat/repos/git/best-asot/shared/cache/rack/meta',
+    :entitystore => 'file:/home/mat/repos/git/best-asot/shared/cache/rack/body'
 end
 
 configure :test do
