@@ -16,6 +16,7 @@ require 'lib/helpers'
 
 ["/", "/by-rank"].each do |path|
   get path do
+    response['Cache-Control'] = 'public, max-age=120'
     @last_update = Asot.last_update
     last_modified @last_update
 
