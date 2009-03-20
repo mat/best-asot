@@ -26,8 +26,12 @@ require 'lib/helpers'
     @order = 'votes DESC' if request.path_info == '/by-rank'
 
     @episodes = {}
+    @top5 = {}
     Asot::YEARS.each do |y|
       @episodes[y] = Asot.find_by_year(y, @order)
+
+      top5 = Asot.find_by_year(y, 'votes DESC')[0..4]
+      @top5[y] = top5.sort_by{|a| a.no} if top5.length == 5
     end
 
     erb :index

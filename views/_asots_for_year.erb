@@ -23,20 +23,19 @@
   <th>Notes</th>
  </tr>
 
-
  <% cycle = cycle || "even" %>
  <% asots.each do |asot| %>
 
  <tr class='<%= cycle = (cycle == 'even' ? 'odd' : 'even') %>'>
- <% if (1..5).include? asot.yearrank and asots.size > 5 %>
-  <td class="rank_<%= asot.yearrank %>"><%= asot.no %></td>
+ <% if top5 && top5.include?(asot) %>
+  <td class="color_<%= top5.index(asot) %>"><%= asot.no %></td>
  <% else %>
   <td class='no'><%= asot.no %></td>
  <% end %>
    <%= format_airdate(asot) %>
    <td><%= asot.rank %></td>
-   <% if (1..5).include? asot.yearrank and asots.size > 5 %>
-   <td class="rank_<%= asot.yearrank %>"><%= asot.yearrank %></td>
+   <% if top5 && top5.include?(asot) %>
+   <td class="color_<%= top5.index(asot) %>"><%= asot.yearrank %></td>
    <% else %>
    <td><%= asot.yearrank %></td>
    <% end %>

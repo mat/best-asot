@@ -220,11 +220,11 @@ td.onair a:visited {
 }
 
 /* Taken from Scruffy::Themes::Keynote.new.colors */
-.rank_1 {color: #FDD84E; font-weight: bold;}
-.rank_2 {color: #72AE6E; font-weight: bold;}
-.rank_3 {color: #D1695E; font-weight: bold;}
-.rank_4 {color: #8A6EAF; font-weight: bold;}
-.rank_5 {color: #EFAA43; font-weight: bold;}
+.color_0 {color: #FDD84E; font-weight: bold;}
+.color_1 {color: #72AE6E; font-weight: bold;}
+.color_2 {color: #D1695E; font-weight: bold;}
+.color_3 {color: #8A6EAF; font-weight: bold;}
+.color_4 {color: #EFAA43; font-weight: bold;}
 
 /*** TOC ***/
 ul.toc {

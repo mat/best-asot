@@ -44,7 +44,7 @@ The number of <i>simply amazing!</i> votes from the <a href="http://di.fm" targe
 </div>
 
 <% Asot::YEARS.reverse.each do |y| %>
-  <%= partial :asots_for_year, :locals => { :year => y, :asots => @episodes[y] } %>
+  <%= partial :asots_for_year, :locals => { :year => y, :asots => @episodes[y], :top5 => @top5[y] } %>
 <% end %>
 
 <%= partial :faq %>
