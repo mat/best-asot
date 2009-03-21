@@ -8,27 +8,29 @@ class Asot < ActiveRecord::Base
 
   YEARS = (2006..Time.now.year).to_a
 
-  # TODO extend ActiveSupport::Memoizable
-  # OK, rank and yearrank remain slow as hell for the time being.
-  # I give up, they have won. For now.
-  #
-  # 1. Most SQL-fu won't work because Sqlite does not support it.
-  # 2. ActiveRecord's callbacks won't work easily here, only hackish.
-  # 3. Memoization should work but we want to cut down memory usage
-  #    so this is not an option. If memoization, then write our own.
-  #
-  # Let's cache this later on HTTP level with Rack::Cache and friends.
-  # Oh, and the server is much faster than this old laptop, anyway...
-  # If this does not suffice, I shall come back here.
+  # TODO Calculate ranks in SQL should we ever depart from sqlite.
   def rank
-    asots = Asot.all(:order => 'votes DESC')
-    asots.index(self) + 1
+    raise 'Call Asot.calc_ranks first!' unless defined?(@@ranks) && @@ranks
+    @@ranks[self.no]
   end
 
   def yearrank
-    return -1 if self.airdate.nil?
-    asots = Asot.find_by_year(airdate.year, 'votes DESC')
-    asots.index(self) + 1
+    raise 'Call Asot.calc_ranks first!' unless defined?(@@yearranks) && @@yearranks
+    @@yearranks[self.no]
+  end
+
+  def Asot.calc_ranks
+    @@ranks = {}
+    Asot.all(:order => 'votes DESC').each_with_index{ |asot,idx|
+      @@ranks[asot.no] = idx + 1
+    }
+
+    @@yearranks = {}
+    YEARS.each do |y|
+      Asot.find_by_year(y, 'votes DESC').each_with_index{ |asot,idx|
+        @@yearranks[asot.no] = idx + 1
+      }
+    end
   end
 
   def Asot.fetch_di_votes(di_forums_uri)

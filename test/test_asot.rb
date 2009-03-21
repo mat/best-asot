@@ -36,6 +36,9 @@ class AsotModelTest < Test::Unit::TestCase
     no_4 = Asot.create(:no => 4, :airdate => Time.parse('Thu, 20 Nov 2009'), :votes => 100000)
     [no_1,no_2,no_3,no_4].each{ |x| x.save! }
 
+    Asot.calc_ranks
+    assert_nothing_raised { no_1.rank }
+
     assert_equal 3, no_1.rank
     assert_equal 4, no_2.rank
     assert_equal 1, no_3.rank

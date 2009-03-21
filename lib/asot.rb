@@ -34,6 +34,7 @@ require 'lib/helpers'
       @top5[y] = top5.sort_by{|a| a.no} if top5.length == 5
     end
 
+    Asot.calc_ranks
     erb :index
   end
 end
