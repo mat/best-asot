@@ -12,9 +12,9 @@ helpers do
 
     if (10..19).include? Time.now.hour 
      asot.url = h 'http://www.di.fm/calendar/calendar.php?type=day&calendar=2'
-     return "<td class='onair'><a href='#{asot.url}' target='_blank'>Coming soon</a></td>"
+     return "<td class='onair'><a href='#{asot.url}'>Coming soon</a></td>"
     elsif (20..21).include? Time.now.hour 
-     return "<td class='onair'><a href='#{asot.url}' target='_blank'>On air!</a></td>"
+     return "<td class='onair'><a href='#{asot.url}'>On air!</a></td>"
     else
      return "<td>#{asot.airdate.strftime("%d-%b-%Y")}</td>"
     end
