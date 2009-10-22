@@ -19,7 +19,7 @@ task :environment do
 
   ActiveRecord::Base.establish_connection(
     :adapter => 'sqlite3',
-    :dbfile =>  dbfile
+    :database =>  dbfile
   )
 end
 

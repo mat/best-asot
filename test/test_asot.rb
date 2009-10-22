@@ -9,7 +9,7 @@ require 'lib/asot'
 
 ActiveRecord::Base.establish_connection(
   :adapter => 'sqlite3',
-  :dbfile =>  'db/test.sqlite3'
+  :database =>  'db/test.sqlite3'
 )
 
 set :environment, :test
