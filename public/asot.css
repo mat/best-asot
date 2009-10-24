@@ -1,6 +1,6 @@
 body { background-color: #fff; color: #333; }
 
-body, p, ol, ul {
+body, p, ul {
   /* font-family: verdana, arial, helvetica, sans-serif; */
   font-family: Georgia, serif;
   font-family: "Palatino", "Book Antiqua", serif;
@@ -51,13 +51,6 @@ th a {
 img {
  border: none;
 }
-pre {
-  background-color: #eee;
-  padding: 10px;
-  font-size: 11px;
-  border: 1px solid #485775;
-}
-
 
 hr {
  color: #485775;
@@ -65,36 +58,8 @@ hr {
  padding: 0px;
 }
 
-strong {
- color: #365D95;
- font-size: 1.5em;
-}
-
 a { color: #365D95;}
 a:visited { color: #333;}
-
-.biglink {
-  font-size: 1.5em;
-}
-
-#logodiv {
- color: #485775;
- padding: 10px;
-}
-
-
-.subtitle {
-  font-size: 0.8em;
-  color: #485775;
-  padding: 0px;
-  margin: 0px;
-}
-
-.logo {
- font-size: 2.5em;
-  color: #485775;
-  padding: 0px;
-}
 
 #contentdiv {
   padding-left: 50px;
@@ -111,29 +76,6 @@ a:visited { color: #333;}
   text-align: center;
   font-size: 0.8em;
   padding: 0px;
-}
-
-.title {
-  font-style: italic;
-  font-family: Georgia, serif;
-}
-
-.title #title {
-  font-size: 2.5em;
-  font-style: normal;
-  letter-spacing: 0.1em;
-}
-
-.title a {
-  text-decoration: none;
-
-}
-.title strong {
-  font-size: 2.5em;
-  font-style: normal;
-  font-family: Georgia, serif;
-  letter-spacing: 0.1em;
-  padding-right: 0px;
 }
 
 #faq {
@@ -201,10 +143,6 @@ tr.odd  td {
 
 #intro p {
   font-family: "Lucida Grande", "Helvetica Neue", Helvetica, Verdana, sans-serif;
-}
-
-#intro strong {
- font-size: 1.0em;
 }
 
 td.onair {
