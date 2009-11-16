@@ -36,7 +36,7 @@ class Asot < ActiveRecord::Base
   def Asot.fetch_di_votes(di_forums_uri)
     require 'hpricot'
     require 'open-uri'
-    xpath = "/html/body/div[1]/div/div/table[3]/tr[2]/td[3]/strong/a"
+    xpath = "/html/body/div[1]/div/div/table[4]/tr[2]/td[3]/strong/a"
     doc = Hpricot(open(di_forums_uri))
     votes = doc.at(xpath).inner_html.to_i
   end

@@ -26,7 +26,7 @@ namespace :db do
     else
       RAILS_DEFAULT_LOGGER.info("ASOT #{a.no} remains unchanged at #{a.votes}.")
     end
-    RAILS_DEFAULT_LOGGER.flush
+    RAILS_DEFAULT_LOGGER.flush if RAILS_DEFAULT_LOGGER.respond_to?(:flush)
   end
 
   desc "Add Episode dummy for today."
