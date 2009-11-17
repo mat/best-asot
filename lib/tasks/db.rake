@@ -16,6 +16,19 @@ namespace :db do
     puts Asot.add_by_url_and_fetch ENV['url']
   end
 
+  desc "Bulk add episodes via url file."
+  task :add_episodes_from_file => :environment do
+    raise 'Provide file name to rake task via urls=FILENAME' unless ENV['urls']
+    IO.read(ENV['urls']).each_line do |url|
+      begin
+        puts Asot.add_by_url_and_fetch(url)
+      rescue Exception => e
+        puts url
+        puts e
+      end
+    end
+  end
+
   desc "Update latest ASOT's votes."
   task :update_latest_asot => :environment do
     a = Asot.last
