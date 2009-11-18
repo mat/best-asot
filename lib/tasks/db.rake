@@ -66,5 +66,15 @@ namespace :db do
     ActiveRecord::Migration.verbose = true
     ActiveRecord::Migrator.migrate("db/migrate")
   end
-end
 
+  desc "Follow 301 Moved Permanently and save new url."
+  task :follow_redirect_urls => :environment do
+    asots_with_wrong_urls = Asot.all.find_all{ |a| a.url.include?('showthread.php') }
+    asots_with_wrong_urls.each do |a|
+      puts "old: #{a.url}"
+      new_url = `curl -I #{a.url} | grep Location | awk '{print $2}'`
+      a.url = new_url
+      a.save!
+    end
+  end
+end
