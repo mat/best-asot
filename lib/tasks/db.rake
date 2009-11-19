@@ -47,7 +47,7 @@ namespace :db do
     a = Asot.new
     a.url = ''
     a.no  = Asot.last.no + 1
-    a.airdate = Time.today
+    a.airdate = Date.today
     a.save!
   end
 
