@@ -39,3 +39,8 @@ require 'lib/helpers'
   end
 end
 
+post "/update_note" do
+  asot = Asot.find_by_no(params[:element_id].to_i)
+  asot.notes = params[:update_value]
+  asot.save!
+end
