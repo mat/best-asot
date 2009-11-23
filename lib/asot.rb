@@ -14,6 +14,23 @@ require 'lib/helpers'
   #:run => false
 #) 
 
+helpers do
+
+  def protected!
+    response['WWW-Authenticate'] = %(Basic realm="Testing HTTP Auth") and \
+    throw(:halt, [401, "Not authorized\n"]) and \
+    return unless authorized?
+  end
+
+  def authorized?
+    @auth ||=  Rack::Auth::Basic::Request.new(request.env)
+    @auth.provided? && @auth.basic? && @auth.credentials \
+    && @auth.credentials == ['admin', 'secret']
+  end
+
+end
+
+
 ["/", "/by-rank"].each do |path|
   get path do
     response['Cache-Control'] = 'public, max-age=120'
@@ -26,9 +43,7 @@ require 'lib/helpers'
 end
 
 get "/admin" do
-    use Rack::Auth::Basic do |username, password|
-      username == 'admin' && password == 'secret'
-    end
+  protected!
 
     @is_admin = true
     do_it()
