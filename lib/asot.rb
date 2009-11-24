@@ -51,6 +51,8 @@ get "/admin" do
 end
 
 post "/update_note" do
+  protected!
+
   asot = Asot.find_by_no(params[:element_id].to_i)
   asot.notes = params[:update_value]
   asot.save!
