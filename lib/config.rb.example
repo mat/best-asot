@@ -28,5 +28,8 @@ end
 configure do
   set :views,   File.expand_path(File.join(File.dirname(__FILE__),'..','views'))
   set :public,  File.expand_path(File.join(File.dirname(__FILE__),'..','public'))
+
+  set :http_admin_user, "admin"
+  set :http_admin_pass, "secret"
 end
 

@@ -25,7 +25,7 @@ helpers do
   def authorized?
     @auth ||=  Rack::Auth::Basic::Request.new(request.env)
     @auth.provided? && @auth.basic? && @auth.credentials \
-    && @auth.credentials == ['admin', 'secret']
+    && @auth.credentials == [options.http_admin_user, options.http_admin_pass]
   end
 
 end
