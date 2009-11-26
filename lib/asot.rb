@@ -8,12 +8,6 @@ require 'lib/config'
 require 'lib/models'
 require 'lib/helpers'
 
-#Sinatra::Application.default_options.merge!(
-  #:views => File.join(ROOT_DIR, '..', 'views')
-  #:app_file => File.join(ROOT_DIR, 'drewolson.rb'),
-  #:run => false
-#) 
-
 helpers do
 
   def protected!
