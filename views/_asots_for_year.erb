@@ -39,7 +39,7 @@
    <% else %>
    <td><%= asot.yearrank %></td>
    <% end %>
- <td><a href='<%= asot.url %>'><%= asot.votes %></a></td>
+ <td><a href='<%= asot.url.to_s.strip %>'><%= asot.votes %></a></td>
   <td id='<%= asot.no %>_note' class='left editinplace'><%= h asot.notes %></td>
  </tr>
 

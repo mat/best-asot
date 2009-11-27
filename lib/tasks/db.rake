@@ -73,7 +73,7 @@ namespace :db do
     asots_with_wrong_urls.each do |a|
       puts "old: #{a.url}"
       new_url = `curl -I #{a.url} | grep Location | awk '{print $2}'`
-      a.url = new_url
+      a.url = new_url.strip
       a.save!
     end
   end
