@@ -52,6 +52,16 @@ post "/update_note" do
   asot.save!
 end
 
+post "/update_url" do
+  protected!
+  puts params
+
+  asot = Asot.find_by_no(params[:element_id].to_i)
+  asot.url = params[:update_value].to_s.strip
+  asot.votes = Asot.fetch_di_votes(asot.url)
+  asot.save!
+end
+
 
 def do_it
   @last_update = Asot.last_update
