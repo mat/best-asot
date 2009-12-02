@@ -11,7 +11,7 @@ require 'lib/helpers'
 helpers do
 
   def protected!
-    response['WWW-Authenticate'] = %(Basic realm="Testing HTTP Auth") and \
+    response['WWW-Authenticate'] = %(Basic realm="Best ASOT") and \
     throw(:halt, [401, "Not authorized\n"]) and \
     return unless authorized?
   end
