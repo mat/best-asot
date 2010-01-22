@@ -20,6 +20,7 @@
   <% end %>
   <th>Year <br />Rank</th>
   <th>Votes</th>
+  <th>&nbsp;</th>
   <th>Notes</th>
  </tr>
 
@@ -40,6 +41,7 @@
    <td><%= asot.yearrank %></td>
    <% end %>
   <td id='<%= asot.no %>_url' class='editinplaceUrl'><a href='<%= asot.url.to_s.strip %>'><%= asot.votes %></a></td>
+   <td><a href="http://www.astateoftrance.com/news/episode-<%= asot.no %>/">Playlist</a></td>
   <td id='<%= asot.no %>_note' class='left editinplace'><%= h asot.notes %></td>
  </tr>
 
