@@ -16,7 +16,7 @@
   <td class='no'><%= asot.no %></td>
    <%= format_airdate(asot) %>
    <td><%= asot.rank %></td>
-  <td><a href='<%= asot.url %>'><%= asot.votes %></a></td>
+  <td><a href='<%= asot.url.to_s.strip %>'><%= asot.votes %></a></td>
   <td><a href="http://www.astateoftrance.com/news/episode-<%= asot.no %>/">Playlist</a></td>
   <td class='left'><%= h asot.notes %></td>
  </tr>
