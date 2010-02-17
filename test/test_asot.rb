@@ -4,7 +4,7 @@ require 'rubygems'
 require 'activerecord'
 require 'lib/models'
 require 'test/unit'
-require 'sinatra/test'
+require 'rack/test'
 require 'lib/asot'
 
 ActiveRecord::Base.establish_connection(
@@ -62,7 +62,11 @@ class AsotModelTest < Test::Unit::TestCase
 end
 
 class AsotTest < Test::Unit::TestCase
-  include Sinatra::Test
+  include Rack::Test::Methods
+
+  def app
+    Sinatra::Application
+  end
 
   def setup
     Asot.delete_all
@@ -71,7 +75,7 @@ class AsotTest < Test::Unit::TestCase
 
   private
   def assert_stat(expected_code)
-    assert_equal expected_code, status
+    assert_equal expected_code, last_response.status
   end
 
   def create_some_asots
@@ -84,9 +88,9 @@ class AsotTest < Test::Unit::TestCase
   public
   def test_simple_get
     get "/"
-    assert response.ok?
-    assert response['Last-Modified']
-    assert_equal Asot.last_update.httpdate, response['Last-Modified']
+    assert last_response.ok?
+    assert last_response['Last-Modified']
+    assert_equal Asot.last_update.httpdate, last_response['Last-Modified']
   end
 
   def test_cached_get_with_fresh_if_modified_since
@@ -94,8 +98,8 @@ class AsotTest < Test::Unit::TestCase
 
     get "/", {}, 'HTTP_IF_MODIFIED_SINCE' => last_modified.httpdate
     assert_stat 304
-    assert response['Last-Modified']
-    assert_equal last_modified.httpdate, response['Last-Modified']
+    assert last_response['Last-Modified']
+    assert_equal last_modified.httpdate, last_response['Last-Modified']
   end
 
 
@@ -104,9 +108,8 @@ class AsotTest < Test::Unit::TestCase
 
     get "/", {}, 'HTTP_IF_MODIFIED_SINCE' => (last_modified - 1000).httpdate
     assert_stat 200
-    assert response['Last-Modified']
-    assert_equal Asot.last_update.httpdate, response['Last-Modified']
+    assert last_response['Last-Modified']
+    assert_equal Asot.last_update.httpdate, last_response['Last-Modified']
   end
-
 end
 
