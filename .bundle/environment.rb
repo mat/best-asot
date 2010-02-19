@@ -62,17 +62,18 @@ end
 
 module Bundler
   LOCKED_BY    = '0.9.5'
-  FINGERPRINT  = "d9b2ae6804816a542d78fe4fe622a20f0b87f895"
+  FINGERPRINT  = "1abd270fd5a543847d23fd4148af148cce8d1f1a"
   SPECS        = [
-        {:load_paths=>["/Library/Ruby/Gems/1.8/gems/hpricot-0.8.1/lib"], :version=>"0.8.1", :name=>"hpricot", :groups=>[:default]},
         {:load_paths=>["/Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib"], :version=>"2.3.4", :name=>"activesupport", :groups=>[:default]},
+        {:load_paths=>["/Library/Ruby/Gems/1.8/gems/hpricot-0.8.1/lib"], :version=>"0.8.1", :name=>"hpricot", :groups=>[:default]},
         {:load_paths=>["/Library/Ruby/Gems/1.8/gems/rack-1.0.1/lib"], :version=>"1.0.1", :name=>"rack", :groups=>[:default, :test]},
         {:load_paths=>["/Library/Ruby/Gems/1.8/gems/rack-test-0.5.3/lib"], :version=>"0.5.3", :name=>"rack-test", :groups=>[:test]},
         {:load_paths=>["/Library/Ruby/Gems/1.8/gems/sinatra-0.9.4/lib"], :version=>"0.9.4", :name=>"sinatra", :groups=>[:default]},
         {:load_paths=>["/Library/Ruby/Gems/1.8/gems/scruffy-0.2.6/lib"], :version=>"0.2.6", :name=>"scruffy", :groups=>[:default]},
         {:load_paths=>["/Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib"], :version=>"2.3.4", :name=>"activerecord", :groups=>[:default]},
+        {:load_paths=>["/Library/Ruby/Gems/1.8/gems/fastercsv-1.5.0/lib"], :version=>"1.5.0", :name=>"fastercsv", :groups=>[:default]},
       ]
-  AUTOREQUIRES = {:test=>[["rack-test", false]], :default=>[["sinatra", false], ["hpricot", false], ["activerecord", false], ["scruffy", false]]}
+  AUTOREQUIRES = {:test=>[["rack-test", false]], :default=>[["fastercsv", false], ["activerecord", false], ["scruffy", false], ["sinatra", false], ["hpricot", false]]}
 
   extend SharedHelpers
 

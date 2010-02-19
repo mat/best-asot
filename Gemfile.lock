@@ -1,5 +1,9 @@
 --- 
 dependencies: 
+  fastercsv: 
+    group: 
+    - :default
+    version: ">= 0"
   activerecord: 
     group: 
     - :default
@@ -35,7 +39,9 @@ specs:
     version: 0.2.6
 - activerecord: 
     version: 2.3.4
-hash: d9b2ae6804816a542d78fe4fe622a20f0b87f895
+- fastercsv: 
+    version: 1.5.0
+hash: 1abd270fd5a543847d23fd4148af148cce8d1f1a
 sources: 
 - Rubygems: 
     uri: http://gemcutter.org
