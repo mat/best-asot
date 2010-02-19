@@ -111,4 +111,18 @@ class Asot < ActiveRecord::Base
              :order => order)
   end
 
+  def to_csv
+    require 'fastercsv'
+    format = '%Y-%m-%d %H:%M:%S'
+    cols = [self.id,
+            self.no,
+            self.url,
+            self.votes,
+            self.created_at.strftime(format),
+            self.updated_at.strftime(format),
+            self.airdate.strftime(format),
+            self.notes]
+    FasterCSV::generate_line(cols, :col_sep => ";")
+  end
+
 end
