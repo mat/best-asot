@@ -60,10 +60,12 @@ class AsotModelTest < Test::Unit::TestCase
   end
 
   def test_to_csv
-    a = Asot.create(:no => 123, :airdate => Time.parse('Thu,  6 Nov 2008'), :votes => 1000, :url => "http://foo.com")
+    a = Asot.create(:no => 123, :airdate => Time.gm(2008, 11, 6), :votes => 1000, :url => "http://foo.com")
     #id;no;url;votes;created_at;updated_at;airdate;notes
     created = a.created_at.strftime('%Y-%m-%d %H:%M:%S')
     updated = a.updated_at.strftime('%Y-%m-%d %H:%M:%S')
+
+    assert_equal "2008-11-06 00:00:00", a.airdate.strftime('%Y-%m-%d %H:%M:%S')
     assert_equal "#{a.id};123;http://foo.com;1000;#{created};#{updated};2008-11-06 00:00:00;\n", a.to_csv
   end
 
