@@ -5,6 +5,8 @@ class Asot < ActiveRecord::Base
   validates_uniqueness_of :no
   validates_uniqueness_of :url, :allow_nil => true
   validates_uniqueness_of :airdate, :allow_nil => true
+  validates_numericality_of :no
+  validates_numericality_of :votes
 
   YEARS = (2006..Time.now.year).to_a
 
