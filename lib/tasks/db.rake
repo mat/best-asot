@@ -77,4 +77,13 @@ namespace :db do
       a.save!
     end
   end
+
+  desc "Dump asots as CSV to stdout."
+  task(:dump_csv => :environment) do
+    puts "id;no;url;votes;created_at;updated_at;airdate;notes"
+    Asot.all.each do |asot|
+      puts asot.to_csv
+    end
+  end
+
 end
