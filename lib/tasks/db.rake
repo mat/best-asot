@@ -31,15 +31,18 @@ namespace :db do
 
   desc "Update latest ASOT's votes."
   task :update_latest_asot => :environment do
-    a = Asot.last
+    a = Asot.first(:order => "no DESC")
     a.votes = Asot.fetch_di_votes(a.url)
-    if a.votes_changed? && a.votes_was < a.votes
-      a.save!
-      RAILS_DEFAULT_LOGGER.info("ASOT #{a.no} UPDATED to #{a.votes}.")
+    unless a.votes_changed?
+      puts "ASOT #{a.no} remains unchanged at #{a.votes}."
     else
-      RAILS_DEFAULT_LOGGER.info("ASOT #{a.no} remains unchanged at #{a.votes}.")
+      if a.votes > a.votes_was
+        puts "ASOT #{a.no} had #{a.votes_was} votes, now has #{a.votes} votes."
+        a.save!
+      else
+        puts "Huh? ASOT #{a.no} had #{a.votes_was} votes, now has #{a.votes} votes. Won't update."
+      end
     end
-    RAILS_DEFAULT_LOGGER.flush if RAILS_DEFAULT_LOGGER.respond_to?(:flush)
   end
 
   desc "Add Episode dummy for today."
