@@ -119,9 +119,9 @@ class Asot < ActiveRecord::Base
             self.no,
             self.url,
             self.votes,
-            self.created_at.strftime(format),
-            self.updated_at.strftime(format),
-            self.airdate.strftime(format),
+            self.created_at.nil? ? "" : self.created_at.strftime(format),
+            self.updated_at.nil? ? "" : self.updated_at.strftime(format),
+            self.airdate.nil?    ? "" : self.airdate.strftime(format),
             self.notes]
     FasterCSV::generate_line(cols, :col_sep => ";")
   end
