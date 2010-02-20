@@ -109,8 +109,7 @@ class Asot < ActiveRecord::Base
   end
 
   def Asot.find_by_year(y, order = 'airdate DESC')
-    Asot.all(:conditions => [ "airdate LIKE ?", "#{y}%" ], 
-             :order => order)
+    Asot.all(:order => order).select{|a| a.airdate.year == y}
   end
 
   def to_csv
