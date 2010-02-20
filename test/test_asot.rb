@@ -69,6 +69,20 @@ class AsotModelTest < Test::Unit::TestCase
     assert_equal "#{a.id};123;http://foo.com;1000;#{created};#{updated};2008-11-06 00:00:00;\n", a.to_csv
   end
 
+  def test_find_by_year
+    Asot.create!(:no => 1, :airdate => Time.parse('Thu,  6 Nov 2008'), :votes => 1000)
+    Asot.create!(:no => 2, :airdate => Time.parse('Thu,  6 Nov 2009'), :votes => 10)
+    Asot.create!(:no => 3, :airdate => Time.parse('Thu, 13 Nov 2009'), :votes => 10000000000)
+    Asot.create!(:no => 4, :airdate => Time.parse('Thu, 20 Nov 2009'), :votes => 100000)
+
+    asots = Asot.find_by_year(2009, "votes DESC")
+    assert_equal 3, asots.length
+
+    assert_equal 3, asots[0].no
+    assert_equal 4, asots[1].no
+    assert_equal 2, asots[2].no
+  end
+
 end
 
 class AsotTest < Test::Unit::TestCase
