@@ -1,7 +1,7 @@
 source :gemcutter
 
 gem "sinatra"
-gem "hpricot"
+gem "hpricot", "0.7"
 gem "activerecord"
 gem "scruffy"
 gem "fastercsv"
