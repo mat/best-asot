@@ -117,7 +117,7 @@ class Asot < ActiveRecord::Base
     format = '%Y-%m-%d %H:%M:%S'
     cols = [self.id,
             self.no,
-            self.url,
+            self.url.to_s.strip,
             self.votes,
             self.created_at.nil? ? "" : self.created_at.strftime(format),
             self.updated_at.nil? ? "" : self.updated_at.strftime(format),
