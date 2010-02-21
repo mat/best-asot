@@ -31,7 +31,7 @@ namespace :db do
 
   desc "Update latest ASOT's votes."
   task :update_latest_asot => :environment do
-    a = Asot.first(:order => "no DESC")
+    a = Asot.last(:order => "no")
     a.votes = Asot.fetch_di_votes(a.url)
     unless a.votes_changed?
       puts "ASOT #{a.no} remains unchanged at #{a.votes}."
@@ -47,16 +47,18 @@ namespace :db do
 
   desc "Add Episode dummy for today."
   task :add_episode_for_today => :environment do
+    last_asot = Asot.last(:order => "no")
     a = Asot.new
     a.url = ''
-    a.no  = Asot.last.no + 1
+    a.no  = last_asot.no + 1
     a.airdate = Date.today
+    a.votes = 0
     a.save!
   end
 
   desc "Sets latest ASOTs url to currently playing song on di.fm."
   task :set_playing_track_url => :environment do
-    a = Asot.last
+    a = Asot.last(:order => "no")
     unless a.url.to_s =~ /forums.di.fm/
       a.url = Asot.fetch_di_playing_track
       a.save!
@@ -72,7 +74,7 @@ namespace :db do
 
   desc "Follow 301 Moved Permanently and save new url."
   task :follow_redirect_urls => :environment do
-    asots_with_wrong_urls = Asot.all.find_all{ |a| a.url.include?('showthread.php') }
+    asots_with_wrong_urls = Asot.all.find_all{ |a| a.url.to_s.include?('showthread.php') }
     asots_with_wrong_urls.each do |a|
       puts "old: #{a.url}"
       new_url = `curl -I #{a.url} | grep Location | awk '{print $2}'`
