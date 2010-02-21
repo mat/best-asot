@@ -8,6 +8,11 @@ class Asot < ActiveRecord::Base
   validates_numericality_of :no
   validates_numericality_of :votes
 
+  before_save :strip_url
+  def strip_url
+    self.url = self.url.to_s.strip unless self.url.nil?
+  end
+
   YEARS = (2006..Time.now.year).to_a
 
   # TODO Calculate ranks in SQL should we ever depart from sqlite.
