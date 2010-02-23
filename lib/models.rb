@@ -131,4 +131,22 @@ class Asot < ActiveRecord::Base
     FasterCSV::generate_line(cols, :col_sep => ";")
   end
 
+  def self.from_csv(csv_line)
+    #id;no;url;votes;created_at;updated_at;airdate;notes
+    require 'fastercsv'
+    format = '%Y-%m-%d %H:%M:%S'
+    arr = FasterCSV::parse_line(csv_line, :col_sep => ";")
+
+    a = {}
+    a[:no] = arr[1]
+    a[:url] = arr[2]
+    a[:votes] = arr[3]
+    a[:created_at] = DateTime.parse(arr[4], format)
+    a[:updated_at] = DateTime.parse(arr[5], format)
+    a[:airdate] = DateTime.parse(arr[6], format)
+    a[:notes] = arr[7]
+
+    Asot.new(a)
+  end
+
 end

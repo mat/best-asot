@@ -69,6 +69,20 @@ class AsotModelTest < Test::Unit::TestCase
     assert_equal "#{a.id};123;http://foo.com;1000;#{created};#{updated};2008-11-06 00:00:00;\n", a.to_csv
   end
 
+  def test_from_csv
+    #id;no;url;votes;created_at;updated_at;airdate;notes
+    csv_line = '247;444;http://forums.di.fm/trance/armin-van-buuren-presents-state-of-trance-episode-444-a-190740/;25;2010-02-18 10:00:01;2010-02-19 12:42:02;2010-02-18 00:00:00;insert notes here'
+    a = Asot.from_csv(csv_line)
+
+    assert_equal 444, a.no
+    assert_equal "http://forums.di.fm/trance/armin-van-buuren-presents-state-of-trance-episode-444-a-190740/", a.url
+    assert_equal 25, a.votes
+    assert_equal DateTime.civil(2010,2,18,10,00,01), a.created_at
+    assert_equal DateTime.civil(2010,2,19,12,42,02), a.updated_at
+    assert_equal DateTime.civil(2010,2,18), a.airdate
+    assert_equal "insert notes here", a.notes
+  end
+
   def test_find_by_year
     Asot.create!(:no => 1, :airdate => Time.parse('Thu,  6 Nov 2008'), :votes => 1000)
     Asot.create!(:no => 2, :airdate => Time.parse('Thu,  6 Nov 2009'), :votes => 10)
