@@ -91,4 +91,20 @@ namespace :db do
     end
   end
 
+  desc "Import asots from csv file."
+  task(:import_csv => :environment) do
+    raise 'Provide file name via csv=FILENAME' unless ENV['csv']
+
+    IO.read(ENV['csv']).each_line do |line|
+      next if line.to_s.strip.empty?
+      next if line.start_with?("id") # skip header
+      begin
+        puts Asot.from_csv(line).save!
+      rescue Exception => e
+        puts line
+        puts e
+      end
+    end
+  end
+
 end
