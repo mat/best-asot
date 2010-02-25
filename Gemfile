@@ -2,7 +2,8 @@ source :gemcutter
 
 gem "sinatra"
 gem "hpricot", "0.7"
-gem "activerecord"
+gem "mongo_mapper"
+gem "mongo_ext"
 gem "scruffy"
 gem "fastercsv"
 

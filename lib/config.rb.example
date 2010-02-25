@@ -1,17 +1,10 @@
 
 configure :development do
-  ActiveRecord::Base.logger = Logger.new(STDOUT)
-  ActiveRecord::Base.establish_connection(
-    :adapter => 'sqlite3',
-    :dbfile =>  'db/development.sqlite3'
-  )
+  MongoMapper.database = 'bestasotdev'
 end
 
 configure :production do
-  ActiveRecord::Base.establish_connection(
-    :adapter => 'sqlite3',
-    :dbfile =>  'db/production.sqlite3'
-  )
+  MongoMapper.database = 'bestasot'
   use Rack::Cache,
     :verbose     => true,
     :metastore   => 'file:/home/mat/repos/git/best-asot/shared/cache/rack/meta',
@@ -19,10 +12,7 @@ configure :production do
 end
 
 configure :test do
-  ActiveRecord::Base.establish_connection(
-    :adapter => 'sqlite3',
-    :dbfile =>  'db/test.sqlite3'
-  )
+  MongoMapper.database = 'bestasottest'
 end
 
 configure do

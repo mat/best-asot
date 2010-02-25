@@ -1,16 +1,14 @@
 #require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 require 'rubygems'
-require 'activerecord'
+require 'mongo_mapper'
+require 'activesupport'
 require 'lib/models'
 require 'test/unit'
 require 'rack/test'
 require 'lib/asot'
 
-ActiveRecord::Base.establish_connection(
-  :adapter => 'sqlite3',
-  :database =>  'db/test.sqlite3'
-)
+MongoMapper.database = 'bestasottest'
 
 set :environment, :test
 

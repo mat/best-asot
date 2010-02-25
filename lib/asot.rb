@@ -2,7 +2,7 @@
 
 require 'rubygems'
 require 'sinatra'
-require 'activerecord'
+require 'mongo_mapper'
 
 require 'lib/config'
 require 'lib/models'

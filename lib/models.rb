@@ -1,6 +1,17 @@
-require 'activerecord'
+require 'rubygems'
+require 'mongo_mapper'
 
-class Asot < ActiveRecord::Base
+class Asot
+  include MongoMapper::Document
+
+  key :no, Integer
+  key :url, String
+  key :votes, Integer, :default => 0
+  key :created_at, Time, :default => Time.now.utc
+  key :updated_at, Time, :default => Time.now.utc
+  key :airdate, Time
+  key :notes, String
+
   validates_presence_of :no
   validates_uniqueness_of :no
   validates_uniqueness_of :url, :allow_nil => true

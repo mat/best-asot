@@ -1,11 +1,10 @@
 require 'benchmark'
 require 'lib/asot'
 
-ActiveRecord::Base.logger = nil
-ActiveRecord::Base.establish_connection(
-  :adapter => 'sqlite3',
-  :database =>  'db/test.sqlite3'
-)
+require 'rubygems'
+require 'mongo_mapper'
+
+MongoMapper.database = 'bestasottest'
 
 Asot.delete_all
 srand(42)
