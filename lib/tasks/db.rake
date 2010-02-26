@@ -13,7 +13,7 @@ namespace :db do
   desc "Add Episode via di.fm URL and save to db."
   task :add_episode_via_url => :environment do
     raise 'Provide di.fm URL to rake task via url=DIFMURL' unless ENV['url']
-    puts Asot.add_by_url_and_fetch ENV['url']
+    puts Asot.add_by_url_and_fetch(ENV['url'])
   end
 
   desc "Bulk add episodes via url file."
