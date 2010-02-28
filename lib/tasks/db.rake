@@ -90,4 +90,13 @@ namespace :db do
     end
   end
 
+  desc "Create Mongo indexes as needed."
+  task(:create_indexes => :environment) do
+    class Asot
+      ensure_index :votes
+      ensure_index :airdate
+      ensure_index :udpated_at
+    end
+  end
+
 end
