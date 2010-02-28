@@ -1,15 +1,5 @@
 namespace :db do
 
-  desc "Vacuum the sqlite3 database."
-  task :vacuum => :environment do
-    ActiveRecord::Base.connection.execute('VACUUM;')
-  end
-  
-  desc "Tidy the database."
-  task :tidy => [:vacuum] do
-    #nothing
-  end
-
   desc "Add Episode via di.fm URL and save to db."
   task :add_episode_via_url => :environment do
     raise 'Provide di.fm URL to rake task via url=DIFMURL' unless ENV['url']
@@ -63,13 +53,6 @@ namespace :db do
       a.url = Asot.fetch_di_playing_track
       a.save!
     end
-  end
-
-  desc "Migrate the database"
-    task(:migrate => :environment) do
-    ActiveRecord::Base.logger = Logger.new(STDOUT)
-    ActiveRecord::Migration.verbose = true
-    ActiveRecord::Migrator.migrate("db/migrate")
   end
 
   desc "Follow 301 Moved Permanently and save new url."
