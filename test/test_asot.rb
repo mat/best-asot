@@ -17,6 +17,21 @@ class AsotModelTest < Test::Unit::TestCase
     Asot.delete_all
   end
 
+  def test_set_created_at_and_updated_at
+    a = Asot.new(:no => 42, :url => 'http://example.com', :votes => 10)
+    assert_nil a.created_at
+    assert_nil a.updated_at
+
+    a.save!
+    assert_not_nil a.created_at
+    assert_not_nil a.updated_at
+    assert_equal a.created_at, a.updated_at
+
+    sleep(1.5) #seconds
+    a.save!
+    assert a.created_at.to_i < a.updated_at.to_i
+  end
+
   def test_grep_the_vote_count_given_a_forum_uri
     votes = Asot.fetch_di_votes('http://forums.di.fm/trance/armin-van-buuren-presents-state-of-trance-episode-369-a-146900/')
     assert_equal 25, votes

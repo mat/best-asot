@@ -7,8 +7,7 @@ class Asot
   key :no, Integer
   key :url, String
   key :votes, Integer, :default => 0
-  key :created_at, Time, :default => Time.now.utc
-  key :updated_at, Time, :default => Time.now.utc
+  timestamps!
   key :airdate, Time
   key :notes, String
 
