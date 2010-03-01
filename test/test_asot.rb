@@ -2,7 +2,6 @@
 
 require 'rubygems'
 require 'mongo_mapper'
-require 'activesupport'
 require 'lib/models'
 require 'test/unit'
 require 'rack/test'
