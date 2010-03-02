@@ -4,7 +4,7 @@
     address: 127.0.0.1
     port: 3720
     pid: /home/mat/www/best-asot/shared/pids/thin.pid
-    rackup: /home/mat/www/best-asot/current/thin/config.ru
+    rackup: /home/mat/www/best-asot/current/config.ru
     log: /home/mat/www/best-asot/shared/log/thin.log
     max_conns: 1024
     timeout: 30
