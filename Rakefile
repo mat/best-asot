@@ -5,7 +5,7 @@ require 'rake/rdoctask'
 require 'mongo_mapper'
 require 'lib/models'
 
-RAILS_DEFAULT_LOGGER = Logger.new(STDOUT)
+#RAILS_DEFAULT_LOGGER = Logger.new(STDOUT)
 
 desc "Connect to database"
 task :environment do
