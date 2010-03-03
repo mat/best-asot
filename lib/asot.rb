@@ -62,6 +62,15 @@ post "/update_url" do
   asot.save!
 end
 
+post "/asots/:no/vote/?" do
+  a = Asot.find_by_no(params[:no].to_i)
+  halt 404, "Asot #{params[:no]} not found." unless a
+
+  a.vote!(request.ip)
+  status 201
+  "Asot #{a.no} has #{a.uservotes.count} user votes."
+end
+
 
 def do_it
   @last_update = Asot.last_update

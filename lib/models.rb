@@ -11,6 +11,7 @@ class Asot
   key :airdate, Time
   key :notes, String
 
+  many :uservotes
   validates_presence_of :no
   validates_uniqueness_of :no
   validates_uniqueness_of :url, :allow_nil => true
@@ -159,4 +160,15 @@ class Asot
     Asot.new(a)
   end
 
+  def vote!(ip_address)
+    self.uservotes.create(:ipaddress => ip_address)
+  end
+end
+
+class Uservote
+  include MongoMapper::Document
+  belongs_to :asot
+
+  key :asot_id, ObjectId
+  key :ipaddress, String, :required => true
 end

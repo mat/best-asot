@@ -161,5 +161,20 @@ class AsotTest < Test::Unit::TestCase
     assert last_response['Last-Modified']
     assert_equal Asot.last_update.httpdate, last_response['Last-Modified']
   end
-end
 
+  def test_post_a_vote
+    post "/asots/3/vote"
+    assert_stat 201
+    assert_equal "Asot 3 has 1 user votes.", last_response.body
+
+    post "/asots/3/vote"
+    assert_stat 201
+    assert_equal "Asot 3 has 2 user votes.", last_response.body
+  end
+
+  def test_post_a_vote_for_non_existent_asot
+   post "/asots/42/vote"
+   assert_stat 404
+  end
+
+end
