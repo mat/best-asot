@@ -41,7 +41,7 @@ namespace :db do
     a = Asot.new
     a.url = ''
     a.no  = last_asot.no + 1
-    a.airdate = Date.today
+    a.airdate = Time.now # cron at 10h
     a.votes = 0
     a.save!
   end
