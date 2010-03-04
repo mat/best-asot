@@ -14,6 +14,7 @@ set :environment, :test
 class AsotModelTest < Test::Unit::TestCase
   def setup
     Asot.delete_all
+    Uservote.delete_all
   end
 
   def test_set_created_at_and_updated_at
@@ -120,6 +121,7 @@ class AsotTest < Test::Unit::TestCase
 
   def setup
     Asot.delete_all
+    Uservote.delete_all
     create_some_asots
   end
 
