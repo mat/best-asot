@@ -171,4 +171,8 @@ class Uservote
 
   key :asot_id, ObjectId
   key :ipaddress, String, :required => true
+
+  def to_s
+    "##{self.asot.no} vote by #{self.ipaddress}"
+  end
 end
