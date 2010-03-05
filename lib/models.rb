@@ -161,7 +161,10 @@ class Asot
   end
 
   def vote!(ip_address)
-    self.uservotes.create(:ipaddress => ip_address)
+    previous_votes = uservotes.all(:ipaddress => ip_address).to_a
+    return false unless previous_votes.empty?
+
+    uservotes.create(:ipaddress => ip_address)
   end
 end
 

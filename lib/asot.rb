@@ -66,11 +66,12 @@ post "/asots/:no/vote/?" do
   a = Asot.find_by_no(params[:no].to_i)
   halt 404, "Asot #{params[:no]} not found." unless a
 
-  a.vote!(request.ip)
+  vote_ok = a.vote!(request.ip)
+  halt 403, "Already voted." unless vote_ok
+
   status 201
   "Asot #{a.no} has #{a.uservotes.count} user votes."
 end
-
 
 def do_it
   @last_update = Asot.last_update

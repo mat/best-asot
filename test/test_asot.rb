@@ -110,6 +110,24 @@ class AsotModelTest < Test::Unit::TestCase
     assert_equal 2, asots[2].no
   end
 
+  def test_vote!
+    a = Asot.create!(:no => 1, :airdate => Time.parse('Thu,  6 Nov 2008'), :votes => 1000)
+
+    ok = a.vote!("127.0.0.1")
+    assert ok
+    assert_equal 1, Uservote.all.size
+    assert_equal 1, a.uservotes.size
+
+    a.reload
+    assert_equal 1, Uservote.all.size
+    assert_equal 1, a.uservotes.size
+    assert_equal "127.0.0.1", Uservote.first.ipaddress
+    assert_equal "127.0.0.1", a.uservotes.first.ipaddress
+
+    uservote = a.uservotes.all(:ipaddress => "127.0.0.1").first
+    assert_equal "127.0.0.1", uservote.ipaddress
+  end
+
 end
 
 class AsotTest < Test::Unit::TestCase
@@ -168,15 +186,21 @@ class AsotTest < Test::Unit::TestCase
     post "/asots/3/vote"
     assert_stat 201
     assert_equal "Asot 3 has 1 user votes.", last_response.body
-
-    post "/asots/3/vote"
-    assert_stat 201
-    assert_equal "Asot 3 has 2 user votes.", last_response.body
   end
 
   def test_post_a_vote_for_non_existent_asot
    post "/asots/42/vote"
    assert_stat 404
+  end
+
+  def test_post_a_vote_twice
+    post "/asots/3/vote"
+    assert_stat 201
+    assert_equal "Asot 3 has 1 user votes.", last_response.body
+
+    post "/asots/3/vote"
+    assert_stat 403
+    assert_equal "Already voted.", last_response.body
   end
 
 end
