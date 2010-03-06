@@ -128,6 +128,33 @@ class AsotModelTest < Test::Unit::TestCase
     assert_equal "127.0.0.1", uservote.ipaddress
   end
 
+  def test_vote_twice_from_same_ip
+    a = Asot.create!(:no => 1, :airdate => Time.parse('Thu,  6 Nov 2008'), :votes => 1000)
+
+    ok = a.vote!("127.0.0.1")
+    assert ok
+
+    ok = a.vote!("127.0.0.1")
+    assert !ok
+
+    assert_equal 1, a.uservotes.size
+  end
+
+  def test_vote_often_from_different_ip_addresses
+    a = Asot.create!(:no => 1, :airdate => Time.parse('Thu,  6 Nov 2008'), :votes => 1000)
+
+    ok = a.vote!("127.0.0.1")
+    assert ok
+
+    ok = a.vote!("192.168.0.1")
+    assert ok
+
+    ok = a.vote!("192.168.0.42")
+    assert ok
+
+    assert_equal 3, a.uservotes.size
+  end
+
 end
 
 class AsotTest < Test::Unit::TestCase
