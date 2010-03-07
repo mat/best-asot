@@ -145,12 +145,19 @@ class AsotModelTest < Test::Unit::TestCase
 
     ok = a.vote!("127.0.0.1")
     assert ok
+    assert a.uservotes.first(:order => "created_at asc").created_at
 
     ok = a.vote!("192.168.0.1")
     assert ok
 
+    sleep(1.5) #seconds
     ok = a.vote!("192.168.0.42")
     assert ok
+    assert a.uservotes.last(:order => "created_at asc").created_at
+
+    voted_first = a.uservotes.first(:order => "created_at asc").created_at
+    voted_last = a.uservotes.last(:order => "created_at asc").created_at
+    assert voted_first < voted_last
 
     assert_equal 3, a.uservotes.size
   end
