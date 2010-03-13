@@ -9,5 +9,7 @@ gem "scruffy", "0.2.6"
 gem "fastercsv", "1.5.1"
 
 group :test do
+ gem "ruby-prof", "0.8.1"
+ gem "rack-contrib", "0.9.2"
  gem "rack-test", "0.5.3"
 end
