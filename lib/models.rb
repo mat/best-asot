@@ -125,7 +125,7 @@ class Asot
   end
 
   def Asot.find_by_year(y, order = 'airdate DESC')
-    Asot.all(:order => order).select{|a| a.airdate.year == y}
+    Asot.all(:airdate => /.*#{y}.*/i, :order => order)
   end
 
   def to_csv
