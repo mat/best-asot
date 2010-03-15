@@ -146,6 +146,7 @@ class AsotModelTest < Test::Unit::TestCase
     ok = a.vote!("127.0.0.1")
     assert ok
     assert a.uservotes.first(:order => "created_at asc").created_at
+    assert_equal Time.now.utc.to_s, a.updated_at.utc.to_s
 
     ok = a.vote!("192.168.0.1")
     assert ok
@@ -154,6 +155,7 @@ class AsotModelTest < Test::Unit::TestCase
     ok = a.vote!("192.168.0.42")
     assert ok
     assert a.uservotes.last(:order => "created_at asc").created_at
+    assert_equal Time.now.utc.to_s, a.updated_at.utc.to_s
 
     voted_first = a.uservotes.first(:order => "created_at asc").created_at
     voted_last = a.uservotes.last(:order => "created_at asc").created_at

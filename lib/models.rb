@@ -165,6 +165,8 @@ class Asot
     return false unless previous_votes.empty?
 
     uservotes.create(:ipaddress => ip_address)
+    self.updated_at = Time.now
+    self.save!
   end
 end
 
