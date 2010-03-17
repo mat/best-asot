@@ -99,4 +99,9 @@ namespace :db do
     end
   end
 
+  desc "Load'n'save all asots" # to trigger before_save.
+  task(:save_all_asots => :environment) do
+    Asot.all.each{ |a| a.save!; puts a}
+  end
+
 end
