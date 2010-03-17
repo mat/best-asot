@@ -62,9 +62,9 @@ post "/update_url" do
   asot.save!
 end
 
-post "/asots/:no/vote/?" do
-  a = Asot.find_by_no(params[:no].to_i)
-  halt 404, "Asot #{params[:no]} not found." unless a
+post "/asots/:no/vote/?" do |no|
+  a = Asot.find_by_no(no.to_i)
+  halt 404, "Asot #{no} not found." unless a
 
   vote_ok = a.vote!(request.ip)
   halt 403, "Already voted." unless vote_ok
