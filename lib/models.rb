@@ -124,7 +124,7 @@ class Asot
   end
 
   def to_s
-    "##{self.no}, #{self.votes} votes, aired on #{self.airdate}"
+    "##{self.no}, #{self.votes}+#{self.uservote_count} votes, aired on #{self.airdate}"
   end
 
   def Asot.last_update
