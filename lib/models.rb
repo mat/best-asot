@@ -7,6 +7,8 @@ class Asot
   key :no, Integer
   key :url, String
   key :votes, Integer, :default => 0
+  key :uservote_count, Integer, :default => 0
+  key :allvotes, Integer, :default => 0
   timestamps!
   key :airdate, Time
   key :notes, String
@@ -20,8 +22,14 @@ class Asot
   validates_numericality_of :votes
 
   before_save :strip_url
+  before_save :update_votes
   def strip_url
     self.url = self.url.to_s.strip unless self.url.nil?
+  end
+
+  def update_votes
+    self.uservote_count = uservotes.count
+    self.allvotes = votes + uservote_count
   end
 
   YEARS = (2006..Time.now.year).to_a
@@ -39,13 +47,13 @@ class Asot
 
   def Asot.calc_ranks
     @@ranks = {}
-    Asot.all(:order => 'votes DESC').each_with_index{ |asot,idx|
+    Asot.all(:order => 'allvotes DESC').each_with_index{ |asot,idx|
       @@ranks[asot.no] = idx + 1
     }
 
     @@yearranks = {}
     YEARS.each do |y|
-      Asot.find_by_year(y, 'votes DESC').each_with_index{ |asot,idx|
+      Asot.find_by_year(y, 'allvotes DESC').each_with_index{ |asot,idx|
         @@yearranks[asot.no] = idx + 1
       }
     end
@@ -85,15 +93,15 @@ class Asot
 
    # add bar for each episode
    asots = find_by_year(for_year, 'airdate ASC')
-   votes = asots.map{|a| a.votes }
+   votes = asots.map{|a| a.allvotes }
    graph.add :bar, "", votes
 
    # overprint top 5 episodes via colored data points
-   top_5 = find_by_year(for_year, 'votes DESC')[0..4]
+   top_5 = find_by_year(for_year, 'allvotes DESC')[0..4]
    top_5 = top_5.sort_by{|a| a.no} # legend order = bar order
    top_5.each do |a|
      dataset = Array.new(asots.length){0}
-     dataset[asots.index(a)] = a.votes
+     dataset[asots.index(a)] = a.allvotes
      graph.add :bar, "##{a.no}", dataset
    end
 
