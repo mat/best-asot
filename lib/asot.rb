@@ -88,6 +88,4 @@ def do_it
     top5 = Asot.find_by_year(y, 'allvotes DESC')[0..4]
     @top5[y] = top5.sort_by{|a| a.no} if top5.length == 5
   end
-
-  Asot.calc_ranks
 end

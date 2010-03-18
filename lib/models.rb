@@ -34,31 +34,6 @@ class Asot
 
   YEARS = (2006..Time.now.year).to_a
 
-  # TODO Calculate ranks in SQL should we ever depart from sqlite.
-  def rank
-    raise 'Call Asot.calc_ranks first!' unless defined?(@@ranks) && @@ranks
-    @@ranks[self.no]
-  end
-
-  def yearrank
-    raise 'Call Asot.calc_ranks first!' unless defined?(@@yearranks) && @@yearranks
-    @@yearranks[self.no]
-  end
-
-  def Asot.calc_ranks
-    @@ranks = {}
-    Asot.all(:order => 'allvotes DESC').each_with_index{ |asot,idx|
-      @@ranks[asot.no] = idx + 1
-    }
-
-    @@yearranks = {}
-    YEARS.each do |y|
-      Asot.find_by_year(y, 'allvotes DESC').each_with_index{ |asot,idx|
-        @@yearranks[asot.no] = idx + 1
-      }
-    end
-  end
-
   def Asot.fetch_di_votes(di_forums_uri)
     require 'hpricot'
     require 'open-uri'

@@ -7,19 +7,17 @@
 
 <table>
  <tr class='header'>
-   <th colspan="7">Episodes by <%= by_votes? ? 'Rank / Votes' : 'Airdate' %></th>
+   <th colspan="7">Episodes by <%= by_votes? ? 'Votes' : 'Airdate' %></th>
  </tr>
  <tr>
   <th>ASOT</th>
   <% if by_votes? %>
   <th><a href='<%="/#y#{year.to_s}"%>' title='sort by Airdate'>Airdate</a></th>
-  <th>Rank</th>
+  <th>Votes</th>
   <% else %>
   <th>Airdate</th>
-  <th><a href='<%="/by-rank#y#{year.to_s}"%>' title='sort by Rank'>Rank</a></th>
+  <th><a href='<%="/by-rank#y#{year.to_s}"%>' title='sort by Votes'>Votes</a></th>
   <% end %>
-  <th>Year <br />Rank</th>
-  <th>Votes</th>
   <th>&nbsp;</th>
   <th>Notes</th>
  </tr>
@@ -34,12 +32,6 @@
   <td class='no'><%= asot.no %></td>
  <% end %>
    <%= format_airdate(asot) %>
-   <td><%= asot.rank %></td>
-   <% if top5 && top5.include?(asot) %>
-   <td class="color_<%= top5.index(asot) %>"><%= asot.yearrank %></td>
-   <% else %>
-   <td><%= asot.yearrank %></td>
-   <% end %>
   <td id='<%= asot.no %>_url' class='editinplaceUrl'><a href='<%= asot.url.to_s.strip %>'><%= asot.votes %></a>
    <% if asot.uservotes.count > 0 %>
    + <%= asot.uservotes.count %>
