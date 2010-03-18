@@ -230,10 +230,10 @@ class AsotTest < Test::Unit::TestCase
   end
 
   def create_some_asots
-    Asot.create!(:no => 1, :airdate => Time.parse('Thu,  6 Nov 2008'), :votes => 1000)
-    Asot.create!(:no => 2, :airdate => Time.parse('Thu,  6 Nov 2009'), :votes => 10)
-    Asot.create!(:no => 3, :airdate => Time.parse('Thu, 13 Nov 2009'), :votes => 10000000000)
-    Asot.create!(:no => 4, :airdate => Time.parse('Thu, 20 Nov 2009'), :votes => 100000)
+    @no_1 = Asot.create!(:no => 1, :airdate => Time.parse('Thu,  6 Nov 2008'), :votes => 1000)
+    @no_2 = Asot.create!(:no => 2, :airdate => Time.parse('Thu,  6 Nov 2009'), :votes => 10)
+    @no_3 = Asot.create!(:no => 3, :airdate => Time.parse('Thu, 13 Nov 2009'), :votes => 10000000000)
+    @no_4 = Asot.create!(:no => 4, :airdate => Time.parse('Thu, 20 Nov 2009'), :votes => 100000)
   end
 
   public
@@ -266,7 +266,7 @@ class AsotTest < Test::Unit::TestCase
   def test_post_a_vote
     post "/asots/3/vote"
     assert_stat 201
-    assert_equal "Asot 3 has 1 user votes.", last_response.body
+    assert_equal "#{@no_3.votes} + 1", last_response.body
   end
 
   def test_post_a_vote_for_non_existent_asot
@@ -277,7 +277,7 @@ class AsotTest < Test::Unit::TestCase
   def test_post_a_vote_twice
     post "/asots/3/vote"
     assert_stat 201
-    assert_equal "Asot 3 has 1 user votes.", last_response.body
+    assert_equal "#{@no_3.votes} + 1", last_response.body
 
     post "/asots/3/vote"
     assert_stat 403

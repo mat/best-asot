@@ -70,7 +70,7 @@ post "/asots/:no/vote/?" do |no|
   halt 403, "Already voted." unless vote_ok
 
   status 201
-  "Asot #{a.no} has #{a.uservotes.count} user votes."
+  "#{a.votes} + #{a.uservotes.count}"
 end
 
 def do_it
