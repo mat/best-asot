@@ -94,6 +94,7 @@ namespace :db do
   task(:create_indexes => :environment) do
     class Asot
       ensure_index :votes
+      ensure_index :allvotes
       ensure_index :airdate
       ensure_index :udpated_at
     end
