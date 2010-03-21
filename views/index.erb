@@ -104,6 +104,15 @@ $(document).ready(function(){
 
 </script>
 
+<script type="text/javascript" src="highcharts.js"></script>
+<!--[if IE]>
+  script type="text/javascript" src="excanvas.compiled.js"></script>
+<![endif]-->
+
+<% Asot::YEARS.reverse.each do |y| %>
+  <%= partial :year_chart, :locals => { :year => y, :asots => @episodes[y], :top5 => @top5[y] } %>
+<% end %>
+
 </body>
 </html>
 

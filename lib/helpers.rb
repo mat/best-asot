@@ -35,5 +35,18 @@ helpers do
       erb(template, options)
     end
   end
+
+  def chart_data(asots)
+    result = {}
+    result[:labels] = []
+    result[:uservotes] = []
+    result[:difmvotes] = []
+    asots.each do |asot|
+      result[:labels] << "Asot #{asot.no}"
+      result[:uservotes] << asot.uservote_count
+      result[:difmvotes] << asot.votes
+    end
+    result
+  end
 end
 

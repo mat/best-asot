@@ -1,0 +1,59 @@
+	<% 
+	  data = chart_data(asots)
+	%>
+
+	<script type="text/javascript">
+	$(document).ready(function() {
+		new Highcharts.Chart({
+			chart: {
+				renderTo: 'asot<%=year%>chart',
+				defaultSeriesType: 'column'
+			},
+			title: {
+				text: 'ASOT <%=year%> Votes'
+			},
+			xAxis: {
+									labels: { enabled: false },
+				categories: <%= data[:labels].to_json %>,
+			},
+			yAxis: {
+				min: 0,
+				title: {
+					text: 'Votes'
+				}
+			},
+			legend: {
+				style: {
+					left: 'auto',
+					bottom: 'auto',
+					right: '70px',
+					top: '35px'
+				},
+				backgroundColor: '#FFFFFF',
+				borderColor: '#CCC',
+				borderWidth: 1,
+				shadow: false
+			},
+			tooltip: {
+				formatter: function() {
+					return '<b>'+ this.x +'</b><br/>'+
+						 this.series.name +': '+ this.y +'<br/>'+
+						 'Total: '+ this.point.stackTotal;
+				}
+			},
+			plotOptions: {
+				column: {
+					stacking: 'normal'
+				}
+			},
+		        series: [{
+				name: 'User Votes',
+				data: <%= data[:uservotes].to_json %>
+			}, {
+				name: 'DI.fm votes',
+				data: <%= data[:difmvotes].to_json %>
+			}]
+		});
+	});
+	</script>
+
