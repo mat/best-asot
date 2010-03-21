@@ -59,34 +59,6 @@ class Asot
     doc.at(xpath)['href']
   end
 
-  def Asot.render_graph(for_year = Time.now.year)
-   require 'scruffy'
-
-   graph = Scruffy::Graph.new
-   graph.title = "#{for_year}: Votes by episode"
-   graph.renderer = Scruffy::Renderers::Standard.new
-
-   # add bar for each episode
-   asots = find_by_year(for_year, 'airdate ASC')
-   votes = asots.map{|a| a.allvotes }
-   graph.add :bar, "", votes
-
-   # overprint top 5 episodes via colored data points
-   top_5 = find_by_year(for_year, 'allvotes DESC')[0..4]
-   top_5 = top_5.sort_by{|a| a.no} # legend order = bar order
-   top_5.each do |a|
-     dataset = Array.new(asots.length){0}
-     dataset[asots.index(a)] = a.allvotes
-     graph.add :bar, "##{a.no}", dataset
-   end
-
-   graph.render :width => 450, 
-                :min_value => 0,
-                :max_value => ((votes.max + 20) / 20).floor * 20,
-                :to => "public/images/votes_#{for_year}.svg"
-   :ok
-  end
-
   def Asot.add_by_url_and_fetch(url)
     a = Asot.new(:url => url)
 

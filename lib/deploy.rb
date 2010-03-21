@@ -39,13 +39,3 @@ after "deploy:symlink", :symlink_shared
 task :symlink_shared do
   run("ln -s #{shared_path}/config/config.rb #{current_path}/lib/config.rb")
 end
-
-namespace :images do
-  desc "rake images:create:all"
-  task :create_all do
-    run "cd #{current_path} && rake RAILS_ENV=production images:create:all"
-  end
-end
-
-after "deploy:cold", "images:create_all"
-
