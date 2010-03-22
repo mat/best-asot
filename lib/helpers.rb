@@ -41,6 +41,7 @@ helpers do
     result[:labels] = []
     result[:uservotes] = []
     result[:difmvotes] = []
+    asots = asots.sort {|x,y| x.airdate <=> y.airdate }
     asots.each do |asot|
       result[:labels] << "Asot #{asot.no}"
       result[:uservotes] << asot.uservote_count
