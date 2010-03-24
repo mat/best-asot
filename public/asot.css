@@ -200,3 +200,8 @@ ul.toc li {
 text-decoration:line-through;
 }
 
+.votelink
+{
+	margin-right: 1em;
+	margin-left: 1em;
+}
