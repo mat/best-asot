@@ -2,7 +2,7 @@
 jQuery(function () {
 
   $(".votelink").click(function () {
-      var asot_no = $(this).attr('no');
+      var asot_no = $(this).attr('id');
       $.post("/asots/"+asot_no+"/vote", function(data) {
         $("#" + asot_no + "_url").html(data);
       });

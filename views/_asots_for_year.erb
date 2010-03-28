@@ -27,7 +27,7 @@
  <% asots.each do |asot| %>
 
  <tr class='<%= cycle = (cycle == 'even' ? 'odd' : 'even') %>'>
-  <td style=""><a class='votelink' href="#" no='<%= asot.no %>'>Vote up!</a></td>
+  <td style=""><a class='votelink' href="#" id='<%= asot.no %>'>Vote up!</a></td>
  <% if top5 && top5.include?(asot) %>
   <td class="color_<%= top5.index(asot) %>"><%= asot.no %></td>
  <% else %>
