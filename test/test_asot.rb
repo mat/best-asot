@@ -6,6 +6,10 @@ require 'lib/models'
 require 'test/unit'
 require 'rack/test'
 require 'lib/asot'
+require 'fakeweb'
+
+FakeWeb.register_uri(:get, "http://forums.di.fm/trance/armin-van-buuren-presents-state-of-trance-episode-369-a-146900/", :body => File.read('test/data/asot-369.html'))
+FakeWeb.register_uri(:get, "http://forums.di.fm/trance/armin-van-buuren-presents-state-of-trance-episode-377-a-150099/", :body => File.read('test/data/asot-377.html'))
 
 MongoMapper.database = 'bestasottest'
 
