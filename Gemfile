@@ -7,6 +7,7 @@ gem "mongo_mapper", "0.7.2"
 gem "mongo_ext", "0.19.1"
 gem "fastercsv", "1.5.3"
 gem "smusher", "0.4.2"
+gem "rack-version-header", "0.1.1"
 
 group :test do
  gem "ruby-prof", "0.8.1"

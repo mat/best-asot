@@ -8,6 +8,12 @@ require 'rack/contrib'
 set :environment, :production
 disable :run, :reload
 
+require "rack/version_header"
+
+use Rack::VersionHeader,
+  :header_name  => 'X-Git-Revision',
+  :version_file => '.gitrevision'
+
 require 'lib/asot'
 run Sinatra::Application
 
