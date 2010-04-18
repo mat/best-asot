@@ -3,7 +3,7 @@ source :gemcutter
 gem "sinatra", "1.0.0"
 gem "rack-cache", "0.5.2"
 gem "hpricot", "0.7"
-gem "mongo_mapper", "0.7.2"
+gem "mongo_mapper", "0.7.3"
 gem "mongo_ext", "0.19.1"
 gem "fastercsv", "1.5.3"
 gem "rack-version-header", "0.1.1"
