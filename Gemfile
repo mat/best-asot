@@ -11,6 +11,7 @@ gem "bson_ext", "1.0.7"
 gem "fastercsv", "1.5.3"
 gem "rack-version-header", "0.1.1"
 gem "activesupport", "2.3.9"
+gem "rake", "0.8.7"
 
 group :test do
  gem "ruby-prof", "0.8.1"
