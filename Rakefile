@@ -2,7 +2,7 @@ require 'rake'
 require 'rake/testtask'
 require 'rake/rdoctask'
 
-require 'mongo_mapper'
+require 'active_record'
 require 'lib/models'
 
 #RAILS_DEFAULT_LOGGER = Logger.new(STDOUT)
@@ -11,13 +11,16 @@ desc "Connect to database"
 task :environment do
 
   # TODO Solve this dupolication nonsense.
-  dbname = case ENV["RAILS_ENV"]
-            when 'production' : 'bestasot'
-            when 'test'       : 'bestasottest'
-            else                'bestasotdev'
+  dbfile = case ENV["RAILS_ENV"]
+            when 'production' : '/home/mat/www/best-asot/shared/db/production.sqlite3'
+            when 'test'       : 'db/test.sqlite3'
+            else                'db/development.sqlite3'
            end
+  ActiveRecord::Base.establish_connection(
+    :adapter => 'sqlite3',
+    :database =>  dbfile
+  )
 
-  MongoMapper.database = dbname
 end
 
 

@@ -1,19 +1,10 @@
 require 'rubygems'
-require 'mongo_mapper'
+require 'active_record'
 
-class Asot
-  include MongoMapper::Document
+# CREATE TABLE "asots" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "no" integer, "url" text, "votes" integer DEFAULT 0 NOT NULL, "created_at" datetime, "updated_at" datetime, "airdate" date, "notes" text, allvotes integer default 0, uservote_count integer DEFAULT 0);
+class Asot < ActiveRecord::Base
+  has_many :uservotes
 
-  key :no, Integer
-  key :url, String
-  key :votes, Integer, :default => 0
-  key :uservote_count, Integer, :default => 0
-  key :allvotes, Integer, :default => 0
-  timestamps!
-  key :airdate, Time
-  key :notes, String
-
-  many :uservotes
   validates_presence_of :no
   validates_uniqueness_of :no
   validates_uniqueness_of :url, :allow_nil => true
@@ -80,7 +71,7 @@ class Asot
   end
 
   def Asot.find_by_year(y, order = 'airdate DESC')
-    Asot.all(:airdate => /.*#{y}.*/i, :order => order)
+    Asot.all(:conditions => ['airdate LIKE ?', "%#{y}%"], :order => order)
   end
 
   def to_csv
@@ -116,7 +107,7 @@ class Asot
   end
 
   def vote!(ip_address)
-    previous_votes = uservotes.all(:ipaddress => ip_address).to_a
+    previous_votes = uservotes.all(:conditions => {:ipaddress => ip_address}).to_a
     return false unless previous_votes.empty?
 
     uservotes.create(:ipaddress => ip_address)
@@ -125,13 +116,9 @@ class Asot
   end
 end
 
-class Uservote
-  include MongoMapper::Document
+# CREATE TABLE uservotes("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, asot_id integer NOT NULL, created_at datetime, updated_at datetime, ipaddress text);
+class Uservote < ActiveRecord::Base
   belongs_to :asot
-
-  key :asot_id, ObjectId
-  key :ipaddress, String, :required => true
-  timestamps!
 
   def to_s
     "##{self.asot.no} vote by #{self.ipaddress}"

@@ -90,16 +90,6 @@ namespace :db do
     end
   end
 
-  desc "Create Mongo indexes as needed."
-  task(:create_indexes => :environment) do
-    class Asot
-      ensure_index :votes
-      ensure_index :allvotes
-      ensure_index :airdate
-      ensure_index :udpated_at
-    end
-  end
-
   desc "Load'n'save all asots" # to trigger before_save.
   task(:save_all_asots => :environment) do
     Asot.all.each{ |a| a.save!; puts a}

@@ -1,7 +1,9 @@
 #require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 require 'rubygems'
-require 'mongo_mapper'
+require 'sinatra'
+set :environment, :test
+require 'active_record'
 require 'lib/models'
 require 'test/unit'
 require 'rack/test'
@@ -11,10 +13,6 @@ require 'fakeweb'
 FakeWeb.allow_net_connect = false
 FakeWeb.register_uri(:get, "http://forums.di.fm/trance/armin-van-buuren-presents-state-of-trance-episode-369-a-146900/", :body => File.read('test/data/asot-369.html'))
 FakeWeb.register_uri(:get, "http://forums.di.fm/trance/armin-van-buuren-presents-state-of-trance-episode-377-a-150099/", :body => File.read('test/data/asot-377.html'))
-
-MongoMapper.database = 'bestasottest'
-
-set :environment, :test
 
 class AsotModelTest < Test::Unit::TestCase
   def setup
@@ -33,6 +31,7 @@ class AsotModelTest < Test::Unit::TestCase
     assert_equal a.created_at, a.updated_at
 
     sleep(1.5) #seconds
+    a.url = 'http://anything.different'
     a.save!
     assert a.created_at.to_i < a.updated_at.to_i
   end
@@ -108,7 +107,7 @@ class AsotModelTest < Test::Unit::TestCase
     assert_equal "127.0.0.1", Uservote.first.ipaddress
     assert_equal "127.0.0.1", a.uservotes.first.ipaddress
 
-    uservote = a.uservotes.all(:ipaddress => "127.0.0.1").first
+    uservote = a.uservotes.all(:conditions => {:ipaddress => "127.0.0.1"}).first
     assert_equal "127.0.0.1", uservote.ipaddress
   end
 
