@@ -10,4 +10,5 @@ current
 releases/**
 shared/**
 nohup.out
-
+Gemfile.lock
+.bundle/
