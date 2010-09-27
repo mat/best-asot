@@ -13,3 +13,4 @@ nohup.out
 Gemfile.lock
 .bundle/
 .gitrevision
+tmp/restart.txt
