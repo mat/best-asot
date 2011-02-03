@@ -55,12 +55,20 @@ namespace :db do
     end
   end
 
+  desc "Inserts the song currently playing on di.fm."
+  task :insert_asot_playing_right_now => :environment do
+    di_url = Asot.fetch_di_playing_track
+    di_url = url_after_redirection(di_url)
+    a = Asot.add_by_url_and_fetch(di_url)
+    puts "Added #{a.inspect}"
+  end
+
   desc "Follow 301 Moved Permanently and save new url."
   task :follow_redirect_urls => :environment do
     asots_with_wrong_urls = Asot.all.find_all{ |a| a.url.to_s.include?('showthread.php') }
     asots_with_wrong_urls.each do |a|
       puts "old: #{a.url}"
-      new_url = `curl -I #{a.url} | grep Location | awk '{print $2}'`
+      new_url = url_after_redirection(a.url)
       a.url = new_url.strip
       a.save!
     end
@@ -93,6 +101,10 @@ namespace :db do
   desc "Load'n'save all asots" # to trigger before_save.
   task(:save_all_asots => :environment) do
     Asot.all.each{ |a| a.save!; puts a}
+  end
+
+  def url_after_redirection(url)
+    new_url = `curl -I #{url} | grep Location | awk '{print $2}'`.chomp
   end
 
 end

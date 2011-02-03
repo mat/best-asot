@@ -30,7 +30,8 @@ class Asot < ActiveRecord::Base
     require 'open-uri'
     xpath = "/html/body/div[1]/div/div/table[4]/tr[2]/td[3]/strong/a"
     doc = Hpricot(open(di_forums_uri))
-    votes = doc.at(xpath).inner_html.to_i
+    votes_node = doc.at(xpath)
+    votes = votes_node ? votes_node.inner_html.to_i : 0
   end
 
   def Asot.fetch_di_date(di_forums_uri)

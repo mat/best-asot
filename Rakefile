@@ -12,7 +12,7 @@ task :environment do
 
   # TODO Solve this dupolication nonsense.
   dbfile = case ENV["RAILS_ENV"]
-            when 'production' : '/home/mat/www/best-asot/shared/db/production.sqlite3'
+            when 'production' : 'db/production.sqlite3'
             when 'test'       : 'db/test.sqlite3'
             else                'db/development.sqlite3'
            end
