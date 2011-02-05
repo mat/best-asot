@@ -107,7 +107,7 @@ class AsotModelTest < Test::Unit::TestCase
     assert_equal "127.0.0.1", Uservote.first.ipaddress
     assert_equal "127.0.0.1", a.uservotes.first.ipaddress
 
-    uservote = a.uservotes.all(:conditions => {:ipaddress => "127.0.0.1"}).first
+    uservote = a.uservotes.where(:ipaddress => "127.0.0.1").first
     assert_equal "127.0.0.1", uservote.ipaddress
   end
 

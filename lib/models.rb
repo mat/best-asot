@@ -68,11 +68,11 @@ class Asot < ActiveRecord::Base
 
   def Asot.last_update
     # SELECT MAX(updated_at) FROM asots
-    Asot.first(:order => 'updated_at DESC').updated_at
+    Asot.order('updated_at DESC').first.updated_at
   end
 
   def Asot.find_by_year(y, order = 'airdate DESC')
-    Asot.all(:conditions => ['airdate LIKE ?', "%#{y}%"], :order => order)
+    Asot.where(['airdate LIKE ?', "%#{y}%"]).order(order).all
   end
 
   def to_csv

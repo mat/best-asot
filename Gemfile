@@ -5,11 +5,11 @@ gem "sinatra", "1.0.0"
 gem "rack", "1.1.0"
 gem "rack-cache", "0.5.2"
 gem "hpricot", "0.7"
-gem "activerecord", "2.3.9"
+gem "activerecord", "3.0.3"
 gem "sqlite3-ruby", "1.2.5" # 1.3.1 does not run on out of the box debian
 gem "fastercsv", "1.5.3"
 gem "rack-version-header", "0.1.1"
-gem "activesupport", "2.3.9"
+gem "activesupport", "3.0.3"
 gem "rake", "0.8.7"
 
 group :test do

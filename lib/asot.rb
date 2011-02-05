@@ -75,7 +75,7 @@ end
 
 def do_it
   @last_update = Asot.last_update
-  @top_ten = Asot.all(:order => 'allvotes DESC', :limit => 10)
+  @top_ten = Asot.order('allvotes DESC').limit(10).all
 
   @order = 'airdate DESC'
   @order = 'allvotes DESC' if request.path_info == '/by-rank'
